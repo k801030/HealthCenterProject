@@ -8,17 +8,13 @@
   <title>haha</title>
 </head>
 <body>
-  <ul class="nav nav-tabs navbar-static-top">
-    <li role="listitem"><a href="#">最新消息</a></li>
-    <li role="listitem"><a href="#">中心簡介</a></li>
-    <li role="listitem"><a href="#">服務項目</a></li>
-    <li role="listitem"><a href="#">服務陣容</a></li>
-    <li role="listitem"><a href="#">健檢須知</a></li>
-    <li role="listitem"><a href="#">健康大補帖</a></li>
-    <li role="listitem"><a href="#">線上預約</a></li>
-    <li role="listitem"><a href="#">聯絡我們</a></li>
-  </ul>
-  <div class="container">content</div>
+  <div id="nav"></div>  
+  <div class="container">
+    content
+  </div>
 
+  <script type="text/javascript">
+    $("#nav").load("ajax/nav.html");
+  </script>
 </body>
 </html>
