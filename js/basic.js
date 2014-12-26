@@ -11,3 +11,7 @@ angular.module("basic", [])
   };
   $scope.location = $location.path();
 }])
+
+.controller('SideBarController', ['$scope', function($scope){
+  
+}])
