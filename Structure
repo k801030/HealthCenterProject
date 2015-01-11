@@ -1,0 +1,18 @@
+/* structure */
+
+HealthCenterProject/
+  index.html            // home pages
+
+  DIRs/                 // 依照navigation bar 分類
+    Pages.html          // 依照side bar 分類
+
+  res/                  // 儲存css, js, images等資源    
+    json/               
+      structure.json    //  儲存整體架構資料, 包含: 1.名稱 2.路徑
+    css/
+    js/
+    images/
+    ajax/               // 這個先不用理他
+
+  
+
