@@ -1,0 +1,20 @@
+<!-- for image -->
+<div class="space"></div>
+
+<!-- sidebar -->
+<div id="sidebar" ng-controller="SideBarCtrl">
+
+  <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation" >
+    <ul class="nav" ng-init="setTab(0)">
+      <li ng-repeat="tab in thisContent()"><a href="#" ng-click="setTab($index)">{{ tab.name }}</a></li>
+    </ul>
+  </div>
+  <div class="sideBar col-sm-3" ng-init="selection = 'tab1'">
+  </div>
+  <div class="col-sm-9" ng-switch on="selection">
+    <div ng-if="getTab() == $index" ng-repeat="tab in thisContent()"> 
+      <h1>{{ tab.name }}</h1>
+    </div>
+  </div>
+</div>
+</div>

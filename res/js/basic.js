@@ -77,8 +77,6 @@ angular.module("basic", ['ui.bootstrap'])
     }
   };
 
-  
-
 }])
 
 .controller('DropdownCtrl', ['$scope', '$log', function($scope, $log) {
@@ -90,5 +88,23 @@ angular.module("basic", ['ui.bootstrap'])
   $scope.toggleDropdown = function($event) {
     $event.preventDefault();
     $event.stopPropagation();
+  };
+}])
+
+.controller('ContentCtrl', ['$scope', '$location', 'structure', function($scope, $location, structure) {
+  $scope.structure = structure;
+  $scope.thisCotentPath = function() {
+    var urlArray = $location.absUrl().split("/");
+    var segment = urlArray[urlArray.length-2];
+    //var segment = $location.hash();
+    if(structure.content == null)  // block when data is not loaded.
+      return;
+    var length = structure.content.length;
+    for(var i=0; i<length; i++){
+      if(segment == structure.content[i].main_item.path){
+        var path = structure.content[i].main_item.path;;
+        return '../template/'+path+'.html';
+      }
+    }
   };
 }])
