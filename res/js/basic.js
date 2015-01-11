@@ -1,11 +1,19 @@
 angular.module("basic", ['ui.bootstrap'])
 
-.controller('NavController', ['$scope', '$location', '$http', function($scope, $location, $http){
+.factory('structure', ['$http', function structureFactory($http) {
+  var _data = {content: null};
+  $http.get('res/json/structure.json').then(function(res){
+    _data.content = res.data;
+  });
+  return _data ;
+}])
+
+.controller('NavController', ['$scope', '$location', '$http', 'structure', function($scope, $location, $http, structure){
   $scope.navUrl = 'res/ajax/nav.html';
-  $scope.navItems;
+  $scope.structure = structure;
   $http.get('res/json/structure.json')
     .then(function(res){
-      $scope.navItems = res.data;
+      //$scope.structure = res.data;
     });
   $scope.isActive = function (viewLocation) {
     // get the last part of url 
