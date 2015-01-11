@@ -68,6 +68,7 @@ angular.module("basic", ['ui.bootstrap'])
   $scope.thisContent = function() {
     var urlArray = $location.absUrl().split("/");
     var segment = urlArray[urlArray.length-2];
+    var segment = $location.hash();
     if(structure.content == null)  // block when data is not loaded.
       return;
     var length = structure.content.length;

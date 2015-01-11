@@ -13,8 +13,8 @@
 <body ng-app="basic">
   <div id="nav" ng-controller="NavCtrl" ng-include="navUrl">
   </div>  
-  <div class="container">
-    <h1>Define Home Page </h1>
+  <div class="container" ng-controller="ContentCtrl">
+    <div ng-include="thisContentPath()"></div>
   </div>
 
   <script type="text/javascript">
