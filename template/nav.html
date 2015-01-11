@@ -8,9 +8,8 @@
       <a ng-href="#{{item.main_item.path}}" class="dropdown-toggle" ng-mouseenter="toggleDropdown($event);status.isopen=true">
         {{item.main_item.name}}
       </a>
-      <ul class="dropdown-menu">
+      <ul class="dropdown-menu" ng-show="item.sub_item!=null">
         <li ng-repeat="sub_item in item.sub_item">
-        
           <a ng-href="#{{item.main_item.path}}" ng-click="setTab($index)">{{sub_item.name}}</a>
         </li>
       </ul>
