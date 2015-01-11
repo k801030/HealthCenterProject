@@ -3,7 +3,7 @@ angular.module("basic", ['ui.bootstrap'])
 .controller('NavController', ['$scope', '$location', '$http', function($scope, $location, $http){
   $scope.navUrl = 'res/ajax/nav.html';
   $scope.navItems;
-  $http.get('res/nav.json')
+  $http.get('res/json/nav.json')
     .then(function(res){
       $scope.navItems = res.data;
     });
