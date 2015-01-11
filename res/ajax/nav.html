@@ -5,12 +5,12 @@
   <ul class="nav navbar-static-top col-sm-offset-3" ng-controller="DropdownCtrl">
     <!-- Simple dropdown -->
     <li class="dropdown" ng-repeat="navItem in navItems" dropdown is-open="status.isopen" ng-init="status.isopen">
-      <a href class="dropdown-toggle" ng-mouseenter="toggleDropdown($event);status.isopen=true">
+      <a ng-href="{{navItem.main_item.path}}" class="dropdown-toggle" ng-mouseenter="toggleDropdown($event);status.isopen=true">
         {{navItem.main_item.name}}
       </a>
       <ul class="dropdown-menu">
         <li ng-repeat="sub_item in navItem.sub_item">
-          <a href>{{sub_item.name}}</a>
+          <a ng-href="{{navItem.main_item.path}}/{{sub_item.path}}">{{sub_item.name}}</a>
         </li>
       </ul>
     </li>
