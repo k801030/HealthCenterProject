@@ -2,19 +2,16 @@ angular.module("basic", ['ui.bootstrap'])
 
 .factory('structure', ['$http', function structureFactory($http) {
   var _data = {content: null};
-  $http.get('res/json/structure.json').then(function(res){
+  $http.get('../res/json/structure.json').then(function(res){
     _data.content = res.data;
   });
   return _data ;
 }])
 
-.controller('NavController', ['$scope', '$location', '$http', 'structure', function($scope, $location, $http, structure){
-  $scope.navUrl = 'res/ajax/nav.html';
+.controller('NavCtrl', ['$scope', '$location', 'structure', function($scope, $location, structure) {
+  $scope.navUrl = '../res/ajax/nav.html';
   $scope.structure = structure;
-  $http.get('res/json/structure.json')
-    .then(function(res){
-      //$scope.structure = res.data;
-    });
+  
   $scope.isActive = function (viewLocation) {
     // get the last part of url 
     // and return true/false 
@@ -27,8 +24,30 @@ angular.module("basic", ['ui.bootstrap'])
 
 }])
 
-.controller('SideBarController', ['$scope', function($scope){
+.controller('SideBarCtrl', ['$scope', '$location', 'structure', function($scope, $location, structure) {
+  //var this.structure = structure;
+  $scope.tabSelected;
   
+  $scope.setTab = function(num) {
+    $scope.tabSelected = num;
+  }
+  $scope.getTab = function() {
+    return $scope.tabSelected;
+  }
+
+  $scope.thisContent = function() {
+    var urlArray = $location.absUrl().split("/");
+    var segment = urlArray[urlArray.length-2];
+    if(structure.content == null)  // block when data is not loaded.
+      return;
+    var length = structure.content.length;
+    for(var i=0; i<length; i++){
+      if(segment == structure.content[i].main_item.path){
+        return structure.content[i].sub_item;
+      }
+    }
+  };
+
 }])
 
 .controller('DropdownCtrl', ['$scope', '$log', function($scope, $log) {
