@@ -63,6 +63,8 @@ angular.module("basic", ['ui.bootstrap'])
     return tab.get();
   }
 
+  $scope.thisContentPath;
+
   $scope.thisContent = function() {
     var urlArray = $location.absUrl().split("/");
     var segment = urlArray[urlArray.length-2];
@@ -71,6 +73,7 @@ angular.module("basic", ['ui.bootstrap'])
     var length = structure.content.length;
     for(var i=0; i<length; i++){
       if(segment == structure.content[i].main_item.path){
+        $scope.thisContentPath = structure.content[i].sub_item.path + '.html';
         return structure.content[i].sub_item;
       }
     }
@@ -92,7 +95,7 @@ angular.module("basic", ['ui.bootstrap'])
 
 .controller('ContentCtrl', ['$scope', '$location', 'structure', function($scope, $location, structure) {
   $scope.structure = structure;
-  $scope.thisCotentPath = function() {
+  $scope.thisContentPath = function() {
     var urlArray = $location.absUrl().split("/");
     var segment = urlArray[urlArray.length-2];
     //var segment = $location.hash();
