@@ -1,5 +1,9 @@
 angular.module("basic", ['ui.bootstrap'])
 
+.config(function($locationProvider) {
+  $locationProvider.html5Mode(true); // make hash # available
+})
+
 .factory('structure', ['$http', function structureFactory($http) {
   var _data = {content: null};
   $http.get('../res/json/structure.json').then(function(res){
@@ -37,7 +41,7 @@ angular.module("basic", ['ui.bootstrap'])
 
   $scope.thisContent = function() {
     var urlArray = $location.absUrl().split("/");
-    var segment = urlArray[urlArray.length-2];
+    var segment = urlArray[urlArray.length-3];
     if(structure.content == null)  // block when data is not loaded.
       return;
     var length = structure.content.length;
@@ -47,6 +51,8 @@ angular.module("basic", ['ui.bootstrap'])
       }
     }
   };
+
+  console.log($location.hash());
 
 }])
 
