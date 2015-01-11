@@ -42,7 +42,6 @@ angular.module("basic", ['ui.bootstrap'])
   $scope.getTab = function() {
     return tab.get();
   }
-
   $scope.isActive = function (viewLocation) {
     // get the last part of url 
     // and return true/false 
