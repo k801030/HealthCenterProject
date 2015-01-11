@@ -1,9 +1,30 @@
 angular.module("basic", ['ui.bootstrap'])
 
+// make hash # available
 .config(function($locationProvider) {
-  $locationProvider.html5Mode(true); // make hash # available
+  $locationProvider.html5Mode(true); 
 })
 
+// for passing value between pages
+.factory('tab', function() {
+  var tabSelected;
+  
+  function set(num) {
+    tabSelected = num;
+    console.log('set:'+num);
+  }
+  function get() {
+    return tabSelected;
+  }
+
+  return {
+    set: set,
+    get: get
+  }
+
+})
+
+// for data sharing
 .factory('structure', ['$http', function structureFactory($http) {
   var _data = {content: null};
   $http.get('../res/json/structure.json').then(function(res){
@@ -12,15 +33,21 @@ angular.module("basic", ['ui.bootstrap'])
   return _data ;
 }])
 
-.controller('NavCtrl', ['$scope', '$location', 'structure', function($scope, $location, structure) {
+.controller('NavCtrl', ['$scope', '$location', 'structure', 'tab', function($scope, $location, structure, tab) {
   $scope.navUrl = '../res/ajax/nav.html';
   $scope.structure = structure;
-  
+  $scope.setTab = function(num) {
+    tab.set(num);
+  }
+  $scope.getTab = function() {
+    return tab.get();
+  }
+
   $scope.isActive = function (viewLocation) {
     // get the last part of url 
     // and return true/false 
     var urlArray = $location.absUrl().split("/");
-    var segment = urlArray[urlArray.length-1]; 
+    var segment = urlArray[urlArray.length]; 
     return viewLocation === segment;
   };
   $scope.location = $location.path();
@@ -28,20 +55,18 @@ angular.module("basic", ['ui.bootstrap'])
 
 }])
 
-.controller('SideBarCtrl', ['$scope', '$location', 'structure', function($scope, $location, structure) {
+.controller('SideBarCtrl', ['$scope', '$location', 'structure', 'tab', function($scope, $location, structure, tab) {
   //var this.structure = structure;
-  $scope.tabSelected;
-  
   $scope.setTab = function(num) {
-    $scope.tabSelected = num;
+    tab.set(num);
   }
   $scope.getTab = function() {
-    return $scope.tabSelected;
+    return tab.get();
   }
 
   $scope.thisContent = function() {
     var urlArray = $location.absUrl().split("/");
-    var segment = urlArray[urlArray.length-3];
+    var segment = urlArray[urlArray.length-2];
     if(structure.content == null)  // block when data is not loaded.
       return;
     var length = structure.content.length;
@@ -52,7 +77,7 @@ angular.module("basic", ['ui.bootstrap'])
     }
   };
 
-  console.log($location.hash());
+  
 
 }])
 
