@@ -1,0 +1,10 @@
+/* font color */
+
+#logo a ,
+.nav a:hover {
+  color: #14afb9;
+}
+
+.nav a {
+  color: #000;
+}
