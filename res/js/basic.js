@@ -125,3 +125,10 @@ angular.module("basic", ['ui.bootstrap'])
     
   };
 }])
+
+.controller('mainPhotoCtrl', ['$scope', '$location', 'structure', function($scope, $location, structure) {
+  $scope.imgUrl = function() {
+    var url = "res/images/main_photo/" + $location.hash() + '.jpg';
+    return url;
+  }
+}])
