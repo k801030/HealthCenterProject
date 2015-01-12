@@ -2,7 +2,8 @@
 
 #logo a,
 .sub-nav a:hover,
-#home-block a:hover h3 {
+#home-block a:hover h3,
+#sidebar a:hover {
   color: #14afb9;
 }
 
@@ -21,7 +22,8 @@ li.active > a{  /* highlight nav item */
   color: #fff;
   background-color: #1b9ea6;
 }
-.sub-nav a {
+.sub-nav a,
+#sidebar a {
   color: #000;
 }
 
@@ -33,5 +35,42 @@ h1, h2, h3 {
   color: #000
 }
 
+/*  border line  */
+
+#sidebar {
+  border-right: 1px solid #e8e8e8;
+}
+
+#sidebar li {
+  padding: 0px;
+  border: 1px solid #7bcfca;
+  border-bottom-width: 0px;
+}
+
+#sidebar li:first-child {
+  border-top-right-radius: 2px;
+  border-top-left-radius: 2px;
+}
+
+#sidebar li:last-child {
+  border-bottom-width: 1px;
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+
+/*  radius for img  */
+
+#home-slider img {
+  border-radius: 4px;
+}
+
+.large-block-grid-3 > li img {
+  border-radius: 2px;
+}
+
+.space img {
+  border-radius: 2px;
+}
 
 

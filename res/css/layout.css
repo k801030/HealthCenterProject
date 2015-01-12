@@ -22,6 +22,10 @@
   padding-top: 10px;
 }
 
+.sub-nav > li > a {
+  margin: 10px 15px;
+  padding: 0px;
+}
 
 .dropdown-menu {
   padding: 0px;
@@ -33,12 +37,31 @@
   height: 150px;
   width: 100%;
   overflow: hidden;
+  margin-bottom: 25px;
 }
 
 .space img {
   width: 100%;
+  
 }
 
+
+/*  for side-bar nav */
+#sidebar ul{
+  margin-left: 10px;
+}
+
+.side-bar-grid-2 {
+  display: inline-block;
+  float: left;
+  width: 19%;
+}
+
+.side-bar-grid-8 {
+  display: inline-block;
+  float: left;
+  width: 79%;
+}
 
 /*  for home page  */
 
@@ -50,7 +73,6 @@
 
 #home-slider img {
   width: 100%;
-  border-radius: 4px;
 }
 
 ul {
@@ -76,7 +98,6 @@ ul {
   width: 100%; 
   margin-top: 3px;
   margin-bottom: 3px;
-  border-radius: 2px;
 }
 
 p, h1, h2, h3, h4, h5, h6 {
