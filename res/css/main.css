@@ -12,6 +12,11 @@
   float: left;
 }
 
+.nav {
+  float: right;
+  margin-top: 15px;
+}
+
 .nav li {
   float: left;
   padding-top: 10px;

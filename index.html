@@ -12,9 +12,8 @@
   <title>haha</title>
 </head>
 <body ng-app="basic">
-  <div id="nav" ng-controller="NavCtrl" ng-include="navUrl">
-  </div>  
   <div class="container" ng-controller="ContentCtrl">
+    <div id="nav" ng-controller="NavCtrl" ng-include="navUrl"></div>  
     <div ng-include="thisContentPath()"></div>    
   </div>
 
