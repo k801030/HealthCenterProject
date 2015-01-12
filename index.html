@@ -6,13 +6,14 @@
   <script src="res/js/angular.min.js"></script>
   <script src="res/js/ui-bootstrap-tpls-0.12.0.min.js"></script>
   <script src="res/js/basic.js"></script>
+  <script src="res/js/date.js"></script>
   <script src="res/js/app.js"></script>
   <link rel="stylesheet" href="res/css/bootstrap.css">
   <link rel="stylesheet" href="res/css/layout.css">
   <link rel="stylesheet" href="res/css/style.css">
   <title>馬偕紀念醫院 淡水院區‧健康檢查中心 Health Evaluation Center</title>
 </head>
-<body ng-app="basic">
+<body ng-app="app">
   <div class="container" ng-controller="ContentCtrl">
     <div id="nav" ng-controller="NavCtrl" ng-include="navUrl"></div>  
     <div ng-include="thisContentPath()"></div>    
