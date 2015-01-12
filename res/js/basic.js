@@ -42,12 +42,13 @@ angular.module("basic", ['ui.bootstrap'])
     return tab.get();
   }
 
-  $scope.isActive = function (viewLocation) {
+  $scope.isActive = function () {
     // get the last part of url 
     // and return true/false 
     var urlArray = $location.absUrl().split("/");
-    var segment = urlArray[urlArray.length]; 
-    return viewLocation === segment;
+    //var segment = urlArray[urlArray.length]; 
+    var segment = $location.hash();
+    return this.item.main_item.path == segment;
   };
   $scope.location = $location.path();
 
@@ -81,16 +82,26 @@ angular.module("basic", ['ui.bootstrap'])
 
 }])
 
-.controller('DropdownCtrl', ['$scope', '$log', function($scope, $log) {
+.controller('DropdownCtrl', ['$scope', '$timeout', function($scope, $timeout) {
 
   $scope.toggled = function(open) {
-    $log.log('Dropdown is now: ', open);
+    //$log.log('Dropdown is now: ', open);
   };
 
   $scope.toggleDropdown = function($event) {
     $event.preventDefault();
     $event.stopPropagation();
   };
+
+  $scope.delayClose = function(_this) {
+
+    $timeout(function() {
+      _this.status.isopen = false;
+    },150);
+  }
+  $scope.timeout = function(callback){
+  }
+
 }])
 
 .controller('ContentCtrl', ['$scope', '$location', 'structure', function($scope, $location, structure) {
@@ -113,4 +124,11 @@ angular.module("basic", ['ui.bootstrap'])
     }
     
   };
+}])
+
+.controller('mainPhotoCtrl', ['$scope', '$location', 'structure', function($scope, $location, structure) {
+  $scope.imgUrl = function() {
+    var url = "res/images/main_photo/" + $location.hash() + '.jpg';
+    return url;
+  }
 }])

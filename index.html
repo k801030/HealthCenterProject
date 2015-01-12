@@ -6,21 +6,18 @@
   <script src="res/js/angular.min.js"></script>
   <script src="res/js/ui-bootstrap-tpls-0.12.0.min.js"></script>
   <script src="res/js/basic.js"></script>
-  <link rel="stylesheet" href="res/css/bootstrap.min.css">
-  <link rel="stylesheet" href="res/css/main.css">
+  <script src="res/js/app.js"></script>
+  <link rel="stylesheet" href="res/css/bootstrap.css">
+  <link rel="stylesheet" href="res/css/layout.css">
+  <link rel="stylesheet" href="res/css/style.css">
   <title>haha</title>
 </head>
 <body ng-app="basic">
-  <div id="nav" ng-controller="NavCtrl" ng-include="navUrl">
-  </div>  
   <div class="container" ng-controller="ContentCtrl">
-    <div ng-include="thisContentPath()"></div>
-    
+    <div id="nav" ng-controller="NavCtrl" ng-include="navUrl"></div>  
+    <div ng-include="thisContentPath()"></div>    
   </div>
 
-  <script type="text/javascript">
-    //$("#nav").load("ajax/nav.html");
-  </script>
 </body>
 
 </html>

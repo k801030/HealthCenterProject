@@ -1,0 +1,110 @@
+/*  for nav  */
+
+.space {
+  height: 80px;
+}
+
+#main-nav {
+  padding: 20px 40px;
+}
+
+#logo {
+  float: left;
+}
+
+.sub-nav {
+  float: right;
+  margin-top: 15px;
+}
+
+.sub-nav > li {
+  float: left;
+  padding-top: 10px;
+}
+
+.sub-nav > li > a {
+  margin: 10px 15px;
+  padding: 0px;
+}
+
+.dropdown-menu {
+  padding: 0px;
+  margin: 0px;
+}
+
+/* for main_photo */
+.space {
+  height: 150px;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 25px;
+}
+
+.space img {
+  width: 100%;
+  
+}
+
+
+/*  for side-bar nav */
+#sidebar ul{
+  margin-left: 10px;
+}
+
+.side-bar-grid-2 {
+  display: inline-block;
+  float: left;
+  width: 19%;
+}
+
+.side-bar-grid-8 {
+  display: inline-block;
+  float: left;
+  width: 79%;
+}
+
+/*  for home page  */
+
+#home-slider {
+  height: 400px;
+  overflow: hidden;
+  padding: 0px;
+}
+
+#home-slider img {
+  width: 100%;
+}
+
+ul {
+  padding: 0px;
+  margin: 0px;
+}
+
+.large-block-grid-3 > li {
+  display: inline-block;
+  width: 30%;
+  height: inherit; /* inherit the block wide */
+  margin-top: 20px;
+  margin-bottom: 50px;
+  margin-right: 2%;
+}
+
+.large-block-grid-3 > li:first-child {
+  margin-left: 2%;
+  vertical-align: top;
+}
+
+.large-block-grid-3 > li img {
+  width: 100%; 
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+
+
+
