@@ -5,10 +5,9 @@
 
 <!-- sidebar -->
 <div id="sidebar" ng-controller="SideBarCtrl">
-
   <div class="col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation" >
     <ul class="nav" ng-init="setTab(0)">
-      <li ng-repeat="tab in thisContent()"><a href ng-click="setTab($index)">{{ tab.name }}</a></li>
+      <li ng-class='{ active: getTab() == $index }' ng-repeat="tab in thisContent()"><a href ng-click="setTab($index)">{{ tab.name }}</a></li>
     </ul>
   </div>
   <div class="col-sm-9" ng-switch on="selection">

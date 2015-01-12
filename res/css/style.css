@@ -3,11 +3,12 @@
 #logo a,
 .sub-nav a:hover,
 #home-block a:hover h3,
-#sidebar a:hover {
+#sidebar a:hover,
+#sidebar li.active > a {
   color: #14afb9;
 }
 
-li.active > a{  /* highlight nav item */
+#main-nav li.active > a{  /* highlight nav item */
   color: #14afb9;
   padding-bottom: 5px;
   border-bottom: 1px solid #14afb9;
@@ -41,13 +42,16 @@ h1, h2, h3 {
 
 #sidebar li {
   padding: 0px;
+  margin: 0 0 0 -2px;
   border: 1px solid #fff;
-  //border-bottom-width: 0px;
+  border-radius: 4px;
 }
 
-#sidebar li:hover {
+#sidebar li:hover,
+#sidebar li.active {
   border-color: #7bcfca;
 }
+
 
 .dropdown-menu > li:first-child > a {
   border-top-left-radius: 4px;
