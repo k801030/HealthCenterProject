@@ -1,3 +1,11 @@
+/* font */
+
+body, html {
+  font-weight: 0;
+  font-size: 15px;
+  font-family: sans-serif, '微軟正黑體';
+}
+
 /* font color */
 
 #logo a,
