@@ -10,8 +10,8 @@
   <div class="form-group col-sm-12">
     <label class="col-sm-3">檢查種類</label>
     <div class="col-sm-9">
-      <select class="form-control">
-        <option selected>-- 檢查種類 --</option>
+      <select class="form-control" required>
+        <option value="" selected>-- 檢查種類 --</option>
         <option>A</option>
         <option>B</option>
         <option>C</option>
@@ -22,15 +22,15 @@
   <div class="form-group col-sm-12">
     <label class="col-sm-3">預定檢查日期</label> 
     <div class="col-sm-9">
-      <input class="form-control" type="date" placeholder="yyyy-MM-dd" min="2013-01-01" max="2013-12-31">
+      <input class="form-control" type="date" placeholder="yyyy-MM-dd" min="2015-01-01" max="2015-12-31" required>
     </div>
   </div>
 
   <div class="form-group col-sm-12">
     <label class="col-sm-3">性別</label>
     <div class="col-sm-9">
-      <select class="form-control">
-        <option selected>-- 性別 --</option>
+      <select class="form-control" required>
+        <option value="" selected>-- 性別 --</option>
         <option>男性</option>
         <option>女性</option>
       </select>
@@ -40,36 +40,36 @@
   <div class="form-group col-sm-12">
     <label class="col-sm-3">身分證字號</label>
     <div class="col-sm-9">
-      <input class="form-control" placeholder="身分證字號">
+      <input class="form-control" placeholder="身分證字號" required>
     </div>
   </div>
 
   <div class="form-group col-sm-12" ng-controller="DateCtrl">
     <label class="col-sm-3">生日</label>
     <div class="col-sm-9">
-      <div class="col-sm-4"><select class="form-control" ng-model="birth.year" ng-options="year for year in years">
+      <div class="col-sm-4"><select class="form-control" ng-model="birth.year" ng-options="year for year in years" required>
         <option value="" selected>年</option>
       </select></div>
-      <div class="col-sm-4"><select class="form-control" ng-model="birth.month" ng-options="month for month in months">
+      <div class="col-sm-4"><select class="form-control" ng-model="birth.month" ng-options="month for month in months" required>
         <option value="" selected>月</option>
       </select></div>
       <div class="col-sm-4"><select class="form-control" ng-model="birth.day" ng-options="day for day in days()">
         <option value="" selected>日</option>
-      </select></div>
+      </select required></div>
     </div>
   </div>
 
   <div class="form-group col-sm-12">
     <label class="col-sm-3">電話</label>
     <div class="col-sm-9">
-      <input class="form-control" placeholder="電話">
+      <input class="form-control" placeholder="電話" required>
     </div>
   </div>
 
   <div class="form-group col-sm-12">
     <label class="col-sm-3">電子信箱</label>
     <div class="col-sm-9">
-      <input class="form-control" placeholder="電子信箱">
+      <input class="form-control" placeholder="電子信箱" required>
     </div>
   </div>
 
@@ -81,4 +81,4 @@
       <button type="submit" class="btn btn-default">取消</button>
     </div>
   </div>
-</div>
+</form>
