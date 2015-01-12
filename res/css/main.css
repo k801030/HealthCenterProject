@@ -1,4 +1,4 @@
-/*  for genenal  */
+/*  for nav  */
 
 .space {
   height: 80px;
@@ -17,6 +17,10 @@
   padding-top: 10px;
 }
 
+.dropdown-menu {
+  padding: 0px;
+  margin: 0px;
+}
 /*  for home page  */
 
 #home-slider {

@@ -81,16 +81,26 @@ angular.module("basic", ['ui.bootstrap'])
 
 }])
 
-.controller('DropdownCtrl', ['$scope', '$log', function($scope, $log) {
+.controller('DropdownCtrl', ['$scope', '$timeout', function($scope, $timeout) {
 
   $scope.toggled = function(open) {
-    $log.log('Dropdown is now: ', open);
+    //$log.log('Dropdown is now: ', open);
   };
 
   $scope.toggleDropdown = function($event) {
     $event.preventDefault();
     $event.stopPropagation();
   };
+
+  $scope.delayClose = function(_this) {
+
+    $timeout(function() {
+      _this.status.isopen = false;
+    },150);
+  }
+  $scope.timeout = function(callback){
+  }
+
 }])
 
 .controller('ContentCtrl', ['$scope', '$location', 'structure', function($scope, $location, structure) {
