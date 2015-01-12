@@ -42,12 +42,13 @@ angular.module("basic", ['ui.bootstrap'])
     return tab.get();
   }
 
-  $scope.isActive = function (viewLocation) {
+  $scope.isActive = function () {
     // get the last part of url 
     // and return true/false 
     var urlArray = $location.absUrl().split("/");
-    var segment = urlArray[urlArray.length]; 
-    return viewLocation === segment;
+    //var segment = urlArray[urlArray.length]; 
+    var segment = $location.hash();
+    return this.item.main_item.path == segment;
   };
   $scope.location = $location.path();
 

@@ -6,6 +6,13 @@
   color: #14afb9;
 }
 
+li.active > a{  /* highlight nav item */
+  color: #14afb9;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #14afb9;
+
+}
+
 .dropdown-menu > li > a {
   color: #fff;
   background-color: #20bfc9;

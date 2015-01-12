@@ -4,7 +4,7 @@
   </div>
   <ul class="nav sub-nav navbar-static-top" ng-controller="DropdownCtrl">
     <!-- Simple dropdown -->
-    <li class="dropdown" ng-repeat="item in structure.content" dropdown is-open="status.isopen" ng-init="status.isopen" ng-mouseenter="toggleDropdown($event);status.isopen=true" ng-mouseleave="delayClose(this)">
+    <li class="dropdown" ng-class="{active: isActive()}" ng-repeat="item in structure.content" dropdown is-open="status.isopen" ng-init="status.isopen" ng-mouseenter="toggleDropdown($event);status.isopen=true" ng-mouseleave="delayClose(this)">
       <a ng-href="#{{item.main_item.path}}" class="dropdown-toggle">
         {{item.main_item.name}}
       </a>
