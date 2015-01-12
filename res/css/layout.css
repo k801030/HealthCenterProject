@@ -87,11 +87,11 @@ ul {
   margin-top: 20px;
   margin-bottom: 50px;
   margin-right: 2%;
+  vertical-align: top;
 }
 
 .large-block-grid-3 > li:first-child {
   margin-left: 2%;
-  vertical-align: top;
 }
 
 .large-block-grid-3 > li img {
