@@ -1,8 +1,8 @@
-<div id="mainNav" class="col-sm-12">
+<div id="main-nav" class="col-sm-12">
   <div id="logo" >
     <h1><a href="./">LOGO</a></h1>
   </div>
-  <ul class="nav navbar-static-top" ng-controller="DropdownCtrl">
+  <ul class="nav sub-nav navbar-static-top" ng-controller="DropdownCtrl">
     <!-- Simple dropdown -->
     <li class="dropdown" ng-repeat="item in structure.content" dropdown is-open="status.isopen" ng-init="status.isopen" ng-mouseenter="toggleDropdown($event);status.isopen=true" ng-mouseleave="delayClose(this)">
       <a ng-href="#{{item.main_item.path}}" class="dropdown-toggle">
