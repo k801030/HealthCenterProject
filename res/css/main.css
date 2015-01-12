@@ -1,3 +1,5 @@
+/*  for genenal  */
+
 .space {
   height: 80px;
 }
@@ -14,3 +16,49 @@
   float: left;
   padding-top: 10px;
 }
+
+/*  for home page  */
+
+#home-slider {
+  height: 400px;
+  background-color: #bbb;
+  overflow: hidden;
+  padding: 0px;
+}
+
+#home-slider img {
+  width: 100%;
+}
+
+ul {
+  padding: 0px;
+  margin: 0px;
+}
+
+.large-block-grid-3 > li {
+  display: inline-block;
+  width: 30%;
+  height: inherit; /* inherit the block wide */
+
+  margin-top: 20px;
+  margin-bottom: 50px;
+  margin-right: 2%;
+}
+
+.large-block-grid-3 > li:first-child {
+  margin-left: 2%;
+}
+
+.large-block-grid-3 > li img {
+  width: 100%; 
+  margin-top: 3px;
+  margin-bottom: 3px;
+  border-radius: 2px;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+
