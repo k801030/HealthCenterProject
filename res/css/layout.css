@@ -34,7 +34,7 @@
 
 /* for main_photo */
 .space {
-  height: 150px;
+  height: 210px;
   width: 100%;
   overflow: hidden;
   margin-bottom: 25px;
@@ -42,7 +42,6 @@
 
 .space img {
   width: 100%;
-  
 }
 
 
