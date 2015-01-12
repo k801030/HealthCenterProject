@@ -8,7 +8,7 @@ body, html {
 
 /* font color */
 
-#logo a,
+#logo h1,
 .sub-nav a:hover,
 #home-block a:hover h3,
 #sidebar a:hover,
@@ -29,6 +29,21 @@ body, html {
 .dropdown-menu > li > a:hover {
   background-color: #b1e1e4;
 }
+
+span.title-1 {
+  color: #000;
+}
+
+span.home-btn {
+  margin-left: 7px;
+  font-size: 14px;
+  color: #7e7e7e;
+}
+
+a:hover  span.home-btn {
+  color: #14afb9;
+}
+
 .sub-nav a,
 #sidebar a {
   color: #5e5e5e;
