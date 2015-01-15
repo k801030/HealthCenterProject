@@ -1,5 +1,4 @@
 <form class="col-sm-offset-3 col-sm-6" ng-controller="ClientCtrl" ng-model="form">
-{{form}}
   <div class="form-group col-sm-12">
     <label class="col-sm-3">姓名</label>
     <div class="col-sm-9">
@@ -19,10 +18,11 @@
     </div>
   </div>
 
-  <div class="form-group col-sm-12">
+  <div class="form-group col-sm-12" ng-controller="ReservDateCtrl">
+  {{ hi(123) }}
     <label class="col-sm-3">預定檢查日期</label> 
     <div class="col-sm-9">
-      <input class="form-control" type="date" placeholder="yyyy-MM-dd" min="2015-01-01" max="2015-12-31" ng-model="form.exam_date" required>
+      <input class="form-control" type="date" placeholder="2015-03-15" min="{{ getMinDate(1,0) }}" max="{{ getMaxDate(6,0) }}" ng-model="form.exam_date" required>
     </div>
   </div>
 
@@ -44,7 +44,7 @@
     </div>
   </div>
 
-  <div class="form-group col-sm-12" ng-controller="DateCtrl">
+  <div class="form-group col-sm-12" ng-controller="VaildDateCtrl">
     <label class="col-sm-3">生日</label>
     <div class="col-sm-9">
       <div class="col-sm-4"><select class="form-control" ng-model="form.birth.year" ng-options="year for year in years" required>

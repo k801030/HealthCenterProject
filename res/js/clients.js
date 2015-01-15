@@ -17,7 +17,41 @@ angular.module('client', [])
   }
 }])
 
-.controller('DateCtrl', ['$scope', function($scope) {
+.controller('ReservDateCtrl', ['$scope', function($scope) {
+  var date = new Date();
+  var now = {
+    year: date.getFullYear(),
+    month: date.getMonth()+1,
+    day: date.getDate()
+  }
+  $scope.getMinDate = function(_m, _d) { // minimum months/days could be reservation in advance.
+    var y = now.year;
+    var m = now.month + _m;
+    var d = now.day + _d;
+
+    convertTo2Digit(m);
+    convertTo2Digit(d);
+    // format: yyyy-mm-dd
+    var output = y+'-'+convertTo2Digit(m)+'-'+convertTo2Digit(d);
+    return output;
+  };
+
+  $scope.getMaxDate = function(_m, _d) { // maximum months/days could be reservation in advance.
+    var y = now.year;
+    var m = now.month + _m;
+    var d = now.day + _d;
+    // format: yyyy-mm-dd
+    var output = y+'-'+convertTo2Digit(m)+'-'+convertTo2Digit(d);
+    return output;
+  };
+
+  function convertTo2Digit(n){
+    return n>9 ? ""+n : "0"+n;
+  }
+
+}])
+
+.controller('VaildDateCtrl', ['$scope', function($scope) {
   $scope.years = getYear();
   $scope.months = getMonth();
   $scope.days = function() {
