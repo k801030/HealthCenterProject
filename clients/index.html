@@ -1,16 +1,15 @@
-<form class="col-sm-offset-3 col-sm-6">
-
+<form class="col-sm-offset-3 col-sm-6" ng-controller="ClientCtrl" ng-model="form">
   <div class="form-group col-sm-12">
     <label class="col-sm-3">姓名</label>
     <div class="col-sm-9">
-      <input class="form-control" placeholder="姓名" required>
+      <input class="form-control" placeholder="姓名" ng-model="form.name" required>
     </div>
   </div>
 
   <div class="form-group col-sm-12">
     <label class="col-sm-3">檢查種類</label>
     <div class="col-sm-9">
-      <select class="form-control" required>
+      <select class="form-control" ng-model="form.exam_type" required>
         <option value="" selected>-- 檢查種類 --</option>
         <option>A</option>
         <option>B</option>
@@ -19,17 +18,18 @@
     </div>
   </div>
 
-  <div class="form-group col-sm-12">
+  <div class="form-group col-sm-12" ng-controller="ReservDateCtrl">
+  {{ hi(123) }}
     <label class="col-sm-3">預定檢查日期</label> 
     <div class="col-sm-9">
-      <input class="form-control" type="date" placeholder="yyyy-MM-dd" min="2015-01-01" max="2015-12-31" required>
+      <input class="form-control" type="date" placeholder="2015-03-15" min="{{ getMinDate(1,0) }}" max="{{ getMaxDate(6,0) }}" ng-model="form.exam_date" required>
     </div>
   </div>
 
   <div class="form-group col-sm-12">
     <label class="col-sm-3">性別</label>
     <div class="col-sm-9">
-      <select class="form-control" required>
+      <select class="form-control" ng-model="form.gender" required>
         <option value="" selected>-- 性別 --</option>
         <option>男性</option>
         <option>女性</option>
@@ -40,20 +40,20 @@
   <div class="form-group col-sm-12">
     <label class="col-sm-3">身分證字號</label>
     <div class="col-sm-9">
-      <input class="form-control" placeholder="身分證字號" required>
+      <input class="form-control" placeholder="身分證字號" ng-model="form.idnum" required>
     </div>
   </div>
 
-  <div class="form-group col-sm-12" ng-controller="DateCtrl">
+  <div class="form-group col-sm-12" ng-controller="VaildDateCtrl">
     <label class="col-sm-3">生日</label>
     <div class="col-sm-9">
-      <div class="col-sm-4"><select class="form-control" ng-model="birth.year" ng-options="year for year in years" required>
+      <div class="col-sm-4"><select class="form-control" ng-model="form.birth.year" ng-options="year for year in years" required>
         <option value="" selected>年</option>
       </select></div>
-      <div class="col-sm-4"><select class="form-control" ng-model="birth.month" ng-options="month for month in months" required>
+      <div class="col-sm-4"><select class="form-control" ng-model="form.birth.month" ng-options="month for month in months" required>
         <option value="" selected>月</option>
       </select></div>
-      <div class="col-sm-4"><select class="form-control" ng-model="birth.day" ng-options="day for day in days()">
+      <div class="col-sm-4"><select class="form-control" ng-model="form.birth.day" ng-options="day for day in days()">
         <option value="" selected>日</option>
       </select required></div>
     </div>
@@ -62,14 +62,14 @@
   <div class="form-group col-sm-12">
     <label class="col-sm-3">電話</label>
     <div class="col-sm-9">
-      <input class="form-control" placeholder="電話" required>
+      <input class="form-control" placeholder="電話" ng-model="form.phone" required>
     </div>
   </div>
 
   <div class="form-group col-sm-12">
     <label class="col-sm-3">電子信箱</label>
     <div class="col-sm-9">
-      <input class="form-control" placeholder="電子信箱" required>
+      <input class="form-control" placeholder="電子信箱" ng-model="form.email" required>
     </div>
   </div>
 
