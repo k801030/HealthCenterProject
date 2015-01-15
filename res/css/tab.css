@@ -1,0 +1,87 @@
+label[name="tabs"] {
+    width:100%;
+    height: 55px;
+    border: 1px double;
+    border-radius: 2px;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    margin-bottom: 20px;
+    -webkit-transition: all .8s;
+}
+
+label[name="tabs"]:hover {
+    background-color: lightgrey;
+}
+
+input[type="radio"][name^="tabs"]{
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+
+/* tab header */
+#tab_header>.tab_content>li {
+    float: left;
+    display: inline-block;
+    height: 55px;
+    margin: 0px;
+}
+
+#tab_header>ul>li>div[name="tab_header_content"]{
+    z-index: 2;
+    width: 100%;
+    position: absolute;
+    left: -6px;
+    padding: 10px;
+    display: none;
+}
+
+#tab_header>ul>li>[id^="tab"]:checked ~ div[name="tab_header_content"] {
+    display: block;
+}
+
+#tab_header>ul>li>[id^="tab"]:checked + label {
+    background-color: lightgrey;
+}
+
+
+/* tab section */
+
+#tab_section>.tab_content>li {
+    float: left;
+    display: inline-block;
+    height: 55px;
+    margin: 0px;
+}
+
+#tab_section>ul>li>div[name="tab_section_content"]{
+    z-index: 2;
+    width: 100%;
+    position: absolute;
+    left: 6px;
+    text-align: center;
+    display: none;
+}
+
+#tab_section [id^="tab"]:checked ~ div[name="tab_section_content"] {
+    display: block;
+}
+
+#tab_section [id^="tab"]:checked + label {
+    background-color: lightgrey;
+}
+
+
+/* Column Num */
+.two_contents>li {
+    width: 50%;
+}
+
+.three_contents>li {
+    width: 33%;
+}
+
+.four_contents>li {
+    width: 25%;
+}
