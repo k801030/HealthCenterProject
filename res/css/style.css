@@ -22,7 +22,8 @@ form label {
 .sub-nav a:hover,
 #home-block a:hover h3,
 #sidebar a:hover,
-#sidebar li.active > a {
+#sidebar li.active > a,
+.dropdown-menu > li > a:hover {
   color: #14afb9;
 }
 
@@ -35,9 +36,6 @@ form label {
 .dropdown-menu > li > a {
   color: #5e5e5e;
   background-color: #fff;
-}
-.dropdown-menu > li > a:hover {
-  background-color: #b1e1e4;
 }
 
 span.title-1 {
