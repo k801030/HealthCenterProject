@@ -1,6 +1,6 @@
 // angularJS
 // include your js module or put it on depend on usage.
-angular.module('app', ['basic', 'client'])  
+angular.module('app', ['basic', 'client', 'pages', 'slider']);
 
 // javascript & jQuery
 $(document).ready(function() {   
