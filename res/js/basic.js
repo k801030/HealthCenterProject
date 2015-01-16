@@ -56,7 +56,6 @@ angular.module("basic", ['ui.bootstrap'])
 }])
 
 .controller('SideBarCtrl', ['$scope', '$location', 'structure', 'tab', function($scope, $location, structure, tab) {
-  //var this.structure = structure;
   $scope.setTab = function(num) {
     tab.set(num);
   }
