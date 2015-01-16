@@ -55,7 +55,7 @@ a:hover  span.home-btn {
 }
 
 .sub-nav a,
-#sidebar a {
+h5, #sidebar a {
   color: #5e5e5e;
 }
 
@@ -93,8 +93,8 @@ h1, h2, h3, h4 {
   border-radius: 4px;
 }
 
-#sidebar li:hover,
-#sidebar li.active {
+#sidebar ul.nav > li:hover,
+#sidebar ul.nav > li.active {
   border-color: #7bcfca;
 }
 
