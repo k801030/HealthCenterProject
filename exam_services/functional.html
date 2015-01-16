@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" ng-controller="functional">
     <div class="row">
         <h3>功能性健檢</h3>
         <div class="row">
@@ -9,9 +9,9 @@
                 <div id="tab_header" class="col-sm-8" >
                     <ul class="tab_content four_contents">
                         <li>
-                            <input type="radio" name="tabs_header" id="tab1_header" checked>
+                            <input type="radio" name="tabs_header" id="tab1_header" value="1" ng-model="tab_header_index" ng-click="setTabHeaderHeight(1)" checked>
                             <label name="tabs" for="tab1_header">全身正子電腦斷層掃描健康檢查</label>
-                            <div name="tab_header_content" id="tab1_header_content" class="debug">
+                            <div name="tab_header_content" id="tab1_header_content">
 
                                 <div class="row">
                                     <img src="">
@@ -67,7 +67,7 @@
                                             <div class="col-sm-12" id="tab_section">
                                                 <ul class="tab_content two_contents">
                                                     <li>
-                                                        <input type="radio" name="tabs_section" id="tab1_section" checked>
+                                                        <input type="radio" name="tabs_section" id="tab1_section" value="1" ng-model="tab_section_index" ng-click="setTabContentHeight(1)" checked>
                                                         <label name="tabs" for="tab1_section">全身正子電腦斷層掃描健康檢查項目</label>
                                                         <div name="tab_section_content" id="tab1_section_content">
                                                             <table class="table table-striped table-bordered table-hover">
@@ -80,7 +80,7 @@
                                                         </div>
                                                     </li>
                                                     <li>
-                                                        <input type="radio" name="tabs_section" id="tab2_section">
+                                                        <input type="radio" name="tabs_section" id="tab2_section" value="2" ng-model="tab_section_index" ng-click="setTabContentHeight(2)">
                                                         <label name="tabs" for="tab2_section">檢查費用與附加服務</label>
                                                         <div name="tab_section_content" id="tab2_section_content">
                                                             <table class="table table-striped table-bordered table-hover">
@@ -98,21 +98,21 @@
                             </div>
                         </li>
                         <li>
-                            <input type="radio" name="tabs_header" id="tab2_header">
+                            <input type="radio" name="tabs_header" id="tab2_header" value="2" ng-model="tab_header_index" ng-click="setTabHeaderHeight(2)">
                             <label name="tabs" for="tab2_header">全消化系統無痛健康檢查</label>
                             <div name="tab_header_content" id="tab2_header_content">
                                 test2
                             </div>
                         </li>
                         <li>
-                            <input type="radio" name="tabs_header" id="tab3_header">
+                            <input type="radio" name="tabs_header" id="tab3_header" value="3" ng-model="tab_header_index" ng-click="setTabHeaderHeight(3)">
                             <label name="tabs" for="tab3_header">心臟血管疾病篩檢</label>
                             <div name="tab_header_content" id="tab3_header_content">
                                 test3
                             </div>
                         </li>
                         <li>
-                            <input type="radio" name="tabs_header" id="tab4_header">
+                            <input type="radio" name="tabs_header" id="tab4_header" value="4" ng-model="tab_header_index" ng-click="setTabHeaderHeight(4)">
                             <label name="tabs" for="tab4_header">肝膽全套健康檢查</label>
                             <div name="tab_header_content" id="tab4_header_content">
                                 test4
