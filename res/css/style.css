@@ -12,14 +12,23 @@ p{
   color: #5e5e5e;
 }
 
+<<<<<<< HEAD
 /* slider */
 .carousel-control {
   cursor: pointer;
+=======
+.carousel-caption {
+  width: 100%;
+>>>>>>> 0a87c9599c2eec35776bd4253544cb332384ce4a
 }
 
 #home-slider p {
   font-size: 17.5px;
+<<<<<<< HEAD
   color: #ebebeb;
+=======
+  color: #e8e8e8;
+>>>>>>> 0a87c9599c2eec35776bd4253544cb332384ce4a
   font-weight: 0;
 }
 
