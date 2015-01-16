@@ -1,5 +1,15 @@
-<div id="home-slider" class="col-sm-12">
+<!--<div id="home-slider" class="col-sm-12">
   <img src="res/images/sliders/1.jpg">
+</div>-->
+<div id="home-slider" ng-controller="CarouselCtrl" >
+<carousel interval="myInterval" >
+  <slide ng-repeat="slide in slides" active="slide.active" >{{slider}}
+    <img class="image-circle" ng-src="{{slide.image}}" style="margin:auto;" />
+    <div class="carousel-caption">
+      <p>{{slide.text}}</p>
+    </div>
+  </slide>
+</carousel>
 </div>
 
 <ul id="home-block" class="large-block-grid-3">
@@ -25,3 +35,12 @@
   <p>馬偕健康檢查中心提供線上預約服務，手續簡便，並可以大幅節省現場等待時間。線上預約包含所有健康檢查項目。</p>
   </li>
 </ul>
+
+<!-- Script to Activate the Carousel -->
+<script>
+$(document).ready(function(){
+  $('.carousel').carousel({
+      interval: 5000 //changes the speed
+  })
+});
+</script>
