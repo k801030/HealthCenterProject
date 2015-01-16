@@ -126,6 +126,9 @@ footer hr {
 #home-slider img {
   width: 100%;
 }
+.carousel-caption {
+  width: 100%;
+}
 
 ul {
   padding: 0px;
