@@ -1,1 +1,115 @@
-健檢須知
+<div class="container" ng-controller="reminder">
+    <div class="row">
+
+        <h3>健檢須知</h3>
+
+        <div class="row">
+            <hr class="col-sm-3">
+        </div>
+
+        <div class="col-sm-8 wrap">
+            <blockquote>
+                <ul>
+                    <li id="info1">
+                        <label id="info1_title">血液檢查須知</label>
+                        <div name="wrap_content">
+                            <hr>
+                            <blockquote>
+                                檢查日期前三天清淡飲食，並於檢查前一天晚上十二點以後禁食任何食物、飲料、水、口香糖
+                                (空腹禁食八小時)。
+                            </blockquote>
+                        </div>
+                    </li>
+
+                    <li id="info2">
+                        <label id="info2_title">麻醉檢查須知</label>
+                        <div name="wrap_content">
+                            <hr>
+                            <blockquote>
+                                無痛胃鏡及大腸鏡檢查就是在執行胃鏡、大腸鏡之前，先幫您靜脈注射止痛鎮靜藥物，透過止痛鎮靜藥物阻斷不適的感覺，讓您在身心放鬆、進入睡眠的狀態下，做完胃鏡、大腸鏡的檢查。<br><br>
+                                無痛胃鏡及大腸鏡檢查皆需麻醉專科醫師進行身體評估後進行，但若您有以下高風險情況，不建議施行麻醉 : <br>
+                                •	肥胖者，為BMI大於等於35者，BMI = 體重(公斤) / 身高(公尺)的平方。<br>
+                                •	年齡大於75歲以上者，不建議實施。<br>
+                                •	六個月內曾罹患心肌梗塞者。<br>
+                                •	不穩定心絞痛者。<br>
+                                •	嚴重性心律不整者。<br>
+                                •	重度慢性肺疾或處於急性發作期者。<br>
+                                •	呼吸道構造異常者。<br>
+                                •	一個月內曾發生中風或小發作者。<br>
+                                •	曾對麻醉藥物過敏者。<br>
+                                •	有其他系統疾病，經麻醉醫師評估後不適宜接受麻醉者。<br>
+                            </blockquote>
+                        </div>
+                    </li>
+
+                    <li id="info3">
+                        <label id="info3_title">胃鏡檢查須知</label>
+                        <div name="wrap_content">
+                            <hr>
+                            <blockquote>
+                                有青光眼、氣喘、心臟病、凝血功能障礙或藥物過敏者，請事先告知醫護人員。檢查當天請勿塗抹口紅、指甲油。
+                            </blockquote>
+                        </div>
+                    </li>
+
+                    <li id="info4">
+                        <label id="info4_title">腸鏡檢查須知</label>
+                        <div name="wrap_content">
+                            <hr>
+                            <blockquote>
+                                檢查前二日起請多喝開水，並食用低渣飲食，不宜吃任何油炸、高纖、高蛋白食物 (青菜、水果
+                                、奶類製品)。若您屬於易便秘體質，請提早一周食用低渣食物。檢查前一日以流質飲食為主 (魚湯、粥湯、濾渣果汁)，並開始服用清腸劑。
+                            </blockquote>
+                        </div>
+                    </li>
+
+
+                    <li id="info5">
+                        <label id="info5_title">糞便檢查須知</label>
+                        <div name="wrap_content">
+                            <hr>
+                            <blockquote>
+                                檢查日期前三天勿食用帶血食物 (如鴨血、豬血、牛肉、及內臟類)、維他命、鐵劑、酒精等相關飲食。糞便檢體請在檢查前一天留取 ( 服用瀉藥前 )，量約花生米大小並收集於糞便盒內，置於室溫，報到時請交給櫃檯人員。
+                            </blockquote>
+                        </div>
+                    </li>
+
+                    <li id="info6">
+                        <label id="info6_title">女性檢查須知</label>
+                        <div name="wrap_content">
+                            <hr>
+                            <blockquote>
+                                安排體檢請避開生理期。懷疑或已受孕之女性受檢者，請事先告知醫護人員，勿做X光及子宮頸抹片檢查。女性受檢者於生理期間請勿留取糞便、尿液樣本及勿做子宮頸抹片檢查。<br><br>
+                                接受子宮頸抹片檢查前三日起請勿做：<br>
+                                I. 陰道內清洗<br>
+                                II. 使用陰道內藥物<br>
+                                III. 盆浴<br>
+                                IV. 發生性行為<br>
+                            </blockquote>
+                        </div>
+                    </li>
+                </ul>
+            </blockquote>
+        </div>
+    </div>
+</div>
+
+<!--<script type="text/javascript-lazy">-->
+
+    <!--$('.wrap li').addClass("li_default");-->
+    <!--$('.wrap li>div[name="wrap_content"]').addClass("content_default");-->
+
+    <!--$('.wrap li').click(function(){-->
+        <!--if(!$(this).hasClass("li_on_target")){-->
+            <!--$(this).addClass("li_on_target");-->
+            <!--$(this).children("label:eq(0)").addClass("title_on_target");-->
+            <!--$(this).children("div[name='wrap_content']:eq(0)").addClass("content_on_target");-->
+        <!--}-->
+        <!--else{-->
+            <!--$(this).removeClass("li_on_target");-->
+            <!--$(this).children("label:eq(0)").removeClass("title_on_target");-->
+            <!--$(this).children("div[name='wrap_content']:eq(0)").removeClass("content_on_target");-->
+        <!--}-->
+    <!--});-->
+
+<!--</script>-->
