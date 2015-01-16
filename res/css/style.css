@@ -6,10 +6,25 @@ body, html {
   font-family: sans-serif, '微軟正黑體';
 }
 
-p {
+p{
   font-size: 15.5px;
   font-weight: 0;
   color: #5e5e5e;
+}
+
+/* slider */
+.carousel-control {
+  cursor: pointer;
+}
+
+.carousel-caption {
+  width: 100%;
+}
+
+#home-slider p {
+  font-size: 17.5px;
+  color: #ebebeb;
+  font-weight: 0;
 }
 
 form label {
