@@ -76,6 +76,9 @@ footer {
   padding: 15px 0;
 }
 
+footer hr {
+  margin-bottom: 36px;
+}
 
 /* for main_photo */
 .space {
