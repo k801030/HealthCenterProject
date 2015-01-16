@@ -19,6 +19,7 @@
   height: 120px;
 }
 
+     /* nav skinny */
 #main-nav.skinny {
   height: 65px;
   background-color: rgba(255,255,255,1);
@@ -26,7 +27,6 @@
   -moz-box-shadow:    1px 1px 5px 0px rgba(50, 50, 50, 0.75);
   box-shadow:         1px 1px 5px 0px rgba(50, 50, 50, 0.75);
 }
-
 #main-nav.skinny.navbar {
   padding: 0 40px;
 }
@@ -36,14 +36,18 @@
 #main-nav.skinny h1.title {
   font-size: 24px;
   margin: 0;
-  padding: 15px 0;
+  padding: 10px 0;
 }
 #main-nav.skinny .sub-nav {
   margin-top: 0;
 }
+#main-nav.skinny .sub-nav > li {
+  margin: 0;
+  padding-top: 5px;
+}
 
 #main-nav.navbar {
-  padding: 20px 40px;
+  padding: 15px 40px;
 }
 
 #logo {
