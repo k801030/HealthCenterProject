@@ -1,3 +1,7 @@
+#content {
+  margin-top: 120px;  /* the same as nav-fix: height; */
+}
+
 /*  for nav  */
 
 .space {
@@ -5,6 +9,40 @@
 }
 
 #main-nav {
+  padding-top: 5px;
+  width: 100%;
+  background-color: rgba(255,255,255,1);
+  z-index: 100;
+}
+#main-nav.nav-fixed-top {
+  position: fixed;
+  height: 120px;
+}
+
+#main-nav.skinny {
+  height: 65px;
+  background-color: rgba(255,255,255,1);
+  -webkit-box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow:    1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+  box-shadow:         1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+}
+
+#main-nav.skinny.navbar {
+  padding: 0 40px;
+}
+#main-nav.skinny h4 {
+  display: none;
+}
+#main-nav.skinny h1.title {
+  font-size: 24px;
+  margin: 0;
+  padding: 15px 0;
+}
+#main-nav.skinny .sub-nav {
+  margin-top: 0;
+}
+
+#main-nav.navbar {
   padding: 20px 40px;
 }
 
@@ -14,7 +52,7 @@
 
 .sub-nav {
   float: right;
-  margin-top: 15px;
+  margin-top: 45px;
 }
 
 .sub-nav > li {
@@ -37,6 +75,7 @@ footer {
   margin-top: 50px;
   padding: 15px 0;
 }
+
 
 /* for main_photo */
 .space {
