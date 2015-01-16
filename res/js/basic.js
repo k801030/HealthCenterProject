@@ -5,6 +5,12 @@ angular.module("basic", ['ui.bootstrap'])
   $locationProvider.html5Mode(true); 
 })
 
+// executed just after configuration. 
+.run(function($rootScope) {
+  $rootScope.navUrl = 'template/nav.html';
+  $rootScope.footerUrl = 'template/footer.html';
+})
+
 // for passing value between pages
 .factory('tab', function() {
   var tabSelected;
@@ -33,7 +39,6 @@ angular.module("basic", ['ui.bootstrap'])
 }])
 
 .controller('NavCtrl', ['$scope', '$location', 'structure', 'tab', function($scope, $location, structure, tab) {
-  $scope.navUrl = 'template/nav.html';
   $scope.structure = structure;
   $scope.setTab = function(num) {
     tab.set(num);
