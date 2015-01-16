@@ -4,7 +4,7 @@
 </div>
 
 <!-- sidebar -->
-<div id="sidebar" ng-controller="SideBarCtrl">
+<div id="sidebar" ng-controller="SideBarCtrl" ng-init="init()">
   <div class="col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation" >
     <ul class="nav">
       <li ng-class='{ active: getTab() == $index }' ng-repeat="tab in thisContent()"><a href ng-click="setTab($index)">{{ tab.name }}</a></li>
@@ -15,5 +15,4 @@
       <div ng-include="thisHash()+'/'+tab.path"></div>
     </div>
   </div>
-</div>
 </div>

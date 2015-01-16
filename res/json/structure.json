@@ -125,6 +125,16 @@
     "main_item": {
       "name": "聯絡我們",
       "path": "contact_us"
-    }
+    },
+    "sub_item": [
+      {
+        "name": "諮詢電話",
+        "path": "phone.html"
+      },
+      {
+        "name": "交通資訊",
+        "path": "transportation.html"
+      }
+    ]
   }
 ]
