@@ -6,6 +6,12 @@ body, html {
   font-family: sans-serif, '微軟正黑體';
 }
 
+p {
+  font-size: 15.5px;
+  font-weight: 0;
+  color: #5e5e5e;
+}
+
 form label {
   text-align: center;
 }
@@ -49,15 +55,15 @@ a:hover  span.home-btn {
 }
 
 .sub-nav a,
-#sidebar a {
+h5, #sidebar a {
   color: #5e5e5e;
 }
 
-p, h4, h5, .sub-nav a {
+.sub-nav a {
   color: #7e7e7e;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
   color: #000
 }
 
@@ -87,8 +93,8 @@ h1, h2, h3 {
   border-radius: 4px;
 }
 
-#sidebar li:hover,
-#sidebar li.active {
+#sidebar ul.nav > li:hover,
+#sidebar ul.nav > li.active {
   border-color: #7bcfca;
 }
 
@@ -116,4 +122,3 @@ h1, h2, h3 {
 .space img {
   border-radius: 2px;
 }
-
