@@ -3,14 +3,10 @@
 angular.module('app', ['basic', 'client'])  
 
 // javascript & jQuery
-$(document).ready(function() {
-
-  console.log($( window ).height());
-   
+$(document).ready(function() {   
   
-  // Returns height of HTML document
+  // dynamically adjust nav-bar
   $(window).scroll(function() {
-    console.log($('nav').height());
     if($( document ).scrollTop() >= 45) {
       //$('#content').addClass('is-fixed-top');
       //$('#main-nav').addClass('nav-fixed-top');
