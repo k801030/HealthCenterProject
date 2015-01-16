@@ -12,8 +12,9 @@ p{
   color: #5e5e5e;
 }
 
-.carousel-caption {
-  width: 100%;
+/* slider */
+.carousel-control {
+  cursor: pointer;
 }
 
 #home-slider p {
