@@ -21,6 +21,24 @@ angular.module("pages", [])
     });
 }])
 
+.controller('FQA', ['$scope', function($scope){
+    $('.wrap li').addClass("li_default");
+    $('.wrap li>div[name="wrap_content"]').addClass("content_default");
+
+    $('.wrap li').click(function(){
+        if(!$(this).hasClass("li_on_target")){
+            $(this).addClass("li_on_target");
+            $(this).children("label:eq(0)").addClass("title_on_target");
+            $(this).children("div[name='wrap_content']:eq(0)").addClass("content_on_target");
+        }
+        else{
+            $(this).removeClass("li_on_target");
+            $(this).children("label:eq(0)").removeClass("title_on_target");
+            $(this).children("div[name='wrap_content']:eq(0)").removeClass("content_on_target");
+        }
+    });
+}])
+
 .controller('government_employee', ['$scope', function($scope){
     $scope.tab_header_index = 1;
     $scope.tab_section_index = 1;
@@ -60,9 +78,14 @@ angular.module("pages", [])
 
 function setHeight(tab_header_index, tab_section_index){
     var div_tabs_height = $('div.row:eq(0)').height();
-    var tab_header_height = $('div[name="tab_header_content"]:eq(' + (tab_header_index-1).toString() + ')').height();
-    var tab_content_height = $('div[name="tab_section_content"]:eq(' + (tab_section_index-1).toString() + ')').height();
 
+    var tab_header_height;
+    if(tab_header_index == 0)
+        tab_header_height = 0;
+    else
+        tab_header_height = $('div[name="tab_header_content"]:eq(' + (tab_header_index-1).toString() + ')').height();
+
+    var tab_content_height = $('div[name="tab_section_content"]:eq(' + (tab_section_index-1).toString() + ')').height();
     $('#content .container').height(div_tabs_height + tab_header_height + tab_content_height);
 }
 
