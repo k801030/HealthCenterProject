@@ -1,6 +1,12 @@
 [
   {
     "main_item": {
+      "name": "最新消息",
+      "path": ""
+    }
+  },
+  {
+    "main_item": {
       "name": "中心簡介",
       "path": "about_us"
     },
@@ -112,6 +118,14 @@
       {
         "name": "營養諮詢",
         "path": "nutrition_consultation.html"
+      },
+      {
+        "name": "護理指導",
+        "path": "nursing_consultation.html"
+      },
+      {
+        "name": "醫學新知",
+        "path": "medical_info.html"
       }
     ]
   },
@@ -125,16 +139,12 @@
     "main_item": {
       "name": "聯絡我們",
       "path": "contact_us"
-    },
-    "sub_item": [
-      {
-        "name": "諮詢電話",
-        "path": "phone.html"
-      },
-      {
-        "name": "交通資訊",
-        "path": "transportation.html"
-      }
-    ]
+    }
+  },
+  {
+    "main_item": {
+      "name": "交通資訊",
+      "path": "transportation"
+    }
   }
 ]

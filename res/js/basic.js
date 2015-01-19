@@ -125,7 +125,7 @@ angular.module("basic", ['ui.bootstrap'])
       return;
     if(segment == ""){
       return 'template/home.html';
-    }else if (segment == "clients"){
+    }else if (segment == "clients" || segment == "contact_us" || segment== "transportation"){
       return 'template/blank_page.html';
     }else {
       return 'template/tab_page.html';
