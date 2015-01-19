@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" ng-controller="government_employee">
     <div class="row">
         <h3>公務人員健檢</h3>
         <blockquote>
@@ -6,16 +6,16 @@
                 <div id="tab_header" class="col-sm-8" >
                     <ul class="tab_content three_contents">
                         <li>
-                            <input type="radio" name="tabs_header" id="tab1_header" checked>
+                            <input type="radio" name="tabs_header" id="tab1_header" value="1" ng-model="tab_header_index" ng-click="setTabHeaderHeight(1)" checked>
                             <label name="tabs" for="tab1_header">公務人員健康檢查<br>3500</label>
                             <div name="tab_header_content" id="tab1_header_content" class="debug">
 
                                 <div class="row">
-                                    <img src="">
+                                    <img src="res/images/default.jpg">
                                 </div>
 
                                 <div>
-                                    <h3>健檢說明</h3>
+                                    <h4>健檢說明</h4>
                                     <blockquote>
                                         <ol type="1">
                                             <li>請您於檢查前二週辦理預約。</li>
@@ -28,13 +28,13 @@
                                 </div>
 
                                 <div>
-                                    <h3>健檢項目</h3>
+                                    <h4>健檢項目</h4>
                                     <blockquote>
                                         <div class="row">
                                             <div class="col-sm-12" id="tab_section">
                                                 <ul class="tab_content three_contents">
                                                     <li>
-                                                        <input type="radio" name="tabs_section" id="tab1_section" checked>
+                                                        <input type="radio" name="tabs_section" id="tab1_section" value="1" ng-model="tab_section_index" ng-click="setTabContentHeight(1)" checked>
                                                         <label name="tabs" for="tab1_section">公務人員健康檢查<br>3500項目</label>
                                                         <div name="tab_section_content" id="tab1_section_content">
                                                             <table class="table table-striped table-bordered table-hover">
@@ -47,7 +47,7 @@
                                                         </div>
                                                     </li>
                                                     <li>
-                                                        <input type="radio" name="tabs_section" id="tab2_section">
+                                                        <input type="radio" name="tabs_section" id="tab2_section" value="2" ng-model="tab_section_index" ng-click="setTabContentHeight(2)" >
                                                         <label name="tabs" for="tab2_section">檢查費用 & 附加服務</label>
                                                         <div name="tab_section_content" id="tab2_section_content">
                                                             <table class="table table-striped table-bordered table-hover">
@@ -66,7 +66,7 @@
                                                         </div>
                                                     </li>
                                                     <li>
-                                                        <input type="radio" name="tabs_section" id="tab3_section">
+                                                        <input type="radio" name="tabs_section" id="tab3_section" value="3" ng-model="tab_section_index" ng-click="setTabContentHeight(3)" >
                                                         <label name="tabs" for="tab3_section">自費加選項目</label>
                                                         <div name="tab_section_content" id="tab3_section_content">
 
@@ -87,14 +87,14 @@
                             </div>
                         </li>
                         <li>
-                            <input type="radio" name="tabs_header" id="tab2_header">
+                            <input type="radio" name="tabs_header" id="tab2_header" value="2" ng-model="tab_header_index" ng-click="setTabHeaderHeight(2)" >
                             <label name="tabs" for="tab2_header">公務人員健康檢查<br>8000</label>
                             <div name="tab_header_content" id="tab2_header_content">
                                 test2
                             </div>
                         </li>
                         <li>
-                            <input type="radio" name="tabs_header" id="tab3_header">
+                            <input type="radio" name="tabs_header" id="tab3_header" value="3" ng-model="tab_header_index" ng-click="setTabHeaderHeight(3)" >
                             <label name="tabs" for="tab3_header">公務人員健康檢查<br>16000</label>
                             <div name="tab_header_content" id="tab3_header_content">
                                 test3
