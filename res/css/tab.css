@@ -7,7 +7,12 @@ label[name="tabs"] {
     cursor: pointer;
     text-align: center;
     margin-bottom: 20px;
+
     -webkit-transition: all .8s;
+    -moz-transition: all .8s;
+    -ms-transition: all .8s;
+    -o-transition: all .8s;
+    transition: all .8s;
 }
 
 label[name="tabs"]:hover {
@@ -15,9 +20,10 @@ label[name="tabs"]:hover {
 }
 
 input[type="radio"][name^="tabs"]{
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
+    /*position: absolute;*/
+    /*top: -9999px;*/
+    /*left: -9999px;*/
+    display: none;
 }
 
 /* tab header */
