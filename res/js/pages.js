@@ -73,6 +73,10 @@ angular.module("pages", [])
     $scope.setTabContentHeight = function(new_tab_section_index){
         setTabContentHeight($scope.tab_section_index, new_tab_section_index);
     };
+
+    $scope.getExamContent = function(){
+        return "res/pdf/one_day.htm";
+    }
 }]);
 
 
