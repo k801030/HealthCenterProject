@@ -1,109 +1,51 @@
 <div class="container" ng-controller="government_employee">
     <div class="row">
         <h3>公務人員健檢</h3>
-        <blockquote>
-            <div class="row">
-                <div id="tab_header" class="col-sm-8" >
-                    <ul class="tab_content three_contents">
-                        <li>
-                            <input type="radio" name="tabs_header" id="tab1_header" value="1" ng-model="tab_header_index" ng-click="setTabHeaderHeight(1)" checked>
-                            <label name="tabs" for="tab1_header">公務人員健康檢查<br>3500</label>
-                            <div name="tab_header_content" id="tab1_header_content" class="debug">
+        <div class="row">
+            <hr class="col-sm-3">
+        </div>
+        <div class="row">
+            <img src="res/images/default.jpg">
+        </div>
 
-                                <div class="row">
-                                    <img src="res/images/default.jpg">
+        <div>
+            <h4>健檢說明</h4>
+            <blockquote>
+                <ol type="1">
+                    <li>請您於檢查前二週辦理預約。</li>
+                    <li>檢查前三日請吃清淡飲食，檢查當日需禁食空腹10小時(禁食、水、口香糖)。</li>
+                    <li>女性安排體檢，請避開生理期。</li>
+                    <li>報到受理時間為早上 9:00~9:30，檢查時間約半日完成。</li>
+                    <li>檢查當天請攜帶健保卡、公務人員服務證備用。</li>
+                </ol>
+            </blockquote>
+        </div>
+
+        <div>
+            <h4>健檢項目</h4>
+            <blockquote>
+                <div class="row">
+                    <div class="col-sm-9" id="tab_section">
+                        <ul class="tab_content three_contents">
+                            <li>
+                                <input type="radio" name="tabs_section" id="tab1_section" value="1" ng-model="tab_section_index" ng-click="setTabContentHeight(1)" checked>
+                                <label name="tabs" for="tab1_section">公務人員超值健檢<br>3500</label>
+                                <div name="tab_section_content" id="tab1_section_content">
+                                    <iframe width="90%" height="560" src="https://docs.google.com/spreadsheets/d/1SmWi3wuZVPd-9FoZwtZOnAXXwbSWl_ur-xLc5MYfC7g/pubhtml?widget=true&amp;headers=false"></iframe>
                                 </div>
-
-                                <div>
-                                    <h4>健檢說明</h4>
-                                    <blockquote>
-                                        <ol type="1">
-                                            <li>請您於檢查前二週辦理預約。</li>
-                                            <li>檢查前三日請吃清淡飲食，檢查當日需禁食空腹10小時(禁食、水、口香糖)。</li>
-                                            <li>女性安排體檢，請避開生理期。</li>
-                                            <li>報到受理時間為早上 9:00~9:30，檢查時間約半日完成。</li>
-                                            <li>檢查當天請攜帶健保卡、公務人員服務證備用。</li>
-                                        </ol>
-                                    </blockquote>
+                            </li>
+                            <li>
+                                <input type="radio" name="tabs_section" id="tab2_section" value="2" ng-model="tab_section_index" ng-click="setTabContentHeight(2)" >
+                                <label name="tabs" for="tab2_section">公務人員腹部超音波健檢<br>3500</label>
+                                <div name="tab_section_content" id="tab2_section_content">
+                                    <iframe width="90%" height="560" src="https://docs.google.com/spreadsheets/d/1nO3aocwPG6zdgHwt8UpSmKD4J_-WbAhCUEa3pbh2Q4o/pubhtml?widget=true&amp;headers=false"></iframe>
                                 </div>
-
-                                <div>
-                                    <h4>健檢項目</h4>
-                                    <blockquote>
-                                        <div class="row">
-                                            <div class="col-sm-12" id="tab_section">
-                                                <ul class="tab_content three_contents">
-                                                    <li>
-                                                        <input type="radio" name="tabs_section" id="tab1_section" value="1" ng-model="tab_section_index" ng-click="setTabContentHeight(1)" checked>
-                                                        <label name="tabs" for="tab1_section">公務人員健康檢查<br>3500項目</label>
-                                                        <div name="tab_section_content" id="tab1_section_content">
-                                                            <table class="table table-striped table-bordered table-hover">
-                                                                <tr>
-                                                                    <th>檢查類別</th>
-                                                                    <th>檢查項目</th>
-                                                                    <th>檢查臨床意義</th>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <input type="radio" name="tabs_section" id="tab2_section" value="2" ng-model="tab_section_index" ng-click="setTabContentHeight(2)" >
-                                                        <label name="tabs" for="tab2_section">檢查費用 & 附加服務</label>
-                                                        <div name="tab_section_content" id="tab2_section_content">
-                                                            <table class="table table-striped table-bordered table-hover">
-                                                                <tr>
-                                                                    <th colspan="2">檢查費用與附加服務</th>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>檢查費用</td>
-                                                                    <td>每人 3,500 元</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>附加服務</td>
-                                                                    <td>精緻餐點一份</td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <input type="radio" name="tabs_section" id="tab3_section" value="3" ng-model="tab_section_index" ng-click="setTabContentHeight(3)" >
-                                                        <label name="tabs" for="tab3_section">自費加選項目</label>
-                                                        <div name="tab_section_content" id="tab3_section_content">
-
-                                                            <table class="table table-striped table-bordered table-hover">
-                                                                <tr>
-                                                                    <th>檢查類別</th>
-                                                                    <th>檢查項目</th>
-                                                                    <th>檢查臨床意義</th>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </blockquote>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <input type="radio" name="tabs_header" id="tab2_header" value="2" ng-model="tab_header_index" ng-click="setTabHeaderHeight(2)" >
-                            <label name="tabs" for="tab2_header">公務人員健康檢查<br>8000</label>
-                            <div name="tab_header_content" id="tab2_header_content">
-                                test2
-                            </div>
-                        </li>
-                        <li>
-                            <input type="radio" name="tabs_header" id="tab3_header" value="3" ng-model="tab_header_index" ng-click="setTabHeaderHeight(3)" >
-                            <label name="tabs" for="tab3_header">公務人員健康檢查<br>16000</label>
-                            <div name="tab_header_content" id="tab3_header_content">
-                                test3
-                            </div>
-                        </li>
-                    </ul>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </blockquote>
+            </blockquote>
+        </div>
         <div class="row">
             <img src="">
         </div>
