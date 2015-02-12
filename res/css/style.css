@@ -16,6 +16,11 @@ blockquote{
     margin-left: 40px;
 }
 
+a.sheet_link {
+  text-decoration: underline;
+  color: #108e97;
+}
+
 /* slider */
 .carousel-control {
   cursor: pointer;
