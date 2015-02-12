@@ -12,6 +12,20 @@ p{
   color: #5e5e5e;
 }
 
+blockquote{
+    margin-left: 40px;
+}
+
+a.sheet_link {
+  text-decoration: underline;
+  color: #108e97;
+}
+
+.hightlight {
+  color :red;
+}
+
+
 /* slider */
 .carousel-control {
   cursor: pointer;
@@ -135,3 +149,5 @@ h1, h2, h3, h4 {
 .space img {
   border-radius: 2px;
 }
+
+

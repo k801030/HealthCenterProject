@@ -1,6 +1,12 @@
 [
   {
     "main_item": {
+      "name": "最新消息",
+      "path": ""
+    }
+  },
+  {
+    "main_item": {
       "name": "中心簡介",
       "path": "about_us"
     },
@@ -34,28 +40,20 @@
         "path": "oneday.html"
       },
       {
-        "name": "功能性健檢",
-        "path": "functional.html"
+        "name": "一般工作健檢",
+        "path": "work.html"
       },
       {
         "name": "公務人員健檢",
         "path": "government_employee.html"
       },
       {
-        "name": "一般及就職證明書健檢",
-        "path": "health_certificate.html"
-      },
-      {
         "name": "外籍人士健檢",
         "path": "foreigner.html"
       },
       {
-        "name": "美國移民健檢",
-        "path": "us_immigration.html"
-      },
-      {
-        "name": "團體健檢",
-        "path": "enterprise.html"
+        "name": "成人健康檢查",
+        "path": "adult.html"
       }
     ]
   },
@@ -112,6 +110,14 @@
       {
         "name": "營養諮詢",
         "path": "nutrition_consultation.html"
+      },
+      {
+        "name": "護理指導",
+        "path": "nursing_consultation.html"
+      },
+      {
+        "name": "醫學新知",
+        "path": "medical_info.html"
       }
     ]
   },
@@ -125,16 +131,12 @@
     "main_item": {
       "name": "聯絡我們",
       "path": "contact_us"
-    },
-    "sub_item": [
-      {
-        "name": "諮詢電話",
-        "path": "phone.html"
-      },
-      {
-        "name": "交通資訊",
-        "path": "transportation.html"
-      }
-    ]
+    }
+  },
+  {
+    "main_item": {
+      "name": "交通資訊",
+      "path": "transportation"
+    }
   }
 ]
