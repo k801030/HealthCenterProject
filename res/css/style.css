@@ -21,6 +21,10 @@ a.sheet_link {
   color: #108e97;
 }
 
+.hightlight {
+  color :red;
+}
+
 /* slider */
 .carousel-control {
   cursor: pointer;
