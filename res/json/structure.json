@@ -48,20 +48,12 @@
         "path": "government_employee.html"
       },
       {
-        "name": "一般及就職證明書健檢",
-        "path": "health_certificate.html"
-      },
-      {
         "name": "外籍人士健檢",
         "path": "foreigner.html"
       },
       {
-        "name": "美國移民健檢",
-        "path": "us_immigration.html"
-      },
-      {
-        "name": "團體健檢",
-        "path": "enterprise.html"
+        "name": "成人健康檢查",
+        "path": "adult.html"
       }
     ]
   },
