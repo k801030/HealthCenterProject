@@ -3,6 +3,16 @@
  */
 angular.module("pages", [])
 
+//.factory('tabletop', function() {
+//    var tabletop = Tabletop.init( {
+//        key: '1t5_YYxLzpunJ7gw_ghlubsnGtIw-b5Evh2MITmn67Wk',
+//        callback: function(data, tabletop) {
+//        }}
+//    );
+//
+//    return tabletop;
+//})
+
 .controller('reminder', ['$scope', function($scope){
     $('.wrap li').addClass("li_default");
     $('.wrap li>div[name="wrap_content"]').addClass("content_default");
@@ -21,16 +31,30 @@ angular.module("pages", [])
     });
 }])
 
-.controller('history', ['$scope', '$http', function($scope, $http){
+.controller('history', ['$scope', function($scope){
+
+        $scope.header = {} ;
+        $scope.contents = [];
+    var tabletop = Tabletop.init( {
+        key: '1t5_YYxLzpunJ7gw_ghlubsnGtIw-b5Evh2MITmn67Wk',
+        callback: function(data, tabletop) {
+            console.log(tabletop.sheets('history'));
+            var history_data = tabletop.sheets('history');
+            $scope.header = history_data.elements[1];
+            $scope.contents = history_data.elements.slice(2);
+            console.log($scope.header);
+            console.log($scope.contents);
+        }}
+    );
+
+        console.log($scope.header);
+        console.log($scope.contents);
 //    $http.get('res/json/about_us/history.json').then(function(res){
 //        console.log(res.data);
 //        $scope.header = res.data.header;
 //        $scope.contents = res.data.contents;
 //    });
-    Tabletop.init( { key: '1t5_YYxLzpunJ7gw_ghlubsnGtIw-b5Evh2MITmn67Wk',
-            callback: function(data, tabletop) { console.log(data); $scope.header = data[1]; $scope.contents = data.slice(2); },
-            simpleSheet: true }
-    );
+
 }])
 
 .controller('FQA', ['$scope', function($scope){
@@ -49,11 +73,6 @@ angular.module("pages", [])
             $(this).children("div[name='wrap_content']:eq(0)").removeClass("content_on_target");
         }
     });
-
-    Tabletop.init( { key: '1t5_YYxLzpunJ7gw_ghlubsnGtIw-b5Evh2MITmn67Wk',
-        callback: function(data, tabletop) { console.log(data) },
-        simpleSheet: true }
-    );
 }])
 
 .controller('government_employee', ['$scope', function($scope){
