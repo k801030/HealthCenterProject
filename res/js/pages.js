@@ -75,6 +75,20 @@ angular.module("pages", [])
 
 }])
 
+.controller('feature', ['$scope', 'getSpreadSheetData', 'scopeService',function($scope, getSpreadSheetData, scopeService){
+    getSpreadSheetData.then(function(tabletop){
+        var feature_data = tabletop.sheets('feature');
+        scopeService.safeApply($scope, function(){
+                console.log(tabletop.sheets('feature'));
+                console.log(feature_data.elements);
+                $scope.header = feature_data.elements[1];
+                $scope.contents = feature_data.elements.slice(2);
+            }
+        );
+    });
+
+}])
+
 .controller('FQA', ['$scope', function($scope){
     $('.wrap li').addClass("li_default");
     $('.wrap li>div[name="wrap_content"]').addClass("content_default");
