@@ -3,15 +3,31 @@
  */
 angular.module("pages", [])
 
-//.factory('tabletop', function() {
-//    var tabletop = Tabletop.init( {
-//        key: '1t5_YYxLzpunJ7gw_ghlubsnGtIw-b5Evh2MITmn67Wk',
-//        callback: function(data, tabletop) {
-//        }}
-//    );
-//
-//    return tabletop;
-//})
+.service('getSpreadSheetData', function($q) {
+    var deferred = $q.defer();
+    Tabletop.init({
+        key: '1t5_YYxLzpunJ7gw_ghlubsnGtIw-b5Evh2MITmn67Wk',
+        callback: function(data, tabletop) {
+            deferred.resolve(tabletop);
+        }
+    });
+    return deferred.promise;
+})
+
+.service('scopeService', function() {
+    return {
+        safeApply: function ($scope, fn) {
+            var phase = $scope.$root.$$phase;
+            if (phase == '$apply' || phase == '$digest') {
+                if (fn && typeof fn === 'function') {
+                    fn();
+                }
+            } else {
+                $scope.$apply(fn);
+            }
+        }
+    };
+})
 
 .controller('reminder', ['$scope', function($scope){
     $('.wrap li').addClass("li_default");
@@ -31,24 +47,17 @@ angular.module("pages", [])
     });
 }])
 
-.controller('history', ['$scope', function($scope){
+.controller('history', ['$scope', 'getSpreadSheetData', 'scopeService', function($scope, getSpreadSheetData, scopeService){
 
-        $scope.header = {} ;
-        $scope.contents = [];
-    var tabletop = Tabletop.init( {
-        key: '1t5_YYxLzpunJ7gw_ghlubsnGtIw-b5Evh2MITmn67Wk',
-        callback: function(data, tabletop) {
-            console.log(tabletop.sheets('history'));
-            var history_data = tabletop.sheets('history');
-            $scope.header = history_data.elements[1];
-            $scope.contents = history_data.elements.slice(2);
-            console.log($scope.header);
-            console.log($scope.contents);
-        }}
-    );
-
-        console.log($scope.header);
-        console.log($scope.contents);
+    getSpreadSheetData.then(function(tabletop){
+        scopeService.safeApply($scope, function(){
+                console.log(tabletop.sheets('history'));
+                var history_data = tabletop.sheets('history');
+                $scope.header = history_data.elements[1];
+                $scope.contents = history_data.elements.slice(2);
+            }
+        );
+    });
 //    $http.get('res/json/about_us/history.json').then(function(res){
 //        console.log(res.data);
 //        $scope.header = res.data.header;
