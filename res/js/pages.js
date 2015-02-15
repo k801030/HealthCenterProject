@@ -21,6 +21,18 @@ angular.module("pages", [])
     });
 }])
 
+.controller('history', ['$scope', '$http', function($scope, $http){
+//    $http.get('res/json/about_us/history.json').then(function(res){
+//        console.log(res.data);
+//        $scope.header = res.data.header;
+//        $scope.contents = res.data.contents;
+//    });
+    Tabletop.init( { key: '1t5_YYxLzpunJ7gw_ghlubsnGtIw-b5Evh2MITmn67Wk',
+            callback: function(data, tabletop) { console.log(data); $scope.header = data[1]; $scope.contents = data.slice(2); },
+            simpleSheet: true }
+    );
+}])
+
 .controller('FQA', ['$scope', function($scope){
     $('.wrap li').addClass("li_default");
     $('.wrap li>div[name="wrap_content"]').addClass("content_default");
@@ -37,6 +49,11 @@ angular.module("pages", [])
             $(this).children("div[name='wrap_content']:eq(0)").removeClass("content_on_target");
         }
     });
+
+    Tabletop.init( { key: '1t5_YYxLzpunJ7gw_ghlubsnGtIw-b5Evh2MITmn67Wk',
+        callback: function(data, tabletop) { console.log(data) },
+        simpleSheet: true }
+    );
 }])
 
 .controller('government_employee', ['$scope', function($scope){
