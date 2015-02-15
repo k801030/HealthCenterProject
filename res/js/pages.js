@@ -8,6 +8,14 @@ angular.module("pages", [])
     Tabletop.init({
         key: '1t5_YYxLzpunJ7gw_ghlubsnGtIw-b5Evh2MITmn67Wk',
         callback: function(data, tabletop) {
+            for(var sheet_index in tabletop.sheets()){
+                console.log(tabletop.sheets(sheet_index));
+                for(var element_index in tabletop.sheets(sheet_index).elements){
+                    if(tabletop.sheets(sheet_index).elements[element_index].content !== undefined)
+                        tabletop.sheets(sheet_index).elements[element_index].content =
+                            tabletop.sheets(sheet_index).elements[element_index].content.split('<br>');
+                }
+            }
             deferred.resolve(tabletop);
         }
     });
@@ -48,15 +56,16 @@ angular.module("pages", [])
 }])
 
 .controller('history', ['$scope', 'getSpreadSheetData', 'scopeService', function($scope, getSpreadSheetData, scopeService){
-
     getSpreadSheetData.then(function(tabletop){
+        var history_data = tabletop.sheets('history');
         scopeService.safeApply($scope, function(){
                 console.log(tabletop.sheets('history'));
-                var history_data = tabletop.sheets('history');
+                console.log(history_data.elements);
                 $scope.header = history_data.elements[1];
                 $scope.contents = history_data.elements.slice(2);
             }
         );
+
     });
 //    $http.get('res/json/about_us/history.json').then(function(res){
 //        console.log(res.data);
