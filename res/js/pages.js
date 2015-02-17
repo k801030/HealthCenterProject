@@ -10,11 +10,32 @@ angular.module("pages", [])
         callback: function(data, tabletop) {
             for(var sheet_index in tabletop.sheets()){
                 console.log(tabletop.sheets(sheet_index));
-                for(var element_index in tabletop.sheets(sheet_index).elements){
-                    if(tabletop.sheets(sheet_index).elements[element_index].content !== undefined)
-                        tabletop.sheets(sheet_index).elements[element_index].content =
-                            tabletop.sheets(sheet_index).elements[element_index].content.split('<br>');
+                if(sheet_index == 'history' || sheet_index == 'feature'){
+                    for(var element_index in tabletop.sheets(sheet_index).elements){
+                        if(tabletop.sheets(sheet_index).elements[element_index].content !== "")
+                            tabletop.sheets(sheet_index).elements[element_index].content =
+                                tabletop.sheets(sheet_index).elements[element_index].content.split('<br>');
+                    }
                 }
+                else if(sheet_index == 'dr'){
+                    for(var element_index in tabletop.sheets(sheet_index).elements){
+                        tabletop.sheets(sheet_index).elements[element_index].title =
+                            tabletop.sheets(sheet_index).elements[element_index].title.split('<br>');
+
+                        tabletop.sheets(sheet_index).elements[element_index].education =
+                            tabletop.sheets(sheet_index).elements[element_index].education.split('<br>');
+
+                        tabletop.sheets(sheet_index).elements[element_index].now_at =
+                            tabletop.sheets(sheet_index).elements[element_index].now_at.split('<br>');
+
+                        tabletop.sheets(sheet_index).elements[element_index].experience =
+                            tabletop.sheets(sheet_index).elements[element_index].experience.split('<br>');
+
+                        tabletop.sheets(sheet_index).elements[element_index].specialist =
+                            tabletop.sheets(sheet_index).elements[element_index].specialist.split('<br>');
+                    }
+                }
+
             }
             deferred.resolve(tabletop);
         }
@@ -145,6 +166,20 @@ angular.module("pages", [])
     $scope.getExamContent = function(){
         return "res/pdf/one_day.htm";
     }
+
+}])
+
+.controller('dr', ['$scope', 'getSpreadSheetData', 'scopeService', function($scope, getSpreadSheetData, scopeService){
+    getSpreadSheetData.then(function(tabletop){
+        var dr_data = tabletop.sheets('dr');
+        scopeService.safeApply($scope, function(){
+                console.log(tabletop.sheets('feature'));
+                console.log(dr_data.elements);
+                $scope.header = dr_data.elements[1];
+                $scope.contents = dr_data.elements.slice(2);
+            }
+        );
+    });
 }]);
 
 

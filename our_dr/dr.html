@@ -1,22 +1,50 @@
-<div class="container">
+<div ng-controller="dr" class="container-fluid">
     <div class="row">
         <div class="col-sm-8">
-            <h4 class="pull-right"></h4>
+            <h4 class="pull-left">
+                <p style="font-style: italic" ng-repeat="line in header.title">{{line}}</p>
+            </h4>
         </div>
     </div>
-    <div class="row">
-        <h4>專科主治醫師</h4>
+
+    <div class="row" ng-repeat="content in contents">
+        <div class="row">
+            <hr class="col-sm-3">
+        </div>
+        <h3>{{content.name}}&nbsp醫師個人簡歷</h3>
         <div class="row">
             <hr class="col-sm-3">
         </div>
 
-        <div class="col-sm-7">
-            <blockquote>
-                <div class="row">
-                    <img src="res/images/default.jpg">
-                </div>
-                <p>為了提供更精準的檢查及診斷結果，本中心規劃具豐富臨床經驗的主治醫師級之專科醫師親自主持各項檢查，提供最正確的診斷及醫療建議，更有效率地掌握您健康狀況。</p>
-            </blockquote>
+        <div class="col-sm-8">
+            <div class="row" ng-show="content.education[0] !== ''">
+                <h3>學歷：</h3>
+                <blockquote>
+                    <p ng-repeat="line in content.education">{{line}}</p>
+                </blockquote>
+            </div>
+            <div class="row" ng-show="content.now_at[0] !== ''">
+                <h3>現任：</h3>
+                <blockquote>
+                    <p ng-repeat="line in content.now_at">{{line}}</p>
+                </blockquote>
+            </div>
+            <div class="row" ng-show="content.experience[0] !== ''">
+                <h3>經歷：</h3>
+                <blockquote>
+                    <p ng-repeat="line in content.experience">{{line}}</p>
+                </blockquote>
+            </div>
+            <div class="row" ng-show="content.specialist[0] !== ''">
+                <h3>專科醫師：</h3>
+                <blockquote>
+                    <p ng-repeat="line in content.specialist">{{line}}</p>
+                </blockquote>
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <img src="res/images/default.jpg">
         </div>
 
 
