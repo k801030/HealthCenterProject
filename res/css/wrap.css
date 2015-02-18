@@ -5,7 +5,7 @@
 .wrap li {
     list-style-type: none;
     margin: 10px 5px;
-    padding: 10px;
+    padding: 5px;
     border-radius: 10px;
 }
 
@@ -50,8 +50,9 @@
 /*}*/
 
 .li_default {
-    min-height: 2.4em;
+    min-height: 2em;
     height: 0px;
+    margin-bottom: 1em !important;
     -webkit-transition: height .8s ease-in-out;
     -moz-transition: height .8s ease-in-out;
     -ms-transition: height .8s ease-in-out;

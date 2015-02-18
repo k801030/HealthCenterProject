@@ -1,1 +1,37 @@
-疾病資訊
+<div class="container" ng-controller="health_info">
+    <div class="row">
+        <h3 class="pull-left">
+            <p style="font-style: italic;" ng-repeat="line in header.content">{{line}}</p>
+        </h3>
+    </div>
+    <div class="row">
+        <hr class="col-sm-3">
+    </div>
+
+    <div class="col-sm-9 wrap">
+        <blockquote>
+            <ul>
+                <li class="li_default" ng-repeat="content in contents" ng-click="showContent($event)">
+                    <label>{{content.title}}</label>
+                    <div class="content_default" name="wrap_content">
+                        <hr>
+                        <blockquote>
+                            <p ng-repeat="line in content.content">{{line}}</p>
+                            <div ng-repeat="n in [] | range:10">
+                                <div ng-if="content['content' + (n+1)][0] !== ''">
+                                    <h4><b>{{content['content' + (n+1)][0]}}</b></h4>
+                                    <blockquote>
+                                        <p ng-repeat="line in content['content' + (n+1)] track by $index" ng-if="$index > 0">
+                                            {{line}}
+                                        </p>
+                                    </blockquote>
+                                </div>
+                            </div>
+                        </blockquote>
+                    </div>
+                </li>
+            </ul>
+        </blockquote>
+    </div>
+
+</div>

@@ -14,26 +14,37 @@ angular.module("pages", [])
                     for(var element_index in tabletop.sheets(sheet_index).elements){
                         if(tabletop.sheets(sheet_index).elements[element_index].content !== "")
                             tabletop.sheets(sheet_index).elements[element_index].content =
-                                tabletop.sheets(sheet_index).elements[element_index].content.split('<br>');
+                                tabletop.sheets(sheet_index).elements[element_index].content.split('\n');
                     }
                 }
                 else if(sheet_index == 'dr'){
                     for(var element_index in tabletop.sheets(sheet_index).elements){
                         tabletop.sheets(sheet_index).elements[element_index].title =
-                            tabletop.sheets(sheet_index).elements[element_index].title.split('<br>');
+                            tabletop.sheets(sheet_index).elements[element_index].title.split('\n');
 
                         tabletop.sheets(sheet_index).elements[element_index].education =
-                            tabletop.sheets(sheet_index).elements[element_index].education.split('<br>');
+                            tabletop.sheets(sheet_index).elements[element_index].education.split('\n');
 
                         tabletop.sheets(sheet_index).elements[element_index].now_at =
-                            tabletop.sheets(sheet_index).elements[element_index].now_at.split('<br>');
+                            tabletop.sheets(sheet_index).elements[element_index].now_at.split('\n');
 
                         tabletop.sheets(sheet_index).elements[element_index].experience =
-                            tabletop.sheets(sheet_index).elements[element_index].experience.split('<br>');
+                            tabletop.sheets(sheet_index).elements[element_index].experience.split('\n');
 
                         tabletop.sheets(sheet_index).elements[element_index].specialist =
-                            tabletop.sheets(sheet_index).elements[element_index].specialist.split('<br>');
+                            tabletop.sheets(sheet_index).elements[element_index].specialist.split('\n');
                     }
+                }
+                else if(sheet_index == 'health_info'){
+                    for(var element_index in tabletop.sheets(sheet_index).elements){
+                        for(var i = 1; i <= 10; i++){
+                            tabletop.sheets(sheet_index).elements[element_index]["content" + i] =
+                                tabletop.sheets(sheet_index).elements[element_index]["content" + i].split('\n');
+                        }
+                        tabletop.sheets(sheet_index).elements[element_index].content =
+                            tabletop.sheets(sheet_index).elements[element_index].content.split('\n');
+                    }
+                    console.log(tabletop.sheets(sheet_index));
                 }
 
             }
@@ -55,6 +66,15 @@ angular.module("pages", [])
                 $scope.$apply(fn);
             }
         }
+    };
+})
+
+.filter('range', function() {
+    return function(input, total) {
+        total = parseInt(total);
+        for (var i=0; i<total; i++)
+            input.push(i);
+        return input;
     };
 })
 
@@ -86,14 +106,7 @@ angular.module("pages", [])
                 $scope.contents = history_data.elements.slice(2);
             }
         );
-
     });
-//    $http.get('res/json/about_us/history.json').then(function(res){
-//        console.log(res.data);
-//        $scope.header = res.data.header;
-//        $scope.contents = res.data.contents;
-//    });
-
 }])
 
 .controller('feature', ['$scope', 'getSpreadSheetData', 'scopeService',function($scope, getSpreadSheetData, scopeService){
@@ -111,21 +124,7 @@ angular.module("pages", [])
 }])
 
 .controller('FQA', ['$scope', function($scope){
-    $('.wrap li').addClass("li_default");
-    $('.wrap li>div[name="wrap_content"]').addClass("content_default");
-
-    $('.wrap li').click(function(){
-        if(!$(this).hasClass("li_on_target")){
-            $(this).addClass("li_on_target");
-            $(this).children("label:eq(0)").addClass("title_on_target");
-            $(this).children("div[name='wrap_content']:eq(0)").addClass("content_on_target");
-        }
-        else{
-            $(this).removeClass("li_on_target");
-            $(this).children("label:eq(0)").removeClass("title_on_target");
-            $(this).children("div[name='wrap_content']:eq(0)").removeClass("content_on_target");
-        }
-    });
+    wrapSetting();
 }])
 
 .controller('government_employee', ['$scope', function($scope){
@@ -180,6 +179,34 @@ angular.module("pages", [])
             }
         );
     });
+}])
+
+.controller('health_info', ['$scope', 'getSpreadSheetData', 'scopeService', function($scope, getSpreadSheetData, scopeService){
+    getSpreadSheetData.then(function(tabletop){
+        var health_info_data = tabletop.sheets('health_info');
+        scopeService.safeApply($scope, function(){
+                console.log(tabletop.sheets('feature'));
+                console.log(health_info_data.elements);
+                $scope.header = health_info_data.elements[1];
+                $scope.contents = health_info_data.elements.slice(2);
+            }
+        );
+    });
+
+    $scope.showContent = function(e){
+        var $this = $(e.currentTarget);
+        if(!$this.hasClass("li_on_target")){
+            $this.addClass("li_on_target");
+            $this.children("label:eq(0)").addClass("title_on_target");
+            $this.children("div[name='wrap_content']:eq(0)").addClass("content_on_target");
+        }
+        else{
+            $this.removeClass("li_on_target");
+            $this.children("label:eq(0)").removeClass("title_on_target");
+            $this.children("div[name='wrap_content']:eq(0)").removeClass("content_on_target");
+        }
+    }
+
 }]);
 
 
@@ -210,4 +237,22 @@ function setTabHeaderHeight(cur_tab_header_index, new_tab_header_index){
     var cur_height = $('#content .container').height();
 
     $('#content .container').height(cur_height - cur_tab_header_height + new_tab_header_height);
+}
+
+function wrapSetting(){
+    $('.wrap li').addClass("li_default");
+    $('.wrap li>div[name="wrap_content"]').addClass("content_default");
+
+    $('.wrap li').click(function(){
+        if(!$(this).hasClass("li_on_target")){
+            $(this).addClass("li_on_target");
+            $(this).children("label:eq(0)").addClass("title_on_target");
+            $(this).children("div[name='wrap_content']:eq(0)").addClass("content_on_target");
+        }
+        else{
+            $(this).removeClass("li_on_target");
+            $(this).children("label:eq(0)").removeClass("title_on_target");
+            $(this).children("div[name='wrap_content']:eq(0)").removeClass("content_on_target");
+        }
+    });
 }
