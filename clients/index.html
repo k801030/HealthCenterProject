@@ -16,18 +16,45 @@
         <div class="col-sm-9">
           <select class="form-control" ng-model="form.exam_type" required>
             <option value="" selected>-- 檢查種類 --</option>
-            <option>A</option>
-            <option>B</option>
-            <option>C</option>
+            <optgroup label="一日全身健檢">
+              <option>精緻</option>
+              <option>無痛腸胃鏡(A)</option>
+              <option>無痛腸胃鏡(B)</option>
+              <option>心血管健檢</option>
+              <option>腦部MRI</option>
+            </optgroup>
+            <optgroup label="一般工作健檢">
+              <option>一般公司健康檢查</option>
+              <option>勞工健康檢查</option>
+              <option>餐飲人員健康檢查</option>
+            </optgroup>
+            <optgroup label="公務人員健檢">
+              <option>公務人員超值健檢</option>
+              <option>公務人員超音波健檢</option>
+            </optgroup>
+            <optgroup label="外籍人士健檢">
+              <option>外籍人士健檢</option>
+            </optgroup>
+            <optgroup label="成人健康檢查">
+              <option>成人健康檢查</option>
+            </optgroup>
           </select>
         </div>
       </div>
 
-      <div class="form-group col-sm-12" ng-controller="ReservDateCtrl">
-      {{ hi(123) }}
+      <div class="form-group col-sm-12" ng-controller="VaildDateCtrl">
         <label class="col-sm-3">預定檢查日期</label> 
         <div class="col-sm-9">
-          <input class="form-control" type="date" placeholder="2015-03-15" min="{{ getMinDate(1,0) }}" max="{{ getMaxDate(6,0) }}" ng-model="form.exam_date" required>
+          <div class="col-sm-4"><select class="form-control" ng-model="form.exam.year" required>
+            <option value="" selected>2015</option>
+          </select></div>
+          <div class="col-sm-4"><select class="form-control" ng-model="form.exam.month" ng-options="month for month in months" required>
+            <option value="" selected>月</option>
+          </select></div>
+          <div class="col-sm-4"><select class="form-control" ng-model="form.exam.day" ng-options="day for day in days()">
+            <option value="" selected>日</option>
+          </select required></div>
+          <!--<input class="form-control" type="date" placeholder="2015-03-15" min="{{ getMinDate(1,0) }}" max="{{ getMaxDate(6,0) }}" ng-model="form.exam_date" required>-->
         </div>
       </div>
 
@@ -83,7 +110,7 @@
           <button type="submit" class="btn btn-style">送出</button>
         </div>
         <div class="col-sm-2">
-          <button type="submit" class="btn btn-default">取消</button>
+          <button type="reset" class="btn btn-default">重新填寫</button>
         </div>
       </div>
     </form>
