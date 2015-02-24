@@ -3,7 +3,8 @@
     <p class="align-center">線上預約請於檢查日一個月前預約。</p>
     <hr class="col-sm-12">
     
-    <form class="" ng-controller="ClientCtrl" ng-model="form">
+
+    <form id="client_form" class="" ng-controller="ClientCtrl" ng-model="form">
       <div class="form-group col-sm-12">
         <label class="col-sm-3">姓名</label>
         <div class="col-sm-9">
@@ -45,13 +46,15 @@
       <div class="form-group col-sm-12" ng-controller="VaildDateCtrl">
         <label class="col-sm-3">預定檢查日期</label> 
         <div class="col-sm-9">
-          <div class="col-sm-4"><select class="form-control" ng-model="form.exam.year" required>
-            <option value="" selected>2015</option>
+          <div class="col-sm-4"><select class="form-control" ng-model="form.exam_date.year" required>
+            <option value="" selected>年</option>
+            <option value="2015">2015</option>
+            <option value="2016">2016</option>
           </select></div>
-          <div class="col-sm-4"><select class="form-control" ng-model="form.exam.month" ng-options="month for month in months" required>
+          <div class="col-sm-4"><select class="form-control" ng-model="form.exam_date.month" ng-options="month for month in months" required>
             <option value="" selected>月</option>
           </select></div>
-          <div class="col-sm-4"><select class="form-control" ng-model="form.exam.day" ng-options="day for day in days()">
+          <div class="col-sm-4"><select class="form-control" ng-model="form.exam_date.day" ng-options="day for day in days()">
             <option value="" selected>日</option>
           </select required></div>
           <!--<input class="form-control" type="date" placeholder="2015-03-15" min="{{ getMinDate(1,0) }}" max="{{ getMaxDate(6,0) }}" ng-model="form.exam_date" required>-->
@@ -105,13 +108,34 @@
         </div>
       </div>
 
-      <div class="form-group col-sm-12">
+      <div class="col-sm-12">
+        <p id="error_message" class="align-center hightlight my-hide">請填入完整表單！</p>
+      </div>
+
+      <div class="form-group col-sm-12" ng-controller="SubmitCtrl">
         <div class="col-sm-offset-4 col-sm-2">
-          <button type="submit" class="btn btn-style">送出</button>
+          <button type="submit" class="btn btn-style" ng-click="send_email()">送出</button>
         </div>
         <div class="col-sm-2">
           <button type="reset" class="btn btn-default">重新填寫</button>
         </div>
       </div>
     </form>
+
+<script type="text/javascript">
+  var form = document.getElementById('client_form');
+  form.noValidate = true;
+  form.addEventListener('submit', function(event) {
+    /*var msg = document.getElementById('error_message');
+    if (!event.target.checkValidity()) {
+      event.preventDefault(); // dismiss the default functionality
+      msg.style.display = "block";
+    } else {
+      msg.style.display = "none";
+    }
+    */
+
+
+  }, false);
+</script>
 </div>

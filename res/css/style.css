@@ -25,6 +25,9 @@ a.sheet_link {
   color :red;
 }
 
+.my-hide {
+  display: none;
+}
 
 /* slider */
 .carousel-control {
