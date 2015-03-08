@@ -42,7 +42,8 @@ angular.module("pages", [])
                             sheet.elements[element_index].specialist.split('\n');
                     }
                 }
-                else if(sheet_index == 'health_know_healthcare' || sheet_index == 'health_info_disease' || sheet_index == 'health_info_QA'){
+                else if(sheet_index == 'item_oneday' || sheet_index == 'item_work' || sheet_index == 'item_foreign' || sheet_index == 'item_adult' ||
+                        sheet_index == 'health_know_healthcare' || sheet_index == 'health_info_disease' || sheet_index == 'health_info_QA'){
                     for(var element_index in sheet.elements){
                         for(var i = 1; i <= 20; i++){
                             sheet.elements[element_index]["content" + i] =
@@ -135,45 +136,126 @@ angular.module("pages", [])
 
 }])
 
-.controller('government_employee', ['$scope', function($scope){
-    $scope.tab_header_index = 1;
+.controller('government_employee', ['$scope', 'getSpreadSheetData', 'scopeService', function($scope, getSpreadSheetData, scopeService) {
+//    $scope.tab_header_index = 0;
     $scope.tab_section_index = 1;
 
-    setHeight($scope.tab_header_index, $scope.tab_section_index);
-    $scope.setTabContentHeight = function(new_tab_section_index){
-        setTabContentHeight($scope.tab_section_index, new_tab_section_index);
+//    setHeight($scope.tab_header_index, $scope.tab_section_index);
+//    $scope.setTabContentHeight = function(new_tab_section_index){
+//        setTabContentHeight($scope.tab_section_index, new_tab_section_index);
+//    };
+//    $scope.setTabHeaderHeight = function(new_tab_header_index){
+//        setTabHeaderHeight($scope.tab_header_index, new_tab_header_index);
+//    }
+
+    $scope.changeContent = function(index) {
+        if(index == 1){
+            $('#item_href').attr('href', 'https://docs.google.com/spreadsheets/d/1SmWi3wuZVPd-9FoZwtZOnAXXwbSWl_ur-xLc5MYfC7g/pubhtml?widget=true&amp;headers=false');
+            $('#item_frame').attr('src', 'https://docs.google.com/spreadsheets/d/1SmWi3wuZVPd-9FoZwtZOnAXXwbSWl_ur-xLc5MYfC7g/pubhtml?widget=true&amp;headers=false');
+        }
+        if(index == 2){
+            $('#item_href').attr('href', 'https://docs.google.com/spreadsheets/d/1nO3aocwPG6zdgHwt8UpSmKD4J_-WbAhCUEa3pbh2Q4o/pubhtml?widget=true&amp;headers=false');
+            $('#item_frame').attr('src', 'https://docs.google.com/spreadsheets/d/1nO3aocwPG6zdgHwt8UpSmKD4J_-WbAhCUEa3pbh2Q4o/pubhtml?widget=true&amp;headers=false');
+        }
     };
-    $scope.setTabHeaderHeight = function(new_tab_header_index){
-        setTabHeaderHeight($scope.tab_header_index, new_tab_header_index);
-    }
+
+    getSpreadSheetData.then(function(tabletop){
+        var item_government_data = tabletop.sheets('item_government');
+        scopeService.safeApply($scope, function(){
+                console.log(tabletop.sheets('item_government'));
+                console.log(item_government_data.elements);
+                $scope.header = item_government_data.elements[1];
+                $scope.contents = item_government_data.elements.slice(2);
+            }
+        );
+    });
 }])
 
 .controller('functional', ['$scope', function($scope){
-    $scope.tab_header_index = 1;
-    $scope.tab_section_index = 1;
-
-    setHeight($scope.tab_header_index, $scope.tab_section_index);
-    $scope.setTabContentHeight = function(new_tab_section_index){
-        setTabContentHeight($scope.tab_section_index, new_tab_section_index);
-    };
-    $scope.setTabHeaderHeight = function(new_tab_header_index){
-        setTabHeaderHeight($scope.tab_header_index, new_tab_header_index);
-    }
+//    $scope.tab_header_index = 1;
+//    $scope.tab_section_index = 1;
+//
+//    setHeight($scope.tab_header_index, $scope.tab_section_index);
+//    $scope.setTabContentHeight = function(new_tab_section_index){
+//        setTabContentHeight($scope.tab_section_index, new_tab_section_index);
+//    };
+//    $scope.setTabHeaderHeight = function(new_tab_header_index){
+//        setTabHeaderHeight($scope.tab_header_index, new_tab_header_index);
+//    }
 }])
 
-.controller('oneday', ['$scope', function($scope){
-    $scope.tab_header_index = 0;
-    $scope.tab_section_index = 1;
+.controller('oneday', ['$scope', 'getSpreadSheetData', 'scopeService', function($scope, getSpreadSheetData, scopeService) {
+//    $scope.tab_header_index = 0;
+//    $scope.tab_section_index = 1;
+//
+//    setHeight($scope.tab_header_index, $scope.tab_section_index);
+//    $scope.setTabContentHeight = function(new_tab_section_index){
+//        setTabContentHeight($scope.tab_section_index, new_tab_section_index);
+//    };
 
-    setHeight($scope.tab_header_index, $scope.tab_section_index);
-    $scope.setTabContentHeight = function(new_tab_section_index){
-        setTabContentHeight($scope.tab_section_index, new_tab_section_index);
-    };
+//    $scope.getExamContent = function(){
+//        return "res/pdf/one_day.htm";
+//    }
 
-    $scope.getExamContent = function(){
-        return "res/pdf/one_day.htm";
-    }
+    getSpreadSheetData.then(function(tabletop){
+        var item_oneday_data = tabletop.sheets('item_oneday');
+        scopeService.safeApply($scope, function(){
+                console.log(tabletop.sheets('item_oneday'));
+                console.log(item_oneday_data.elements);
+                $scope.header = item_oneday_data.elements[1];
+                $scope.contents = item_oneday_data.elements.slice(2);
+            }
+        );
+    });
 
+}])
+
+.controller('work', ['$scope', 'getSpreadSheetData', 'scopeService', function($scope, getSpreadSheetData, scopeService) {
+//    $scope.tab_header_index = 0;
+//    $scope.tab_section_index = 1;
+//
+//    setHeight($scope.tab_header_index, $scope.tab_section_index);
+//    $scope.setTabContentHeight = function(new_tab_section_index){
+//        setTabContentHeight($scope.tab_section_index, new_tab_section_index);
+//    };
+
+    getSpreadSheetData.then(function(tabletop){
+        var work_data = tabletop.sheets('item_work');
+        scopeService.safeApply($scope, function(){
+                console.log(tabletop.sheets('work'));
+                console.log(work_data.elements);
+                $scope.header = work_data.elements[1];
+                $scope.contents = work_data.elements.slice(2);
+            }
+        );
+    });
+
+}])
+
+.controller('foreigner', ['$scope', 'getSpreadSheetData', 'scopeService', function($scope, getSpreadSheetData, scopeService) {
+    getSpreadSheetData.then(function(tabletop){
+        var item_foreign_data = tabletop.sheets('item_foreign');
+        scopeService.safeApply($scope, function(){
+                console.log(tabletop.sheets('item_foreign'));
+                console.log(item_foreign_data.elements);
+                $scope.header = item_foreign_data.elements[1];
+                $scope.contents = item_foreign_data.elements.slice(2);
+            }
+        );
+    });
+}])
+
+.controller('adult', ['$scope', 'getSpreadSheetData', 'scopeService', function($scope, getSpreadSheetData, scopeService) {
+    getSpreadSheetData.then(function(tabletop){
+        var item_adult_data = tabletop.sheets('item_adult');
+        scopeService.safeApply($scope, function(){
+                console.log(tabletop.sheets('item_adult'));
+                console.log(item_adult_data.elements);
+                $scope.header = item_adult_data.elements[1];
+                $scope.contents = item_adult_data.elements.slice(2);
+            }
+        );
+    });
 }])
 
 .controller('dr', ['$scope', 'getSpreadSheetData', 'scopeService', function($scope, getSpreadSheetData, scopeService){
@@ -279,52 +361,53 @@ angular.module("pages", [])
 }]);
 
 
-function setHeight(tab_header_index, tab_section_index){
-    var div_tabs_height = $('div.row:eq(0)').height();
-
-    var tab_header_height;
-    if(tab_header_index == 0)
-        tab_header_height = 0;
-    else
-        tab_header_height = $('div[name="tab_header_content"]:eq(' + (tab_header_index-1).toString() + ')').height();
-
-    var tab_content_height = $('div[name="tab_section_content"]:eq(' + (tab_section_index-1).toString() + ')').height();
-    $('#content .container').height(div_tabs_height + tab_header_height + tab_content_height);
-}
-
-function setTabContentHeight(cur_tab_section_index, new_tab_section_index){
-    var new_tab_content_height = $('div[name="tab_section_content"]:eq(' + (new_tab_section_index-1).toString() + ')').height();
-    var cur_tab_content_height = $('div[name="tab_section_content"]:eq(' + (cur_tab_section_index-1).toString() + ')').height();
-    var cur_height = $('#content .container').height();
-
-    $('#content .container').height(cur_height - cur_tab_content_height + new_tab_content_height);
-}
-
-function setTabHeaderHeight(cur_tab_header_index, new_tab_header_index){
-    var new_tab_header_height = $('div[name="tab_header_content"]:eq(' + (new_tab_header_index-1).toString() + ')').height();
-    var cur_tab_header_height = $('div[name="tab_header_content"]:eq(' + (cur_tab_header_index-1).toString() + ')').height();
-    var cur_height = $('#content .container').height();
-
-    $('#content .container').height(cur_height - cur_tab_header_height + new_tab_header_height);
-}
-
-function wrapSetting(){
-    $('.wrap li').addClass("li_default");
-    $('.wrap li>div[name="wrap_content"]').addClass("content_default");
-
-    $('.wrap li').click(function(){
-        if(!$(this).hasClass("li_on_target")){
-            $(this).addClass("li_on_target");
-            $(this).children("label:eq(0)").addClass("title_on_target");
-            $(this).children("div[name='wrap_content']:eq(0)").addClass("content_on_target");
-        }
-        else{
-            $(this).removeClass("li_on_target");
-            $(this).children("label:eq(0)").removeClass("title_on_target");
-            $(this).children("div[name='wrap_content']:eq(0)").removeClass("content_on_target");
-        }
-    });
-}
+//function setHeight(tab_header_index, tab_section_index){
+//    var div_tabs_height = $('div.row:eq(0)').height();
+//
+//    var tab_header_height;
+//    if(tab_header_index == 0)
+//        tab_header_height = 0;
+//    else
+//        tab_header_height = $('div[name="tab_header_content"]:eq(' + (tab_header_index-1).toString() + ')').height();
+//
+//    var tab_content_height = $('div[name="tab_section_content"]:eq(' + (tab_section_index-1).toString() + ')').height();
+//    $('#content .container').height(div_tabs_height + tab_header_height + tab_content_height);
+//}
+//
+//function setTabContentHeight(cur_tab_section_index, new_tab_section_index){
+//    var new_tab_content_height = $('div[name="tab_section_content"]:eq(' + (new_tab_section_index-1).toString() + ')').height();
+//    var cur_tab_content_height = $('div[name="tab_section_content"]:eq(' + (cur_tab_section_index-1).toString() + ')').height();
+//    var cur_height = $('#content .container-fluid').height();
+//
+//    $('#content .container-fluid').height(cur_height - cur_tab_content_height + new_tab_content_height);
+//    alert($('#content .container-fluid').height());
+//}
+//
+//function setTabHeaderHeight(cur_tab_header_index, new_tab_header_index){
+//    var new_tab_header_height = $('div[name="tab_header_content"]:eq(' + (new_tab_header_index-1).toString() + ')').height();
+//    var cur_tab_header_height = $('div[name="tab_header_content"]:eq(' + (cur_tab_header_index-1).toString() + ')').height();
+//    var cur_height = $('#content .container').height();
+//
+//    $('#content .container').height(cur_height - cur_tab_header_height + new_tab_header_height);
+//}
+//
+//function wrapSetting(){
+//    $('.wrap li').addClass("li_default");
+//    $('.wrap li>div[name="wrap_content"]').addClass("content_default");
+//
+//    $('.wrap li').click(function(){
+//        if(!$(this).hasClass("li_on_target")){
+//            $(this).addClass("li_on_target");
+//            $(this).children("label:eq(0)").addClass("title_on_target");
+//            $(this).children("div[name='wrap_content']:eq(0)").addClass("content_on_target");
+//        }
+//        else{
+//            $(this).removeClass("li_on_target");
+//            $(this).children("label:eq(0)").removeClass("title_on_target");
+//            $(this).children("div[name='wrap_content']:eq(0)").removeClass("content_on_target");
+//        }
+//    });
+//}
 
 function showContent(e){
     var $this = $(e.currentTarget);
