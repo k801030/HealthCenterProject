@@ -17,16 +17,17 @@
                         <hr>
                         <blockquote>
                             <p ng-repeat="line in content.content">{{line}}</p>
-                            <div ng-repeat="n in [] | range:10">
+                            <div ng-repeat="n in [] | range:20">
                                 <div ng-if="content['content' + (n+1)][0] !== ''">
                                     <h4><b>{{content['content' + (n+1)][0]}}</b></h4>
-                                    <blockquote>
+                                    <blockquote ng-if="content['content' + (n+1)][1] !== undefined">
                                         <p ng-repeat="line in content['content' + (n+1)] track by $index" ng-if="$index > 0">
                                             {{line}}
                                         </p>
                                     </blockquote>
                                 </div>
                             </div>
+                            <p ng-if="content.footer !== ''" ng-repeat="line in content.footer">{{line}}</p>
                         </blockquote>
                     </div>
                 </li>
