@@ -6,14 +6,16 @@ angular.module('client', [])
   $rootScope.form = {};
   $rootScope.form['name'];
   $rootScope.form['exam_type'];
-  $rootScope.form['exam_date'];
+  $rootScope.form['exam_date'] = {};
   $rootScope.form['gender'];
   $rootScope.form['idnum'];
-  $rootScope.form['birth'];
+  $rootScope.form['birth'] = {};
+  $rootScope.form['phone'];
   $rootScope.form['email'];
 
   $scope.debug = function(){
-    console.log($rootScope.form);
+    //console.log($rootScope.form);
+    return $rootScope.form;
   }
 }])
 
@@ -100,3 +102,28 @@ angular.module('client', [])
   }
 
 }])
+
+
+.controller('SubmitCtrl', ['$scope', '$rootScope' ,function($scope, $rootScope){
+  $scope.send_email = function() {
+    var mail = 'protein650224@gmail.com';
+    subject = '馬偕健檢中心 — 線上預約';
+    body = $rootScope.form;
+    body = "預約人: " + $rootScope.form['name'] + "%0d%0a";
+    
+    body += "檢查類型\n: " + $rootScope.form['exam_type'] + "%0d%0a";
+    body += "預定檢查日期: " + $rootScope.form['exam_date']['year'] +'/'+ $rootScope.form['exam_date']['month'] +'/'+ $rootScope.form['exam_date']['day'] + "%0d%0a"; 
+    
+    body += "性別: " + $rootScope.form['gender'] + "%0d%0a"; 
+    body += "身分證字號: " + $rootScope.form['idnum'] + "%0d%0a"; 
+    body += "生日: " + $rootScope.form['birth']['year'] +'/'+ $rootScope.form['birth']['month'] +'/'+ $rootScope.form['birth']['day'] +"%0d%0a"; 
+
+    body += "電話: " + $rootScope.form['phone'] + "%0d%0a"; 
+    body += "電子信箱: " + $rootScope.form['email'] + "%0d%0a"; 
+    
+    var href = 'mailto:'+mail+'?subject='+subject+'&body='+body;
+    window.location.href = href;
+  }
+  
+}])
+
