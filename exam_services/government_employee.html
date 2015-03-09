@@ -1,42 +1,127 @@
-<div class="container" ng-controller="government_employee">
+<!--<div class="container" ng-controller="government_employee">-->
+    <!--<div class="row">-->
+        <!--<h3>公務人員健檢</h3>-->
+        <!--<div class="row">-->
+            <!--<hr class="col-sm-3">-->
+        <!--</div>-->
+        <!--<div class="row">-->
+            <!--<img src="res/images/default.jpg">-->
+        <!--</div>-->
+
+        <!--<div>-->
+            <!--<h4>健檢項目</h4>-->
+            <!--<blockquote>-->
+                <!--<div class="row">-->
+                    <!--<div class="col-sm-9" id="tab_section">-->
+                        <!--<ul class="tab_content two_contents">-->
+                            <!--<li>-->
+                                <!--<input type="radio" name="tabs_section" id="tab1_section" value="1" ng-model="tab_section_index" ng-click="setTabContentHeight(1)" checked>-->
+                                <!--<label name="tabs" for="tab1_section">公務人員超值健檢<br>3500</label>-->
+                                <!--<div name="tab_section_content" id="tab1_section_content">-->
+                                <!--<p>（若以下健檢項目無法顯示，請 <a class="sheet_link" href="https://docs.google.com/spreadsheets/d/1SmWi3wuZVPd-9FoZwtZOnAXXwbSWl_ur-xLc5MYfC7g/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false" target="_blank">點此檢視</a> ）</p>-->
+                                    <!--<iframe width="90%" height="560" src="https://docs.google.com/spreadsheets/d/1SmWi3wuZVPd-9FoZwtZOnAXXwbSWl_ur-xLc5MYfC7g/pubhtml?widget=true&amp;headers=false"></iframe>-->
+                                <!--</div>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<input type="radio" name="tabs_section" id="tab2_section" value="2" ng-model="tab_section_index" ng-click="setTabContentHeight(2)" >-->
+                                <!--<label name="tabs" for="tab2_section">公務人員腹部超音波健檢<br>3500</label>-->
+                                <!--<div name="tab_section_content" id="tab2_section_content">-->
+                                    <!--<p>（若以下健檢項目無法顯示，請 <a class="sheet_link" href="https://docs.google.com/spreadsheets/d/1nO3aocwPG6zdgHwt8UpSmKD4J_-WbAhCUEa3pbh2Q4o/pubhtml?widget=true&amp;headers=false" target="_blank">點此檢視</a> ）</p>-->
+                                    <!--<iframe width="90%" height="560" src="https://docs.google.com/spreadsheets/d/1nO3aocwPG6zdgHwt8UpSmKD4J_-WbAhCUEa3pbh2Q4o/pubhtml?widget=true&amp;headers=false"></iframe>-->
+                                <!--</div>-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</blockquote>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+            <!--<img src="">-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+<div class="container-fluid" ng-controller="government_employee">
     <div class="row">
-        <h3>公務人員健檢</h3>
-        <div class="row">
-            <hr class="col-sm-3">
-        </div>
-        <div class="row">
-            <img src="res/images/default.jpg">
+        <h3 class="pull-left">
+            {{header.title}}
+        </h3>
+    </div>
+    <div class="row">
+        <hr class="col-sm-3">
+    </div>
+
+    <div>
+        <img src="{{header.image}}">
+    </div>
+
+    <div class="col-sm-12 wrap">
+        <div ng-repeat="content in contents">
+            <div>
+                <p ng-repeat="line in content.content">{{line}}</p>
+            </div>
+            <div style="margin: 1em 0em;">
+                <div ng-if="content['content' + (n+1)][0] !== ''" ng-repeat="n in [] | range:20">
+                    <div>
+                        <h4><b>{{content['content' + (n+1)][0]}}</b></h4>
+                        <blockquote ng-if="content['content' + (n+1)][1] !== undefined">
+                            <p ng-repeat="line in content['content' + (n+1)] track by $index" ng-if="$index > 0">
+                                {{line}}
+                            </p>
+                        </blockquote>
+                    </div>
+                </div>
+                <p ng-if="content.footer[0] !== ''" ng-repeat="line in content.footer">{{line}}</p>
+            </div>
         </div>
 
         <div>
             <h4>健檢項目</h4>
-            <blockquote>
-                <div class="row">
-                    <div class="col-sm-9" id="tab_section">
-                        <ul class="tab_content two_contents">
-                            <li>
-                                <input type="radio" name="tabs_section" id="tab1_section" value="1" ng-model="tab_section_index" ng-click="setTabContentHeight(1)" checked>
-                                <label name="tabs" for="tab1_section">公務人員超值健檢<br>3500</label>
-                                <div name="tab_section_content" id="tab1_section_content">
-                                <p>（若以下健檢項目無法顯示，請 <a class="sheet_link" href="https://docs.google.com/spreadsheets/d/1SmWi3wuZVPd-9FoZwtZOnAXXwbSWl_ur-xLc5MYfC7g/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false" target="_blank">點此檢視</a> ）</p>
-                                    <iframe width="90%" height="560" src="https://docs.google.com/spreadsheets/d/1SmWi3wuZVPd-9FoZwtZOnAXXwbSWl_ur-xLc5MYfC7g/pubhtml?widget=true&amp;headers=false"></iframe>
-                                </div>
-                            </li>
-                            <li>
-                                <input type="radio" name="tabs_section" id="tab2_section" value="2" ng-model="tab_section_index" ng-click="setTabContentHeight(2)" >
-                                <label name="tabs" for="tab2_section">公務人員腹部超音波健檢<br>3500</label>
-                                <div name="tab_section_content" id="tab2_section_content">
-                                    <p>（若以下健檢項目無法顯示，請 <a class="sheet_link" href="https://docs.google.com/spreadsheets/d/1nO3aocwPG6zdgHwt8UpSmKD4J_-WbAhCUEa3pbh2Q4o/pubhtml?widget=true&amp;headers=false" target="_blank">點此檢視</a> ）</p>
-                                    <iframe width="90%" height="560" src="https://docs.google.com/spreadsheets/d/1nO3aocwPG6zdgHwt8UpSmKD4J_-WbAhCUEa3pbh2Q4o/pubhtml?widget=true&amp;headers=false"></iframe>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
+            <div class="row">
+                <div class="col-sm-12" id="tab_section">
+                    <ul class="tab_content two_contents">
+                        <li>
+                            <input type="radio" name="tabs_section" id="tab1_section" value="1" ng-model="tab_section_index" ng-click="changeContent(1)" checked>
+                            <label name="tabs" for="tab1_section">公務人員超值健檢<br>3500</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="tabs_section" id="tab2_section" value="2" ng-model="tab_section_index" ng-click="changeContent(2)" >
+                            <label name="tabs" for="tab2_section">公務人員腹部超音波健檢<br>3500</label>
+                        </li>
+
+                        <p>（若以下健檢項目無法顯示，請 <a id="item_href" class="sheet_link" href="https://docs.google.com/spreadsheets/d/1SmWi3wuZVPd-9FoZwtZOnAXXwbSWl_ur-xLc5MYfC7g/pubhtml?widget=true&amp;headers=false" target="_blank">點此檢視</a> ）</p>
+                        <iframe id="item_frame" width="100%" height="560px" src="https://docs.google.com/spreadsheets/d/1SmWi3wuZVPd-9FoZwtZOnAXXwbSWl_ur-xLc5MYfC7g/pubhtml?widget=true&amp;headers=false"></iframe>
+                    </ul>
                 </div>
-            </blockquote>
+            </div>
         </div>
-        <div class="row">
-            <img src="">
-        </div>
+
+        <!--<div>-->
+            <!--<h4>健檢項目</h4>-->
+            <!--<blockquote>-->
+                <!--<div class="row">-->
+                    <!--<div class="col-sm-12" id="tab_section">-->
+                        <!--<ul class="tab_content two_contents">-->
+                            <!--<li>-->
+                                <!--<input type="radio" name="tabs_section" id="tab1_section" value="1" ng-model="tab_section_index" ng-click="setTabContentHeight(1)" checked>-->
+                                <!--<label name="tabs" for="tab1_section">公務人員超值健檢<br>3500</label>-->
+                                <!--<div name="tab_section_content" id="tab1_section_content">-->
+                                    <!--<p>（若以下健檢項目無法顯示，請 <a class="sheet_link" href="https://docs.google.com/spreadsheets/d/1SmWi3wuZVPd-9FoZwtZOnAXXwbSWl_ur-xLc5MYfC7g/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false" target="_blank">點此檢視</a> ）</p>-->
+                                    <!--<iframe width="90%" height="560" src="https://docs.google.com/spreadsheets/d/1SmWi3wuZVPd-9FoZwtZOnAXXwbSWl_ur-xLc5MYfC7g/pubhtml?widget=true&amp;headers=false"></iframe>-->
+                                <!--</div>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<input type="radio" name="tabs_section" id="tab2_section" value="2" ng-model="tab_section_index" ng-click="setTabContentHeight(2)" >-->
+                                <!--<label name="tabs" for="tab2_section">公務人員腹部超音波健檢<br>3500</label>-->
+                                <!--<div name="tab_section_content" id="tab2_section_content">-->
+                                    <!--<p>（若以下健檢項目無法顯示，請 <a class="sheet_link" href="https://docs.google.com/spreadsheets/d/1nO3aocwPG6zdgHwt8UpSmKD4J_-WbAhCUEa3pbh2Q4o/pubhtml?widget=true&amp;headers=false" target="_blank">點此檢視</a> ）</p>-->
+                                    <!--<iframe width="90%" height="560" src="https://docs.google.com/spreadsheets/d/1nO3aocwPG6zdgHwt8UpSmKD4J_-WbAhCUEa3pbh2Q4o/pubhtml?widget=true&amp;headers=false"></iframe>-->
+                                <!--</div>-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</blockquote>-->
+        <!--</div>-->
     </div>
 </div>

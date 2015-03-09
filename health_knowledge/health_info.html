@@ -1,4 +1,4 @@
-<div class="container" ng-controller="health_info">
+<div class="container-fluid" ng-controller="health_info">
     <div class="row">
         <h3 class="pull-left">
             {{header.title}}
@@ -8,7 +8,7 @@
         <hr class="col-sm-3">
     </div>
 
-    <div class="col-sm-9 wrap">
+    <div class="col-sm-12 wrap">
         <blockquote>
             <ul>
                 <li class="li_default" ng-repeat="content in contents" ng-click="showContent($event)">
@@ -17,16 +17,17 @@
                         <hr>
                         <blockquote>
                             <p ng-repeat="line in content.content">{{line}}</p>
-                            <div ng-repeat="n in [] | range:10">
-                                <div ng-if="content['content' + (n+1)][0] !== ''">
+                            <div ng-if="content['content' + (n+1)][0] !== ''" ng-repeat="n in [] | range:20">
+                                <div>
                                     <h4><b>{{content['content' + (n+1)][0]}}</b></h4>
-                                    <blockquote>
+                                    <blockquote ng-if="content['content' + (n+1)][1] !== undefined">
                                         <p ng-repeat="line in content['content' + (n+1)] track by $index" ng-if="$index > 0">
                                             {{line}}
                                         </p>
                                     </blockquote>
                                 </div>
                             </div>
+                            <p ng-if="content.footer[0] !== ''" ng-repeat="line in content.footer">{{line}}</p>
                         </blockquote>
                     </div>
                 </li>

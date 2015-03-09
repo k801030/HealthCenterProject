@@ -1,69 +1,121 @@
-<div class="container" ng-controller="oneday">
-    <!-- content -->
+<!--<div class="container" ng-controller="oneday">-->
+    <!--&lt;!&ndash; content &ndash;&gt;-->
+    <!--<div class="row">-->
+        <!--<h3>一日全身健檢</h3>-->
+        <!--<div class="row">-->
+            <!--<hr class="col-sm-3">-->
+        <!--</div>-->
+        <!--&lt;!&ndash; img &ndash;&gt;-->
+        <!--<div class="row">-->
+            <!--<img src="res/images/default.jpg">-->
+        <!--</div>-->
+
+        <!--<div>-->
+            <!--<blockquote>-->
+                <!--<div class="row">-->
+                    <!--<div class="col-sm-9">-->
+                        <!--<p>馬偕健康檢查中心依您的個人年齡、性別、生活環境、病史等不同需求設計專屬於您的健康檢查計劃。一日全身健檢包含國人十大疾病及常見的疾病篩檢。</p>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</blockquote>-->
+        <!--</div>-->
+
+        <!--<div>-->
+            <!--<h4>檢查時間</h4>-->
+            <!--<blockquote>-->
+                <!--<p>檢查時間：週一至週五</p>-->
+                <!--<p>報到時間：上午8:00</p>-->
+                <!--<p>離院時間：約當天下午4:30</p>-->
+                <!--&lt;!&ndash;<div class="row">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="col-sm-9">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<table class="table">&ndash;&gt;-->
+                            <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<th>檢查時間</th>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<th>報到時間</th>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<th>離院時間</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<td>週一至週五</td>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<td>上午8：00</td>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<td>約當天下午4：30</td>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</table>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--</blockquote>-->
+        <!--</div>-->
+
+        <!--<div>-->
+            <!--<h4>預約服務時間</h4>-->
+            <!--<blockquote>-->
+                <!--<ul>-->
+                    <!--<li>週一至週五（上午8:00～下午4:30)</li>-->
+                    <!--<li>周六 (上午8:00～上午11:30)</li>-->
+                <!--</ul>-->
+            <!--</blockquote>-->
+        <!--</div>-->
+
+        <!--<div>-->
+            <!--<h4>預約電話</h4>-->
+            <!--<blockquote>-->
+                <!--（02）2543-3535 分機 2860～2866-->
+            <!--</blockquote>-->
+        <!--</div>-->
+
+        <!--<div>-->
+            <!--<h4>健檢項目</h4>-->
+            <!--<p>（若以下健檢項目無法顯示，請 <a class="sheet_link" href="https://docs.google.com/spreadsheets/d/1ktyFJ9xLZa6T-tWykVKHvdPBIh4IylLtz_wsjfQCk_c/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false" target="_blank">點此檢視</a> ）</p>-->
+            <!--<div class="row">-->
+                <!--<div class="col-sm-9">-->
+                    <!--<blockquote>-->
+                        <!--<iframe width="115%" height="560px" src="https://docs.google.com/spreadsheets/d/1ktyFJ9xLZa6T-tWykVKHvdPBIh4IylLtz_wsjfQCk_c/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>-->
+                    <!--</blockquote>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+<div class="container-fluid" ng-controller="oneday">
     <div class="row">
-        <h3>一日全身健檢</h3>
-        <div class="row">
-            <hr class="col-sm-3">
-        </div>
-        <!-- img -->
-        <div class="row">
-            <img src="res/images/default.jpg">
-        </div>
+        <h3 class="pull-left">
+            {{header.title}}
+        </h3>
+    </div>
+    <div class="row">
+        <hr class="col-sm-3">
+    </div>
 
-        <div>
-            <blockquote>
-                <div class="row">
-                    <div class="col-sm-9">
-                        <p>馬偕健康檢查中心依您的個人年齡、性別、生活環境、病史等不同需求設計專屬於您的健康檢查計劃。一日全身健檢包含國人十大疾病及常見的疾病篩檢。</p>
+    <div>
+        <img src="{{header.image}}">
+    </div>
+
+    <div class="col-sm-12 wrap">
+        <div ng-repeat="content in contents">
+            <div>
+                <p ng-repeat="line in content.content">{{line}}</p>
+            </div>
+            <div style="margin: 1em 0em;">
+                <div ng-if="content['content' + (n+1)][0] !== ''" ng-repeat="n in [] | range:20">
+                    <div>
+                        <h4><b>{{content['content' + (n+1)][0]}}</b></h4>
+                        <blockquote ng-if="content['content' + (n+1)][1] !== undefined">
+                            <p ng-repeat="line in content['content' + (n+1)] track by $index" ng-if="$index > 0">
+                                {{line}}
+                            </p>
+                        </blockquote>
                     </div>
                 </div>
-            </blockquote>
+                <p ng-if="content.footer[0] !== ''" ng-repeat="line in content.footer">{{line}}</p>
+
+            </div>
         </div>
 
         <div>
-            <h4>檢查時間</h4>
-            <blockquote>
-                <div class="row">
-                    <div class="col-sm-9">
-                        <table class="table">
-                            <tr>
-                                <th>檢查時間</th>
-                                <th>報到時間</th>
-                                <th>離院時間</th>
-                            </tr>
-                            <tr>
-                                <td>週一至週五</td>
-                                <td>上午8：00</td>
-                                <td>約當天下午4：30</td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </blockquote>
-        </div>
-
-        <div>
-            <h4>預約服務時間</h4>
-            <blockquote>
-                <ul>
-                    <li>週一至週五（上午8:00～下午4:30)</li>
-                    <li>周六 (上午8:00～上午11:30)</li>
-                </ul>
-            </blockquote>
-        </div>
-
-        <div>
-            <h4>預約電話</h4>
-            <blockquote>
-                （02）2543-3535 分機 2860～2866
-            </blockquote>
-        </div>
-
-        <div>
-            <h4>健檢項目</h4>
+            <h4><b>健檢項目</b></h4>
             <p>（若以下健檢項目無法顯示，請 <a class="sheet_link" href="https://docs.google.com/spreadsheets/d/1ktyFJ9xLZa6T-tWykVKHvdPBIh4IylLtz_wsjfQCk_c/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false" target="_blank">點此檢視</a> ）</p>
             <div class="row">
-                <div class="col-sm-9">
+                <div class="col-sm-12">
                     <blockquote>
                         <iframe width="115%" height="560px" src="https://docs.google.com/spreadsheets/d/1ktyFJ9xLZa6T-tWykVKHvdPBIh4IylLtz_wsjfQCk_c/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
                     </blockquote>

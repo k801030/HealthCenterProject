@@ -1,41 +1,44 @@
 <!--<div id="home-slider" class="col-sm-12">
   <img src="res/images/sliders/1.jpg">
 </div>-->
-<div id="home-slider" ng-controller="CarouselCtrl" >
-<carousel interval="myInterval" >
-  <slide ng-repeat="slide in slides" active="slide.active" >{{slider}}
-    <img class="image-circle" ng-src="{{slide.image}}" style="margin:auto;" />
-    <div class="carousel-caption">
-      <p>{{slide.text}}</p>
+<!--<div id="home-slider" ng-controller="CarouselCtrl" >-->
+<div ng-controller="home">
+    <div id="home-slider">
+        <carousel interval="myInterval" >
+            <slide ng-repeat="slide in slides" active="slide.active" >{{slider}}
+                <img class="image-circle" ng-src="{{slide.image}}" style="margin:auto;" />
+                <div class="carousel-caption">
+                    <p>{{slide.text}}</p>
+                </div>
+            </slide>
+        </carousel>
     </div>
-  </slide>
-</carousel>
+
+
+    <ul id="home-block" class="large-block-grid-3">
+        <li ng-repeat="info in infos">
+            <a href="{{info.href}}">
+                <h3>{{info.title}}</h3>
+                <img src="{{info.image}}">
+            </a>
+            <p>{{info.content}}</p>
+        </li>
+        <!--<li>-->
+            <!--<a href="#exam_services">-->
+                <!--<h3>專業健檢</h3>-->
+                <!--<img src="http://guglielmopardo.me/template/Zero/Zero_Turquoise/img/portfolio/work2.jpg">-->
+            <!--</a>-->
+            <!--<p>馬偕健康檢查中心依您的個人年齡、性別、生活環境、病史等不同需求設計專屬於您的健康檢查計劃。一日全身健檢包含國人十大疾病及常見的疾病篩檢。</p>-->
+        <!--</li>-->
+        <!--<li>-->
+            <!--<a href="#clients">-->
+                <!--<h3>線上預約</h3>-->
+                <!--<img src="http://guglielmopardo.me/template/Zero/Zero_Turquoise/img/portfolio/work3.jpg">-->
+            <!--</a>-->
+            <!--<p>馬偕健康檢查中心提供線上預約服務，手續簡便，並可以大幅節省現場等待時間。線上預約包含所有健康檢查項目。</p>-->
+        <!--</li>-->
+    </ul>
 </div>
-
-<ul id="home-block" class="large-block-grid-3">
-  <li>
-  <a href="#our_dr">
-    <h3>完善設備</h3>
-    <img src="http://guglielmopardo.me/template/Zero/Zero_Turquoise/img/portfolio/work1.jpg">
-  </a>
-  <p>馬偕健康檢查中心擁有完善設備，採用最新科技與技術，也有一流的醫療團隊。</p>
-  </li>
-  <li>
-  <a href="#exam_services">
-    <h3>專業健檢</h3>
-    <img src="http://guglielmopardo.me/template/Zero/Zero_Turquoise/img/portfolio/work2.jpg">
-  </a>
-  <p>馬偕健康檢查中心依您的個人年齡、性別、生活環境、病史等不同需求設計專屬於您的健康檢查計劃。一日全身健檢包含國人十大疾病及常見的疾病篩檢。</p>
-  </li>
-  <li>
-  <a href="#clients">
-    <h3>線上預約</h3>
-    <img src="http://guglielmopardo.me/template/Zero/Zero_Turquoise/img/portfolio/work3.jpg">
-  </a>
-  <p>馬偕健康檢查中心提供線上預約服務，手續簡便，並可以大幅節省現場等待時間。線上預約包含所有健康檢查項目。</p>
-  </li>
-</ul>
-
 <!-- Script to Activate the Carousel -->
 <script>
 $(document).ready(function(){
