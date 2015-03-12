@@ -8,9 +8,9 @@
     <div id="googleMap" style="width:500px;height:380px;"></div>
 
     <div class="col-sm-12">
-      <h3 style="color:#0b5394">捷運</h3>
+      <h3 style="color:#0b5394">捷運</h3> 
       <div>
-        <blockquote><p>搭乘捷運，至淡水信義線－竹圍站
+        <blockquote><p>搭乘捷運，至淡水信義線－竹圍站 <a href='http://web.trtc.com.tw/img/all/metrotaipeimap.jpg' target='_blank'>（查看捷運路線圖）</a>
         </p></blockquote>
       </div>
       <h4>捷運免費接駁車（往返竹圍捷運站及淡水馬偕）</h4>
@@ -60,7 +60,8 @@ function initialize() {
   var mapProp = {
     center:new google.maps.LatLng(25.138956, 121.460133),
     zoom:16,
-    mapTypeId:google.maps.MapTypeId.ROADMAP
+    mapTypeId:google.maps.MapTypeId.ROADMAP,
+    clickable: true
   };
   var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
   var targetLatLng = new google.maps.LatLng(25.138956, 121.460133);
@@ -69,7 +70,10 @@ function initialize() {
     title: "馬偕淡水分院"
   });
   marker.setMap(map);
-
+  google.maps.event.addListener(map,'click', function(){
+      window.open('https://www.google.com.tw/maps/dir//馬偕紀念醫院淡水院區/@25.1387547,121.4577366,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x0:0xafc2173f15efb2cc!2m2!1d121.460018!2d25.139757?hl=zh-TW','_blank');
+  });
+  google.maps.event.addDomListener(window, 'load', initialize);
 }
 google.maps.event.addDomListener(window, 'load', initialize);
 </script>
