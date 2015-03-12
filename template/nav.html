@@ -6,18 +6,21 @@
       <h1 class="title">健康檢查中心<span class="home-btn">首頁</span></h1>
     </a>
     </div>
-    <ul class="nav sub-nav" ng-controller="DropdownCtrl">
-      <!-- Simple dropdown -->
-      <li class="dropdown" ng-class="{active: isActive()}" ng-repeat="item in structure.content" dropdown is-open="status.isopen" ng-init="status.isopen" ng-mouseenter="toggleDropdown($event);status.isopen=true" ng-mouseleave="delayClose(this)">
-        <a ng-href="#{{item.main_item.path}}" class="dropdown-toggle" ng-click="setTab(0)">
-          {{item.main_item.name}}
-        </a>
-        <ul class="dropdown-menu" ng-show="item.sub_item!=null">
-          <li ng-repeat="sub_item in item.sub_item">
-            <a ng-href="#{{item.main_item.path}}" ng-click="setTab($index)">{{sub_item.name}}</a>
-          </li>
-        </ul>
-      </li>
-    </ul>
+    <div>
+      <div id="google_translate_element" class="right"></div>
+      <ul class="nav sub-nav" ng-controller="DropdownCtrl">
+        <!-- Simple dropdown -->
+        <li class="dropdown" ng-class="{active: isActive()}" ng-repeat="item in structure.content" dropdown is-open="status.isopen" ng-init="status.isopen" ng-mouseenter="toggleDropdown($event);status.isopen=true" ng-mouseleave="delayClose(this)">
+          <a ng-href="#{{item.main_item.path}}" class="dropdown-toggle" ng-click="setTab(0)">
+            {{item.main_item.name}}
+          </a>
+          <ul class="dropdown-menu" ng-show="item.sub_item!=null">
+            <li ng-repeat="sub_item in item.sub_item">
+              <a ng-href="#{{item.main_item.path}}" ng-click="setTab($index)">{{sub_item.name}}</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>

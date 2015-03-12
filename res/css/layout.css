@@ -56,7 +56,7 @@
 
 .sub-nav {
   float: right;
-  margin-top: 45px;
+  margin-top: 25px;
 }
 
 .sub-nav > li {
@@ -162,6 +162,10 @@ p, h1, h2, h3, h4, h5, h6 {
 
 .align-center {
   text-align: center;
+}
+
+.right {
+  float: right;
 }
 
 
