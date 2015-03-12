@@ -11,32 +11,31 @@
         <div class="row">
             <hr class="col-sm-3">
         </div>
-        <h3>{{content.name}}&nbsp醫師個人簡歷</h3>
-        <div class="row">
-            <hr class="col-sm-3">
-        </div>
-
-        <div class="col-sm-8">
+        <div class="col-sm-8"> 
+            <h3>{{content.name}}&nbsp醫師</h3>
+            <div class="row">
+                <hr class="col-sm-3">
+            </div>
             <div class="row" ng-show="content.education[0] !== ''">
-                <h3>學歷：</h3>
+                <h4>學歷：</h4>
                 <blockquote>
                     <p ng-repeat="line in content.education">{{line}}</p>
                 </blockquote>
             </div>
             <div class="row" ng-show="content.now_at[0] !== ''">
-                <h3>現任：</h3>
+                <h4>現任：</h4>
                 <blockquote>
                     <p ng-repeat="line in content.now_at">{{line}}</p>
                 </blockquote>
             </div>
             <div class="row" ng-show="content.experience[0] !== ''">
-                <h3>經歷：</h3>
+                <h4>經歷：</h4>
                 <blockquote>
                     <p ng-repeat="line in content.experience">{{line}}</p>
                 </blockquote>
             </div>
             <div class="row" ng-show="content.specialist[0] !== ''">
-                <h3>專科醫師：</h3>
+                <h4>專科醫師：</h4>
                 <blockquote>
                     <p ng-repeat="line in content.specialist">{{line}}</p>
                 </blockquote>
@@ -44,7 +43,7 @@
         </div>
 
         <div class="col-sm-4">
-            <img src="{{content.image}}">
+            <img id="dr-img" src="{{content.image}}">
         </div>
 
 
