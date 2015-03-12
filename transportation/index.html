@@ -4,10 +4,13 @@
     <div class="row">
       <hr class="col-sm-12">
     </div>
+    <!-- Google Map -->
+    <div id="googleMap" style="width:500px;height:380px;"></div>
+
     <div class="col-sm-12">
-      <h4>捷運</h4>
+      <h3 style="color:#0b5394">捷運</h3>
       <div>
-        <blockquote><p>捷運淡水線－竹圍站
+        <blockquote><p>搭乘捷運，至淡水信義線－竹圍站
         </p></blockquote>
       </div>
       <h4>捷運免費接駁車（往返竹圍捷運站及淡水馬偕）</h4>
@@ -26,7 +29,7 @@
           竹圍捷運站→恩典樓(舊大樓)→馬偕樓(新大樓) <br>
         </p></blockquote>
       </div>
-      <h4>公車</h4>
+      <h3 style="color:#a30000">公車</h3>
       <div>
         <blockquote><p>
           站名：捷運竹圍站或馬偕醫院站  <br>
@@ -38,7 +41,7 @@
           站名：馬偕醫院 <br>
           公車：淡水區紅5、三芝區、八里區、五股區免費公車，約每隔60分鐘一班，往返淡水馬偕醫院及其各區域。 <br>
         </p></blockquote>
-      <h4>自行開車</h4>
+      <h3 style="color:#45818e">自行開車</h3>
       <div>
         <blockquote><p>
           (1).於五股交流道下或（台64線快速道路下）：五股交流道左轉新五路（五股一匝道出口下） → 成泰路三段 → 過關渡大橋 →往淡水方向 (接民權路) →第一個紅綠燈 →第二個紅綠燈(竹圍捷運站‧民族路) → 第三個 紅綠燈(民生路)右轉 → 恩典樓(民生路45號) <br>
@@ -50,3 +53,23 @@
       </div>
     </div>
   </div>
+
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script>
+function initialize() {
+  var mapProp = {
+    center:new google.maps.LatLng(25.138956, 121.460133),
+    zoom:16,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+  var targetLatLng = new google.maps.LatLng(25.138956, 121.460133);
+  var marker = new google.maps.Marker({
+    position: targetLatLng,
+    title: "馬偕淡水分院"
+  });
+  marker.setMap(map);
+
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
