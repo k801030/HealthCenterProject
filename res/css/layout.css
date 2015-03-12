@@ -1,5 +1,5 @@
 #content {
-  margin-top: 120px;  /* the same as nav-fix: height; */
+  margin-top: 20px;  /* the same as nav-fix: height; */
 }
 
 /*  for nav  */
@@ -15,8 +15,8 @@
   z-index: 100;
 }
 #main-nav.nav-fixed-top {
-  position: fixed;
-  height: 120px;
+  /*position: fixed;*/
+  /*height: 120px;*/
 }
 
      /* nav skinny */

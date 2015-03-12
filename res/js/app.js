@@ -6,7 +6,7 @@ angular.module('app', ['basic', 'client', 'pages']);
 $(document).ready(function() {   
   
   // dynamically adjust nav-bar
-  $(window).scroll(function() {
+  /* $(window).scroll(function() {
     if($( document ).scrollTop() >= 45) {
       //$('#content').addClass('is-fixed-top');
       //$('#main-nav').addClass('nav-fixed-top');
@@ -17,6 +17,6 @@ $(document).ready(function() {
       $('#main-nav').removeClass('skinny');
     }
   });
-
+  */
 });
 
