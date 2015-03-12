@@ -54,6 +54,10 @@
       {
         "name": "成人健康檢查",
         "path": "adult.html"
+      },
+      {
+        "name": "特別活動",
+        "path": "event.html"
       }
     ]
   },
