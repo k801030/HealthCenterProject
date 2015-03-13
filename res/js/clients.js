@@ -104,8 +104,16 @@ angular.module('client', [])
 }])
 
 
-.controller('SubmitCtrl', ['$scope', '$rootScope' ,function($scope, $rootScope){
+.controller('SubmitCtrl', ['$scope', '$rootScope', '$timeout' ,function($scope, $rootScope, $timeout){
   $scope.send_email = function() {
+    if(checkValidate()==false){
+      $('#form-error-msg').show();
+      $timeout(function() {
+        $('#form-error-msg').hide();
+      }, 2500);
+      return;
+    }
+
     var mail = 'protein650224@gmail.com';
     subject = '馬偕健檢中心 — 線上預約';
     body = $rootScope.form;
@@ -125,5 +133,11 @@ angular.module('client', [])
     window.location.href = href;
   }
   
+  function checkValidate() {
+    if( $rootScope.form['name'] == null || $rootScope.form['exam_type'] == null || $rootScope.form['exam_date']['year'] == null || $rootScope.form['exam_date']['month'] == null || $rootScope.form['exam_date']['day'] == null || $rootScope.form['gender'] == null || $rootScope.form['idnum'] == null || $rootScope.form['birth']['year'] == null || $rootScope.form['birth']['month'] == null || $rootScope.form['birth']['day'] == null || $rootScope.form['phone'] == null || $rootScope.form['email'] == null )
+      return false;
+    else
+      return true;
+  }
 }])
 

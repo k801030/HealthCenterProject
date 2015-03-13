@@ -1,3 +1,4 @@
+
 <div class="container col-sm-offset-3 col-sm-6">
     <h3 class="align-center">線上預約服務</h3>
     <p class="align-center">線上預約請於檢查日一個月前預約。</p>
@@ -119,6 +120,9 @@
         <div class="col-sm-2">
           <button type="reset" class="btn btn-default">重新填寫</button>
         </div>
+        <div id="form-error-msg" class="col-sm-12 align-center"><br>
+          請填寫完所有欄位。
+        </div>
       </div>
     </form>
 
@@ -126,16 +130,6 @@
   var form = document.getElementById('client_form');
   form.noValidate = true;
   form.addEventListener('submit', function(event) {
-    /*var msg = document.getElementById('error_message');
-    if (!event.target.checkValidity()) {
-      event.preventDefault(); // dismiss the default functionality
-      msg.style.display = "block";
-    } else {
-      msg.style.display = "none";
-    }
-    */
-
-
   }, false);
 </script>
 </div>
