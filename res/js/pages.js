@@ -28,8 +28,10 @@ angular.module("pages", [])
                     for(var element_index in sheet.elements.slice(1)){
                         element_index = parseInt(element_index) + 1;
 
-                        sheet.elements[element_index].title =
-                            sheet.elements[element_index].title.split('\n');
+                        if(element_index == 1){
+                            sheet.elements[element_index].content =
+                                sheet.elements[element_index].content.split('\n');
+                        }
 
                         sheet.elements[element_index].education =
                             sheet.elements[element_index].education.split('\n');
@@ -169,12 +171,12 @@ angular.module("pages", [])
 
 .controller('history', ['$scope', 'getSpreadSheetData', 'scopeService', function($scope, getSpreadSheetData, scopeService){
     getSpreadSheetData.then(function(tabletop){
-        var history_data = tabletop.sheets('introduction_history');
+        var data = tabletop.sheets('introduction_history');
         scopeService.safeApply($scope, function(){
                 //console.log(tabletop.sheets('introduction_history'));
                 //console.log(history_data.elements);
-                $scope.header = history_data.elements[1];
-                $scope.contents = history_data.elements.slice(2);
+                $scope.header = data.elements[1];
+                $scope.contents = data.elements.slice(2);
             }
         );
     });
@@ -182,12 +184,12 @@ angular.module("pages", [])
 
 .controller('feature', ['$scope', 'getSpreadSheetData', 'scopeService',function($scope, getSpreadSheetData, scopeService){
     getSpreadSheetData.then(function(tabletop){
-        var feature_data = tabletop.sheets('introduction_feature');
+        var data = tabletop.sheets('introduction_feature');
         scopeService.safeApply($scope, function(){
                 //console.log(tabletop.sheets('introduction_feature'));
                 //console.log(feature_data.elements);
-                $scope.header = feature_data.elements[1];
-                $scope.contents = feature_data.elements.slice(2);
+                $scope.header = data.elements[1];
+                $scope.contents = data.elements.slice(2);
             }
         );
     });
@@ -196,12 +198,12 @@ angular.module("pages", [])
 
 .controller('environment', ['$scope', 'getSpreadSheetData', 'scopeService',function($scope, getSpreadSheetData, scopeService){
     getSpreadSheetData.then(function(tabletop){
-        var environment_data = tabletop.sheets('introduction_environment');
+        var data = tabletop.sheets('introduction_environment');
         scopeService.safeApply($scope, function(){
                 //console.log(tabletop.sheets('introduction_feature'));
                 //console.log(feature_data.elements);
-                $scope.header = environment_data.elements[1];
-                $scope.contents = environment_data.elements.slice(2);
+                $scope.header = data.elements[1];
+                $scope.contents = data.elements.slice(2);
             }
         );
     });
@@ -231,12 +233,12 @@ angular.module("pages", [])
     };
 
     getSpreadSheetData.then(function(tabletop){
-        var item_government_data = tabletop.sheets('item_government');
+        var data = tabletop.sheets('item_government');
         scopeService.safeApply($scope, function(){
                 //console.log(tabletop.sheets('item_government'));
                 //console.log(item_government_data.elements);
-                $scope.header = item_government_data.elements[1];
-                $scope.contents = item_government_data.elements.slice(2);
+                $scope.header = data.elements[1];
+                $scope.contents = data.elements.slice(2);
             }
         );
     });
@@ -269,13 +271,13 @@ angular.module("pages", [])
 //    }
 
     getSpreadSheetData.then(function(tabletop){
-        var item_oneday_data = tabletop.sheets('item_oneday');
+        var data = tabletop.sheets('item_oneday');
         $scope.link = "";
         scopeService.safeApply($scope, function(){
 //                console.log(tabletop.sheets('item_oneday'));
 //                console.log(item_oneday_data.elements);
-                $scope.header = item_oneday_data.elements[1];
-                $scope.contents = item_oneday_data.elements.slice(2);
+                $scope.header = data.elements[1];
+                $scope.contents = data.elements.slice(2);
             }
         );
     });
@@ -292,12 +294,12 @@ angular.module("pages", [])
 //    };
 
     getSpreadSheetData.then(function(tabletop){
-        var work_data = tabletop.sheets('item_work');
+        var data = tabletop.sheets('item_work');
         scopeService.safeApply($scope, function(){
                 //console.log(tabletop.sheets('work'));
                 //console.log(work_data.elements);
-                $scope.header = work_data.elements[1];
-                $scope.contents = work_data.elements.slice(2);
+                $scope.header = data.elements[1];
+                $scope.contents = data.elements.slice(2);
             }
         );
     });
@@ -306,12 +308,12 @@ angular.module("pages", [])
 
 .controller('foreigner', ['$scope', 'getSpreadSheetData', 'scopeService', function($scope, getSpreadSheetData, scopeService) {
     getSpreadSheetData.then(function(tabletop){
-        var item_foreign_data = tabletop.sheets('item_foreign');
+        var data = tabletop.sheets('item_foreign');
         scopeService.safeApply($scope, function(){
                 //console.log(tabletop.sheets('item_foreign'));
                 //console.log(item_foreign_data.elements);
-                $scope.header = item_foreign_data.elements[1];
-                $scope.contents = item_foreign_data.elements.slice(2);
+                $scope.header = data.elements[1];
+                $scope.contents = data.elements.slice(2);
             }
         );
     });
@@ -319,12 +321,12 @@ angular.module("pages", [])
 
 .controller('adult', ['$scope', 'getSpreadSheetData', 'scopeService', function($scope, getSpreadSheetData, scopeService) {
     getSpreadSheetData.then(function(tabletop){
-        var item_adult_data = tabletop.sheets('item_adult');
+        var data = tabletop.sheets('item_adult');
         scopeService.safeApply($scope, function(){
                 //console.log(tabletop.sheets('item_adult'));
                 //console.log(item_adult_data.elements);
-                $scope.header = item_adult_data.elements[1];
-                $scope.contents = item_adult_data.elements.slice(2);
+                $scope.header = data.elements[1];
+                $scope.contents = data.elements.slice(2);
             }
         );
     });
@@ -333,12 +335,12 @@ angular.module("pages", [])
 
 .controller('event', ['$scope', 'getSpreadSheetData', 'scopeService', function($scope, getSpreadSheetData, scopeService) {
     getSpreadSheetData.then(function(tabletop){
-        var item_event_data = tabletop.sheets('item_event');
+        var data = tabletop.sheets('item_event');
         scopeService.safeApply($scope, function(){
                 //console.log(tabletop.sheets('item_adult'));
                 //console.log(item_adult_data.elements);
-                $scope.header = item_event_data.elements[1];
-                $scope.contents = item_event_data.elements.slice(2);
+                $scope.header = data.elements[1];
+                $scope.contents = data.elements.slice(2);
             }
         );
     });
@@ -346,12 +348,12 @@ angular.module("pages", [])
 
 .controller('equipment', ['$scope', 'getSpreadSheetData', 'scopeService', function($scope, getSpreadSheetData, scopeService){
     getSpreadSheetData.then(function(tabletop){
-        var cast_equipment_data = tabletop.sheets('cast_equipment');
+        var data = tabletop.sheets('cast_equipment');
         scopeService.safeApply($scope, function(){
                 //console.log(tabletop.sheets('introduction_history'));
                 //console.log(history_data.elements);
-                $scope.header = cast_equipment_data.elements[1];
-                $scope.contents = cast_equipment_data.elements.slice(2);
+                $scope.header = data.elements[1];
+                $scope.contents = data.elements.slice(2);
             }
         );
     });
@@ -360,12 +362,12 @@ angular.module("pages", [])
 
 .controller('team', ['$scope', 'getSpreadSheetData', 'scopeService', function($scope, getSpreadSheetData, scopeService){
     getSpreadSheetData.then(function(tabletop){
-        var cast_team_data = tabletop.sheets('cast_team');
+        var data = tabletop.sheets('cast_team');
         scopeService.safeApply($scope, function(){
                 //console.log(tabletop.sheets('introduction_history'));
                 //console.log(history_data.elements);
-                $scope.header = cast_team_data.elements[1];
-                $scope.contents = cast_team_data.elements.slice(2);
+                $scope.header = data.elements[1];
+                $scope.contents = data.elements.slice(2);
             }
         );
     });
@@ -374,12 +376,12 @@ angular.module("pages", [])
 
 .controller('dr', ['$scope', 'getSpreadSheetData', 'scopeService', function($scope, getSpreadSheetData, scopeService){
     getSpreadSheetData.then(function(tabletop){
-        var dr_data = tabletop.sheets('cast_dr');
+        var data = tabletop.sheets('cast_dr');
         scopeService.safeApply($scope, function(){
                 //console.log(tabletop.sheets('cast_dr'));
                 //console.log(dr_data.elements);
-                $scope.header = dr_data.elements[1];
-                $scope.contents = dr_data.elements.slice(2);
+                $scope.header = data.elements[1];
+                $scope.contents = data.elements.slice(2);
             }
         );
     });
@@ -388,12 +390,12 @@ angular.module("pages", [])
 .controller('FQA', ['$scope', 'getSpreadSheetData', 'scopeService', function($scope, getSpreadSheetData, scopeService){
 //    wrapSetting();
     getSpreadSheetData.then(function(tabletop){
-        var health_info_QA_data = tabletop.sheets('health_info_QA');
+        var data = tabletop.sheets('health_info_QA');
         scopeService.safeApply($scope, function(){
                 //console.log(tabletop.sheets('health_info_QA'));
                 //console.log(health_info_QA_data.elements);
-                $scope.header = health_info_QA_data.elements[1];
-                $scope.contents = health_info_QA_data.elements.slice(2);
+                $scope.header = data.elements[1];
+                $scope.contents = data.elements.slice(2);
             }
         );
     });
@@ -403,12 +405,12 @@ angular.module("pages", [])
 
 .controller('reminder', ['$scope', 'getSpreadSheetData', 'scopeService', function($scope, getSpreadSheetData, scopeService){
     getSpreadSheetData.then(function(tabletop){
-        var health_know_data = tabletop.sheets('health_know_healthcare');
+        var data = tabletop.sheets('health_know_healthcare');
         scopeService.safeApply($scope, function(){
                 //console.log(tabletop.sheets('health_know_healthcare'));
                 //console.log(health_know_data.elements);
-                $scope.header = health_know_data.elements[1];
-                $scope.contents = health_know_data.elements.slice(2);
+                $scope.header = data.elements[1];
+                $scope.contents = data.elements.slice(2);
             }
         );
     });
@@ -418,12 +420,12 @@ angular.module("pages", [])
 
 .controller('health_info', ['$scope', 'getSpreadSheetData', 'scopeService', function($scope, getSpreadSheetData, scopeService){
     getSpreadSheetData.then(function(tabletop){
-        var health_info_data = tabletop.sheets('health_info_disease');
+        var data = tabletop.sheets('health_info_disease');
         scopeService.safeApply($scope, function(){
                 //console.log(tabletop.sheets('health_info_disease'));
                 //console.log(health_info_data.elements);
-                $scope.header = health_info_data.elements[1];
-                $scope.contents = health_info_data.elements.slice(2);
+                $scope.header = data.elements[1];
+                $scope.contents = data.elements.slice(2);
             }
         );
     });
@@ -433,12 +435,12 @@ angular.module("pages", [])
 
 .controller('nutrition_consultation', ['$scope', 'getSpreadSheetData', 'scopeService', function($scope, getSpreadSheetData, scopeService){
     getSpreadSheetData.then(function(tabletop){
-        var nutrition_consultation_data = tabletop.sheets('health_info_nutrition');
+        var data = tabletop.sheets('health_info_nutrition');
         scopeService.safeApply($scope, function(){
                 //console.log(tabletop.sheets('health_info_disease'));
                 //console.log(health_info_data.elements);
-                $scope.header = nutrition_consultation_data.elements[1];
-                $scope.contents = nutrition_consultation_data.elements.slice(2);
+                $scope.header = data.elements[1];
+                $scope.contents = data.elements.slice(2);
             }
         );
     });
@@ -449,12 +451,12 @@ angular.module("pages", [])
 
 .controller('nursing_consultation', ['$scope', 'getSpreadSheetData', 'scopeService', function($scope, getSpreadSheetData, scopeService){
     getSpreadSheetData.then(function(tabletop){
-        var nursing_consultation_data = tabletop.sheets('health_info_nursing');
+        var data = tabletop.sheets('health_info_nursing');
         scopeService.safeApply($scope, function(){
                 //console.log(tabletop.sheets('health_info_disease'));
                 //console.log(health_info_data.elements);
-                $scope.header = nursing_consultation_data.elements[1];
-                $scope.contents = nursing_consultation_data.elements.slice(2);
+                $scope.header = data.elements[1];
+                $scope.contents = data.elements.slice(2);
             }
         );
     });
@@ -464,12 +466,12 @@ angular.module("pages", [])
 
 .controller('medical_info', ['$scope', 'getSpreadSheetData', 'scopeService', function($scope, getSpreadSheetData, scopeService){
     getSpreadSheetData.then(function(tabletop){
-        var medical_info_data = tabletop.sheets('health_info_news');
+        var data = tabletop.sheets('health_info_news');
         scopeService.safeApply($scope, function(){
                 //console.log(tabletop.sheets('health_info_disease'));
                 //console.log(health_info_data.elements);
-                $scope.header = medical_info_data.elements[1];
-                $scope.contents = medical_info_data.elements.slice(2);
+                $scope.header = data.elements[1];
+                $scope.contents = data.elements.slice(2);
             }
         );
     });
@@ -517,6 +519,18 @@ angular.module("pages", [])
                 //console.log(home_slider_data.elements);
                 $scope.slides = home_slider_data.elements.slice(1);
                 $scope.infos = home_info_data.elements.slice(1);
+            }
+        );
+    });
+}])
+
+.controller('client_option', ['$scope', 'getSpreadSheetData', 'scopeService', function($scope, getSpreadSheetData, scopeService) {
+    getSpreadSheetData.then(function(tabletop){
+        var data = tabletop.sheets('reservation_type');
+        scopeService.safeApply($scope, function(){
+                //console.log(tabletop.sheets('home_slider'));
+                //console.log(home_slider_data.elements);
+                $scope.types = data.slice(1);
             }
         );
     });

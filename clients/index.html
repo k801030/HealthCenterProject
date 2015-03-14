@@ -55,30 +55,33 @@
       <div class="form-group col-sm-12">
         <label class="col-sm-3">檢查種類</label>
         <div class="col-sm-9">
-          <select class="form-control" ng-model="form.exam_type" required>
+          <select class="form-control" ng-model="form.exam_type" ng-controller="client_option" required>
             <option value="" selected>-- 檢查種類 --</option>
-            <optgroup label="一日全身健檢">
-              <option>精緻套組</option>
-              <option>無痛腸胃鏡(A)</option>
-              <option>無痛腸胃鏡(B)</option>
-              <option>心血管健檢</option>
-              <option>腦部MRI</option>
+            <optgroup ng-repeat="type in types" label="{{type.title}}">
+                <option ng-repeat="n in [] | range:5" ng-if="type['option'+ (n+1)] !== ''">{{type['option'+ (n+1)]}}</option>
             </optgroup>
-            <optgroup label="一般工作健檢">
-              <option>一般公司健康檢查</option>
-              <option>勞工健康檢查</option>
-              <option>餐飲人員健康檢查</option>
-            </optgroup>
-            <optgroup label="公務人員健檢">
-              <option>公務人員超值健檢</option>
-              <option>公務人員超音波健檢</option>
-            </optgroup>
-            <optgroup label="外籍人士健檢">
-              <option>外籍人士健檢</option>
-            </optgroup>
-            <optgroup label="成人健康檢查">
-              <option>成人健康檢查</option>
-            </optgroup>
+            <!--<optgroup label="一日全身健檢">-->
+              <!--<option>精緻套組</option>-->
+              <!--<option>無痛腸胃鏡(A)</option>-->
+              <!--<option>無痛腸胃鏡(B)</option>-->
+              <!--<option>心血管健檢</option>-->
+              <!--<option>腦部MRI</option>-->
+            <!--</optgroup>-->
+            <!--<optgroup label="一般工作健檢">-->
+              <!--<option>一般公司健康檢查</option>-->
+              <!--<option>勞工健康檢查</option>-->
+              <!--<option>餐飲人員健康檢查</option>-->
+            <!--</optgroup>-->
+            <!--<optgroup label="公務人員健檢">-->
+              <!--<option>公務人員超值健檢</option>-->
+              <!--<option>公務人員超音波健檢</option>-->
+            <!--</optgroup>-->
+            <!--<optgroup label="外籍人士健檢">-->
+              <!--<option>外籍人士健檢</option>-->
+            <!--</optgroup>-->
+            <!--<optgroup label="成人健康檢查">-->
+              <!--<option>成人健康檢查</option>-->
+            <!--</optgroup>-->
           </select>
         </div>
       </div>
