@@ -171,3 +171,7 @@ abbr:hover:before {
   font-size: 12px;
   color: red;
 }
+
+#form-result-msg {
+  display: none;
+}
