@@ -1,31 +1,31 @@
-<div class="container">
+<div ng-controller="equipment" class="container-fluid">
     <div class="row">
-        <div class="col-sm-8">
-            <h4 class="pull-right"></h4>
+        <div class="col-sm-12">
+            <h4 class="pull-left">
+                <p style="font-style: italic" ng-repeat="line in header.content">{{line}}</p>
+            </h4>
         </div>
     </div>
-    <div class="row">
-        <h4>正子電腦斷層</h4>
+    <div class="row" ng-repeat="content in contents">
+        <h3>{{content.title}}</h3>
         <div class="row">
             <hr class="col-sm-3">
         </div>
-
-        <div class="col-sm-7">
-            <blockquote>
-                <p>正子電腦斷層掃描儀將電腦掃描和正子掃描科技，透過同一部掃描儀器來合成結構及分子功能的影像，把癌細胞準確的位置顯示出來。正子電腦斷層是將經由放射性核種標化的核子藥劑，以靜脈注射的途徑注入人體後，再使用正子放射斷層攝影儀予以追蹤測定，藉以了解該放射性追蹤劑在體內分佈的狀況。</p>
-                <!-- For Image -->
-                <div class="row">
-                    <div class="col-sm-6" style="border: 2px double">
-                        <img src="res/images/default.jpg" style="width: 50%">
-                    </div>
-                    <div class="col-sm-6" style="border: 2px double">
-                        <img src="res/images/default.jpg" style="width: 50%">
-                    </div>
-                </div>
-
-            </blockquote>
+        <div class="col-sm-offset-1">
+            <div ng-class="{true: 'col-sm-6', false: 'col-sm-11'}[content.image!='']">
+                <p ng-repeat="line in content.content">{{line}}</p>
+            </div>
+            <div class="col-sm-5" ng-if="content.image!=''">
+                <img src="{{content.image}}" style="width: 100%;">
+            </div>
+            <!--<p>馬偕紀念醫院積極推展預防保健觀念數十年如一日，為了更深入推廣醫療保健的重要性，本院於民國72年7月1日成立健康檢查中心，秉持一貫的基督救世之服務經營理念，投資醫學中心軟硬體醫療設備，以期提供更周全的健康檢查與健康促進服務。</p>-->
+            <!-- For Image -->
+            <!--<div style="border: 2px double">-->
+            <!--<img src="res/images/default.jpg" style="width: 50%">-->
+            <!--</div>-->
         </div>
-
+        <!--<div class="col-sm-offset-1 col-sm-5">-->
+        <!--</div>-->
 
     </div>
 </div>

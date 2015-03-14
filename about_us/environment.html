@@ -1,36 +1,27 @@
-<div class="container">
+<div ng-controller="environment" class="container-fluid">
     <div class="row">
-        <div class="col-sm-8">
-            <h4 class="pull-right">地靈人傑。</h4>
+        <div class="col-sm-12">
+            <h4 class="pull-left">
+                <p style="font-style: italic" ng-repeat="line in header.content">{{line}}</p>
+            </h4>
         </div>
     </div>
-    <div class="row">
-        <h4>醫院環境</h4>
+    <div class="row" ng-repeat="content in contents">
+        <h3>{{content.title}}</h3>
         <div class="row">
             <hr class="col-sm-3">
         </div>
-        <div class="col-sm-offset-1 col-sm-7">
+        <div class="col-sm-offset-1">
+            <div ng-class="{true: 'col-sm-6', false: 'col-sm-11'}[content.image!='']">
+                <p ng-repeat="line in content.content">{{line}}</p>
+            </div>
+            <div class="col-sm-5" ng-if="content.image!=''">
+                <img src="{{content.image}}" style="width: 100%;">
+            </div>
             <!-- For Image -->
-            <div class="row">
-                <div class="col-sm-6" style="border: 2px double">
-                    <img src="res/images/default.jpg" style="width: 50%; height: 200px">
-                </div>
-                <div class="col-sm-6" style="border: 2px double">
-                    <img src="res/images/default.jpg" style="width: 50%; height: 200px">
-                </div>
-            </div>
-            <div>
-
-            </div>
-            <div class="row">
-                <div class="col-sm-6" style="border: 2px double">
-                    <img src="res/images/default.jpg" style="width: 50%; height: 200px">
-                </div>
-                <div class="col-sm-6" style="border: 2px double">
-                    <img src="res/images/default.jpg" style="width: 50%; height: 200px">
-                </div>
-            </div>
-
+            <!--<div style="border: 2px double">-->
+            <!--<img src="res/images/default.jpg" style="width: 50%">-->
+            <!--</div>-->
         </div>
     </div>
 </div>
