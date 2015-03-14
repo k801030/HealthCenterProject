@@ -68,16 +68,16 @@
     },
     "sub_item": [
       {
+        "name": "專科主治醫師",
+        "path": "dr.html"
+      },
+      {
         "name": "醫學儀器",
         "path": "equipment.html"
       },
       {
         "name": "醫學團隊",
         "path": "team.html"
-      },
-      {
-        "name": "專科主治醫師",
-        "path": "dr.html"
       }
     ]
   },
