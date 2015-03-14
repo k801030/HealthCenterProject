@@ -87,7 +87,7 @@
     </div>
 
     <div>
-        <img src="{{header.image}}">
+        <img src="{{header.image}}" style="width: 100%">
     </div>
 
     <div class="col-sm-12 wrap">
@@ -106,11 +106,9 @@
                         </blockquote>
                     </div>
                 </div>
-                <p ng-if="content.footer[0] !== ''" ng-repeat="line in content.footer">{{line}}</p>
-
+                <!--<p ng-if="content.footer[0] !== ''" ng-repeat="line in content.footer">{{line}}</p>-->
             </div>
         </div>
-
         <div>
             <h4><b>健檢項目</b></h4>
             <p>（若以下健檢項目無法顯示，請 <a class="sheet_link" href="https://docs.google.com/spreadsheets/d/1ktyFJ9xLZa6T-tWykVKHvdPBIh4IylLtz_wsjfQCk_c/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false" target="_blank">點此檢視</a> ）</p>

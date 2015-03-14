@@ -1,1 +1,46 @@
-特別活動
+<div class="container-fluid" ng-controller="event">
+    <div class="row">
+        <h3 class="pull-left">
+            {{header.title}}
+        </h3>
+    </div>
+    <div class="row">
+        <hr class="col-sm-3">
+    </div>
+
+    <div>
+        <img src="{{header.image}}" style="width: 100%">
+    </div>
+
+    <div class="col-sm-12 wrap">
+        <div ng-repeat="content in contents">
+            <div>
+                <p ng-repeat="line in content.content">{{line}}</p>
+            </div>
+            <div style="margin: 1em 0em;">
+                <div ng-if="content['content' + (n+1)][0] !== ''" ng-repeat="n in [] | range:20">
+                    <div>
+                        <h4><b>{{content['content' + (n+1)][0]}}</b></h4>
+                        <blockquote ng-if="content['content' + (n+1)][1] !== undefined">
+                            <p ng-repeat="line in content['content' + (n+1)] track by $index" ng-if="$index > 0">
+                                {{line}}
+                            </p>
+                        </blockquote>
+                    </div>
+                </div>
+                <!--<p ng-if="content.footer[0] !== ''" ng-repeat="line in content.footer">{{line}}</p>-->
+            </div>
+        </div>
+        <div>
+            <h4><b>健檢項目</b></h4>
+            <p>（若以下健檢項目無法顯示，請 <a class="sheet_link" href="https://docs.google.com/spreadsheets/d/1ktyFJ9xLZa6T-tWykVKHvdPBIh4IylLtz_wsjfQCk_c/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false" target="_blank">點此檢視</a> ）</p>
+            <div class="row">
+                <div class="col-sm-12">
+                    <blockquote>
+                        <iframe width="115%" height="560px" src="https://docs.google.com/spreadsheets/d/1ktyFJ9xLZa6T-tWykVKHvdPBIh4IylLtz_wsjfQCk_c/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

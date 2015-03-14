@@ -1,1 +1,41 @@
-營養諮詢
+<div class="container-fluid" ng-controller="nutrition_consultation">
+    <div class="row">
+        <h3 class="pull-left">
+            {{header.title}}
+        </h3>
+        <h4 style="clear: both">
+            <i>欲知更多詳情，請參考：<a href="http://www.mmh.org.tw/nutrition/index.html">營養科</a></i>
+        </h4>
+    </div>
+    <div class="row">
+        <hr class="col-sm-3">
+    </div>
+
+    <div class="col-sm-12 wrap">
+        <blockquote>
+            <ul>
+                <li class="li_default" ng-repeat="content in contents" ng-click="showContent($event)">
+                    <label>{{content.title}}</label>
+                    <div class="content_default" name="wrap_content">
+                        <hr>
+                        <blockquote>
+                            <p ng-repeat="line in content.content">{{line}}</p>
+                            <div ng-if="content['content' + (n+1)][0] !== ''" ng-repeat="n in [] | range:20">
+                                <div>
+                                    <h4><b>{{content['content' + (n+1)][0]}}</b></h4>
+                                    <blockquote ng-if="content['content' + (n+1)][1] !== undefined">
+                                        <p ng-repeat="line in content['content' + (n+1)] track by $index" ng-if="$index > 0">
+                                            {{line}}
+                                        </p>
+                                    </blockquote>
+                                </div>
+                            </div>
+                            <p ng-if="content.footer[0] !== ''" ng-repeat="line in content.footer">{{line}}</p>
+                        </blockquote>
+                    </div>
+                </li>
+            </ul>
+        </blockquote>
+    </div>
+
+</div>
