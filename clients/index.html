@@ -1,9 +1,9 @@
 
 <!--   問卷   -->
 
-<div class="container col-sm-offset-3 col-sm-6" ng-show='isSurveyStatus()' ng-controller="SurveyCtrl">
+<div class="container col-sm-offset-3 col-sm-6" ng-show='isSurveyStatus() == 1' ng-controller="SurveyCtrl">
     <h3 class="align-center">健檢分析服務</h3>
-    <p class="align-center">在預約前，提供您簡單的調查，幫您找到最符合您需求的健檢服務。</p>
+    <p class="align-center">在預約前，本中心提供您簡單的調查，幫您找到適合您的健檢服務。</p>
     <hr class="col-sm-12">
     <form>
       <div class="checkbox" ng-repeat="item in surveyItems">
@@ -12,21 +12,33 @@
         </label>
       </div>
       <div class="col-sm-offset-4 col-sm-2">
-        <button class="btn btn-style" ng-click='result()'>送出</button>
+        <button class="btn btn-style" ng-click='result();isSurveySwitch(2)'>送出</button>
       </div>
       <div class="col-sm-2">
-          <button class="btn btn-default" ng-click='isSurveySwitch()'>離開</button>
+          <button class="btn btn-default" ng-click='isSurveySwitch(3)'>略過分析</button>
       </div>
-      <div id="form-result-msg" class="col-sm-12 align-center"><br>
-        建議您進行 「 {{  }} 」。請按離開，進行預約服務。
+      
+    </form>
+</div>
+
+<!-- 分析結果 -->
+
+<div class="container col-sm-offset-3 col-sm-6" ng-show='isSurveyStatus() == 2' ng-controller="ResultCtrl">
+    <h3 class="align-center">健檢分析結果</h3>
+    <hr class="col-sm-12">
+    <form>
+      <div class="col-sm-12 align-center"><br>
+        建議您的健檢項目為 「 {{ resultMsg() }} 」，請繼續前往預約服務。
+      </div>
+      <div class="col-sm-offset-4 col-sm-2">
+          <button class="btn btn-style" ng-click='isSurveySwitch(3)'>前往預約<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
       </div>
     </form>
 </div>
 
-
 <!--   線上表單   -->
 
-<div class="container col-sm-offset-3 col-sm-6" ng-show='!isSurveyStatus()' ng-controller="ClientCtrl" >
+<div class="container col-sm-offset-3 col-sm-6" ng-show='isSurveyStatus() == 3' ng-controller="ClientCtrl" >
     <h3 class="align-center">線上預約服務</h3>
     <p class="align-center">線上預約請於檢查日一個月前預約。</p>
     <hr class="col-sm-12">

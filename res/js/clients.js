@@ -1,25 +1,39 @@
 angular.module('client', [])
 
-.factory('isSurvey', function($location, $anchorScroll){
+.factory('isSurvey', function(){
   var data = {
-    status: true
+    status: 1
   };
   return {
     getStatus: function(){
       return data.status;
     },
-    leave: function(){
-      data.status = false;
+    switch: function(type){
+      data.status = type;
     }
   };
 })
 
-.controller('SurveyCtrl', ['$scope', 'isSurvey', function($scope, isSurvey){
+.factory('examResult', function() {
+  var data = {
+    result: ''
+  };
+  return {
+    setResult: function(_result){
+      data.result = _result;
+    },
+    getResult: function(){
+      return data.result;
+    }
+  }
+})
+
+.controller('SurveyCtrl', ['$scope', 'isSurvey', 'examResult', function($scope, isSurvey, examResult){
   $scope.isSurveyStatus = function() {
     return isSurvey.getStatus();
   }
-  $scope.isSurveySwitch = function(){
-    isSurvey.leave();
+  $scope.isSurveySwitch = function(type){
+    isSurvey.switch(type);
   }
   $scope.surveyItems = [
     { name: '您是否抽菸', type: 1, selected: false},
@@ -82,29 +96,38 @@ angular.module('client', [])
         types[items[i].type] += 1;
       }
     }
-    max = 0;
+    max = 1;
     for (var i=1; i< 5; i++){
-      console.log(types);
       if(types[i] > types[max]){
-        console.log(i);
         max = i;
       }
     }
-
+    
     if(max == 1){
-      $scope.resultMsg = "心血管健檢";
+      examResult.setResult("心血管健檢");
     }else if(max == 2){
-      $scope.resultMsg = "無痛腸胃鏡";
+      examResult.setResult("無痛腸胃鏡");
     }else if(max == 3){
-      $scope.resultMsg = "精緻套組";
+      examResult.setResult("精緻套組");
     }else if(max == 4){
-      $scope.resultMsg = "腦部MRI";
+      examResult.setResult("腦部MRI");
     }
-    $('#form-result-msg').show();
   };
 
-  $scope.resultMsg;
+}])
 
+.controller('ResultCtrl', ['$scope', 'isSurvey', 'examResult', function($scope, isSurvey, examResult){
+  $scope.isSurveyStatus = function() {
+    return isSurvey.getStatus();
+  }
+  $scope.isSurveySwitch = function(type){
+    isSurvey.switch(type);
+  }
+  $scope.resultMsg = function(){
+    return examResult.getResult();
+  }
+
+  
 }])
 
 .controller('ClientCtrl', ['$scope', '$rootScope', 'isSurvey', function($scope, $rootScope, isSurvey) {
@@ -112,7 +135,7 @@ angular.module('client', [])
     return isSurvey.getStatus();
   }
   $scope.isSurveySwitch = function(){
-    isSurvey.leave();
+    isSurvey.switch();
   }
   $rootScope.form = {};
   $rootScope.form['name'];
