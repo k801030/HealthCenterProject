@@ -76,7 +76,7 @@
 
     <div class="col-sm-12 wrap">
         <div ng-repeat="content in contents">
-            <div>
+            <div ng-if="content.content !== ''">
                 <p ng-repeat="line in content.content">{{line}}</p>
             </div>
             <div style="margin: 1em 0em;">
