@@ -530,7 +530,7 @@ angular.module("pages", [])
         scopeService.safeApply($scope, function(){
                 //console.log(tabletop.sheets('home_slider'));
                 //console.log(home_slider_data.elements);
-                $scope.types = data.slice(1);
+                $scope.types = data.elements.slice(1);
             }
         );
     });
