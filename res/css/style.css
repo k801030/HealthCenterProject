@@ -4,6 +4,12 @@ body, html {
   font-weight: 0;
   font-size: 15px;
   font-family: sans-serif, '微軟正黑體';
+  background-color: #dbf5fc;
+}
+
+hr {
+  color: #2c8aa4;
+  background-color: #2c8aa4;
 }
 
 p{
@@ -19,6 +25,10 @@ blockquote{
 a.sheet_link {
   text-decoration: underline;
   color: #108e97;
+}
+
+#main-nav {
+  background-color: #dbf5fc;
 }
 
 .hightlight {
@@ -67,7 +77,7 @@ form label {
 
 .dropdown-menu > li > a {
   color: #5e5e5e;
-  background-color: #fff;
+  background-color: #dbf5fc;
 }
 
 span.title-1 {
@@ -102,12 +112,12 @@ h1, h2, h3, h4 {
 .btn-style {
   border: 1px solid #eee;
   background-color: #14afb9;
-  color: #fff;
+  color: #dbf5fc;
 }
 .btn-style:hover {
   border: 1px solid #eee;
   background-color: #12a2ab;
-  color: #fff;
+  color: #dbf5fc;
 }
 
 /*  border line  */
@@ -119,7 +129,7 @@ h1, h2, h3, h4 {
 #sidebar li {
   padding: 0px;
   margin: 0 0 0 -2px;
-  border: 1px solid #fff;
+  border: 1px solid #dbf5fc;
   border-radius: 4px;
 }
 
@@ -160,7 +170,7 @@ abbr:hover:before {
    content: attr(title);
    position:absolute;
     background:#000;
-    color:#fff;
+    color:#dbf5fc;
     padding:5px 10px;
     margin:0 0 0 0;
 }
