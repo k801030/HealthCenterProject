@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html class="ng-app:app" id="ng-app" ng-app="app" xmlns:ng="http://angularjs.org" >
 <head>
   <meta charset='utf-8'>
+
   <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
   <script src="res/js/angular.min.js"></script>
   <script src="res/js/q.js"></script>
@@ -22,8 +23,23 @@
   <title>馬偕紀念醫院 淡水院區‧健康檢查中心 Health Evaluation Center</title>
   <meta name="google-translate-customization" content="56f8516470ae047f-80d9ecb73d481056-gc874df8ab6a755c4-9"></meta>
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+  <!--[if lte IE 8]>
+     <script>
+        document.createElement('ng-include');
+        document.createElement('ng-repeat');
+        document.createElement('ng-view');
+        document.createElement('ng-controller');
+        document.createElement('ng-show');
+        document.createElement('ng-pluralize');
+        document.createElement('ng-src');
+        // Optionally these for CSS
+       document.createElement('ng:include');
+       document.createElement('ng:pluralize');
+       document.createElement('ng:view');
+      </script>
+   <![endif]-->
 </head>
-<body ng-app="app">
+<body>
   <nav ng-controller="NavCtrl" ng-include="navUrl"></nav>  
   <div class="container" ng-controller="ContentCtrl">
     <div id="content" ng-include="thisContentPath()"></div>    
