@@ -6,8 +6,7 @@
     <div id="home-slider">
         <carousel interval="myInterval" >
             <slide ng-repeat="slide in slides" active="slide.active" >{{slider}}
-                <img class="image-circle" src="haohan_haiyang_tiankong-004.jpg" style="margin:auto;" />
-                </div>
+                <img class="image-circle" ng-src="{{slide.image}}" style="margin:auto;" />
                 <div class="carousel-caption">
                     <p>{{slide.text}}</p>
                 </div>
