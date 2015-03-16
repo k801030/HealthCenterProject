@@ -32,7 +32,7 @@ angular.module("basic", ['ui.bootstrap'])
 // for data sharing
 .factory('structure', ['$http', function structureFactory($http) {
   var _data = {content: null};
-  $http.get('res/json/structure.json').then(function(res){
+  $http.get('res/json/structure.txt').then(function(res){
     _data.content = res.data;
   });
   return _data ;

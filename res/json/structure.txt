@@ -1,0 +1,146 @@
+[
+  {
+    "main_item": {
+      "name": "最新消息",
+      "path": ""
+    }
+  },
+  {
+    "main_item": {
+      "name": "中心簡介",
+      "path": "about_us"
+    },
+    "sub_item": [
+      {
+        "name": "中心歷史",
+        "path": "history.html"
+      },
+      {
+        "name": "中心特色",
+        "path": "feature.html"
+      },
+      {
+        "name": "中心環境",
+        "path": "environment.html"
+      },
+      {
+        "name": "中心位置",
+        "path": "location.html"
+      }
+    ]
+  },
+  {
+    "main_item": {
+      "name": "服務項目",
+      "path": "exam_services"
+    },
+    "sub_item": [
+      {
+        "name": "一日全身健檢",
+        "path": "oneday.html"
+      },
+      {
+        "name": "一般工作健檢",
+        "path": "work.html"
+      },
+      {
+        "name": "公務人員健檢",
+        "path": "government_employee.html"
+      },
+      {
+        "name": "外籍人士健檢",
+        "path": "foreigner.html"
+      },
+      {
+        "name": "成人健康檢查",
+        "path": "adult.html"
+      },
+      {
+        "name": "特別活動",
+        "path": "event.html"
+      }
+    ]
+  },
+  {
+    "main_item": {
+      "name": "服務陣容",
+      "path": "our_dr"
+    },
+    "sub_item": [
+      {
+        "name": "專科主治醫師",
+        "path": "dr.html"
+      },
+      {
+        "name": "醫學儀器",
+        "path": "equipment.html"
+      },
+      {
+        "name": "醫學團隊",
+        "path": "team.html"
+      }
+    ]
+  },
+  {
+    "main_item": {
+      "name": "健檢須知",
+      "path": "about_exam"
+    },
+    "sub_item": [
+      {
+        "name": "健檢須知",
+        "path": "reminder.html"
+      },
+      {
+        "name": "匯款須知",
+        "path": "payment.html"
+      }
+    ]
+  },
+  {
+    "main_item": {
+      "name": "健康資訊",
+      "path": "health_knowledge"
+    },
+    "sub_item": [
+      {
+        "name": "問題Q&A",
+        "path": "FQA.html"
+      },
+      {
+        "name": "疾病資訊",
+        "path": "health_info.html"
+      },
+      {
+        "name": "營養諮詢",
+        "path": "nutrition_consultation.html"
+      },
+      {
+        "name": "護理指導",
+        "path": "nursing_consultation.html"
+      },
+      {
+        "name": "醫學新知",
+        "path": "medical_info.html"
+      }
+    ]
+  },
+  {
+    "main_item": {
+      "name": "線上預約",
+      "path": "clients"
+    }
+  },
+  {
+    "main_item": {
+      "name": "聯絡我們",
+      "path": "contact_us"
+    }
+  },
+  {
+    "main_item": {
+      "name": "交通資訊",
+      "path": "transportation"
+    }
+  }
+]
