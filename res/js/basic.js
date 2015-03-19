@@ -80,6 +80,7 @@ angular.module("basic", ['ui.bootstrap'])
     var segment = urlArray[urlArray.length-1]; 
     if(structure.content == null)  // block when data is not loaded.
       return;
+    
     var length = structure.content.length;
     for(var i=0; i<length; i++){
       if(segment == structure.content[i].main_item.path){
