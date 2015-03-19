@@ -46,13 +46,12 @@ angular.module("basic", ['ui.bootstrap'])
   $scope.getTab = function() {
     return tab.get();
   }
-
   $scope.isActive = function () {
     // get the last part of url 
     // and return true/false 
     var urlArray = $location.absUrl().split("/");
-    //var segment = urlArray[urlArray.length]; 
-    var segment = $location.hash();
+    var segment = urlArray[urlArray.length-1]; 
+    //var segment = $location.hash();
     return this.item.main_item.path == segment;
   };
   $scope.location = $location.path();
@@ -72,12 +71,13 @@ angular.module("basic", ['ui.bootstrap'])
     return tab.get();
   }
   $scope.thisHash = function(){
-    return $location.hash();
+    var urlArray = $location.absUrl().split("/");
+    var segment = urlArray[urlArray.length-1]; 
+    return segment;
   }
   $scope.thisContent = function() {
     var urlArray = $location.absUrl().split("/");
-    //var segment = urlArray[urlArray.length-2];
-    var segment = $location.hash();
+    var segment = urlArray[urlArray.length-1]; 
     if(structure.content == null)  // block when data is not loaded.
       return;
     var length = structure.content.length;
@@ -115,12 +115,16 @@ angular.module("basic", ['ui.bootstrap'])
 .controller('ContentCtrl', ['$scope', '$location', 'structure', function($scope, $location, structure) {
   $scope.structure = structure;
   $scope.thisHash = function(){
-    return $location.hash();
+    var urlArray = $location.absUrl().split("/");
+    var segment = urlArray[urlArray.length-1]; 
+    return segment;
   }
   $scope.thisContentPath = function() {
     var urlArray = $location.absUrl().split("/");
     //var segment = urlArray[urlArray.length-2];
-    var segment = $location.hash();
+    var urlArray = $location.absUrl().split("/");
+    var segment = urlArray[urlArray.length-1]; 
+    console.log("debug: "+ segment);
     if(structure.content == null)  // block when data is not loaded.
       return;
     if(segment == ""){
