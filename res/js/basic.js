@@ -2,7 +2,7 @@ angular.module("basic", ['ui.bootstrap'])
 
 // make hash # available
 .config(function($locationProvider) {
-  $locationProvider.html5Mode(true); 
+  $locationProvider.html5Mode(false); 
 })
 
 // executed just after configuration. 
