@@ -80,7 +80,7 @@ angular.module("basic", ['ui.bootstrap'])
     var segment = urlArray[urlArray.length-1]; 
     if(structure.content == null)  // block when data is not loaded.
       return;
-    
+
     var length = structure.content.length;
     for(var i=0; i<length; i++){
       if(segment == structure.content[i].main_item.path){
@@ -121,13 +121,15 @@ angular.module("basic", ['ui.bootstrap'])
     return segment;
   }
   $scope.thisContentPath = function() {
+
     var urlArray = $location.absUrl().split("/");
     //var segment = urlArray[urlArray.length-2];
     var urlArray = $location.absUrl().split("/");
     var segment = urlArray[urlArray.length-1]; 
-    console.log("debug: "+ segment);
+    
     if(structure.content == null)  // block when data is not loaded.
       return;
+    
     if(segment == ""){
       return 'template/home.html';
     }else if (segment == "clients" || segment == "contact_us" || segment== "transportation"){
