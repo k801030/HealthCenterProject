@@ -400,7 +400,7 @@ angular.module("pages", [])
         );
     });
 
-    $scope.showContent = showContent;
+//    $scope.showContent = showContent;
 }])
 
 .controller('reminder', ['$scope', 'getSpreadSheetData', 'scopeService', function($scope, getSpreadSheetData, scopeService){
