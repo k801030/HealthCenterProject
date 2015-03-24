@@ -1,3 +1,26 @@
-匯款須知
+<div ng-controller="payment" class="container-fluid">
+    <div class="row">
+        <h3 class="pull-left">
+            <b>{{header.title}}</b>
+        </h3>
+        <div class="col-sm-12">
+            <h4 class="pull-left">
+                <p style="font-style: italic" ng-repeat="line in header.content">{{line}}</p>
+            </h4>
+        </div>
+    </div>
+    <div class="row" ng-repeat="content in contents">
+        <h3>{{content.title}}</h3>
+        <div class="row">
+            <hr class="col-sm-3">
+        </div>
+        <div class="col-sm-offset-1">
+            <div class="col-sm-11">
+                <p ng-repeat="line in content.content">{{line}}</p>
+            </div>
+        </div>
+        <!--<div class="col-sm-offset-1 col-sm-5">-->
+        <!--</div>-->
 
-諮詢電話：（02）2809-4661 轉分機 2440 或 3440
+    </div>
+</div>

@@ -16,7 +16,7 @@ angular.module("pages", [])
                 sheet = tabletop.sheets(sheet_index);
 
                 if(sheet_index == 'introduction_history' || sheet_index == 'introduction_feature' || sheet_index == 'introduction_environment' ||
-                   sheet_index == 'cast_equipment' || sheet_index == 'cast_team'){
+                   sheet_index == 'cast_equipment' || sheet_index == 'cast_team' || sheet_index == 'health_know_remit'){
                     for(var element_index in sheet.elements.slice(1)){
                         element_index = parseInt(element_index) + 1;
                         if(sheet.elements[element_index].content !== "")
@@ -416,6 +416,21 @@ angular.module("pages", [])
     });
 
     $scope.showContent = showContent;
+}])
+
+
+.controller('payment', ['$scope', 'getSpreadSheetData', 'scopeService', function($scope, getSpreadSheetData, scopeService){
+    getSpreadSheetData.then(function(tabletop){
+        var data = tabletop.sheets('health_know_remit');
+        scopeService.safeApply($scope, function(){
+                //console.log(tabletop.sheets('introduction_history'));
+                //console.log(history_data.elements);
+                $scope.header = data.elements[1];
+                $scope.contents = data.elements.slice(2);
+                console.log(data);
+            }
+        );
+    });
 }])
 
 .controller('health_info', ['$scope', 'getSpreadSheetData', 'scopeService', function($scope, getSpreadSheetData, scopeService){
