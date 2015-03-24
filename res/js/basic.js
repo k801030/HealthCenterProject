@@ -130,7 +130,7 @@ angular.module("basic", ['ui.bootstrap'])
     if(structure.content == null)  // block when data is not loaded.
       return;
 
-    if(segment == ""){
+    if(segment == "" || segment == "home"){
       return 'template/home.html';
     }else if (segment == "clients" || segment == "contact_us" || segment== "transportation"){
       return 'template/blank_page.html';

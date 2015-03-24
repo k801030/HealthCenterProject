@@ -2,7 +2,7 @@
   {
     "main_item": {
       "name": "最新消息",
-      "path": ""
+      "path": "home"
     }
   },
   {
