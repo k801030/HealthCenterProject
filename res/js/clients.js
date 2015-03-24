@@ -1,39 +1,15 @@
 angular.module('client', [])
 
-.factory('isSurvey', function(){
-  var data = {
-    status: 1
-  };
-  return {
-    getStatus: function(){
-      return data.status;
-    },
-    switch: function(type){
-      data.status = type;
-    }
-  };
+.run(function($rootScope) {
+    $rootScope.isSurvey = 1;
 })
 
-.factory('examResult', function() {
-  var data = {
-    result: ''
+.controller('SurveyCtrl', ['$scope', '$rootScope', function($scope, $rootScope){
+  $scope.isSurvey = function(){
+    return $rootScope.isSurvey;
   };
-  return {
-    setResult: function(_result){
-      data.result = _result;
-    },
-    getResult: function(){
-      return data.result;
-    }
-  }
-})
-
-.controller('SurveyCtrl', ['$scope', 'isSurvey', 'examResult', function($scope, isSurvey, examResult){
-  $scope.isSurveyStatus = function() {
-    return isSurvey.getStatus();
-  }
-  $scope.isSurveySwitch = function(type){
-    isSurvey.switch(type);
+  $scope.isSurveySwitch = function(num){
+    $rootScope.isSurvey = num;
   }
   $scope.surveyItems = [
     { name: '您是否抽菸', type: 1, selected: false},
@@ -104,39 +80,32 @@ angular.module('client', [])
     }
     
     if(max == 1){
-      examResult.setResult("心血管健檢");
+      $rootScope.examResult = "心血管健檢";
     }else if(max == 2){
-      examResult.setResult("無痛腸胃鏡");
+      $rootScope.examResult = "無痛腸胃鏡";
     }else if(max == 3){
-      examResult.setResult("精緻套組");
+      $rootScope.examResult = "精緻套組";
     }else if(max == 4){
-      examResult.setResult("腦部MRI");
+      $rootScope.examResult ="腦部MRI";
     }
   };
 
 }])
 
-.controller('ResultCtrl', ['$scope', 'isSurvey', 'examResult', function($scope, isSurvey, examResult){
-  $scope.isSurveyStatus = function() {
-    return isSurvey.getStatus();
-  }
-  $scope.isSurveySwitch = function(type){
-    isSurvey.switch(type);
-  }
+.controller('ResultCtrl', ['$scope', '$rootScope', function($scope, $rootScope){
+  $scope.isSurvey = function(){
+    return $rootScope.isSurvey;
+  };
   $scope.resultMsg = function(){
-    return examResult.getResult();
+    return $rootScope.examResult;
   }
-
   
 }])
 
-.controller('ClientCtrl', ['$scope', '$rootScope', 'isSurvey', function($scope, $rootScope, isSurvey) {
-  $scope.isSurveyStatus = function() {
-    return isSurvey.getStatus();
-  }
-  $scope.isSurveySwitch = function(){
-    isSurvey.switch();
-  }
+.controller('ClientCtrl', ['$scope', '$rootScope', function($scope, $rootScope){
+  $scope.isSurvey = function(){
+    return $rootScope.isSurvey;
+  };
   $rootScope.form = {};
   $rootScope.form['name'];
   $rootScope.form['exam_type'];
