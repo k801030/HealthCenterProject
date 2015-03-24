@@ -96,6 +96,10 @@ angular.module('client', [])
   $scope.isSurvey = function(){
     return $rootScope.isSurvey;
   };
+  $scope.isSurveySwitch = function(num){
+    $rootScope.isSurvey = num;
+  }
+
   $scope.resultMsg = function(){
     return $rootScope.examResult;
   }
@@ -212,7 +216,7 @@ angular.module('client', [])
     if(checkValidate()==false){
       $('#form-error-msg').show();
       $timeout(function() {
-        $('#form-error-msg').hide();
+       // $('#form-error-msg').hide();
       }, 2500);
       return;
     }
