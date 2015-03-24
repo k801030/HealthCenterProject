@@ -1,8 +1,8 @@
 
 <!--   問卷   -->
 
-<div class="container col-sm-offset-3 col-sm-6" ng-show='isSurveyStatus() == 1' ng-controller="SurveyCtrl">
-    <h3 class="align-center">健檢分析服務</h3>
+<div class="container col-sm-offset-3 col-sm-6" ng-show='isSurvey() == 1' ng-controller="SurveyCtrl">
+    <h3 class="align-center">健檢分析服務</h3> 
     <p class="align-center">在預約前，本中心提供您簡單的調查，幫您找到適合您的健檢服務。</p>
     <hr class="col-sm-12">
     <form>
@@ -23,7 +23,7 @@
 
 <!-- 分析結果 -->
 
-<div class="container col-sm-offset-3 col-sm-6" ng-show='isSurveyStatus() == 2' ng-controller="ResultCtrl">
+<div class="container col-sm-offset-3 col-sm-6" ng-show='isSurvey() == 2' ng-controller="ResultCtrl">
     <h3 class="align-center">健檢分析結果</h3>
     <hr class="col-sm-12">
     <form>
@@ -38,7 +38,7 @@
 
 <!--   線上表單   -->
 
-<div class="container col-sm-offset-3 col-sm-6" ng-show='isSurveyStatus() == 3' ng-controller="ClientCtrl" >
+<div class="container col-sm-offset-3 col-sm-6" ng-show='isSurvey() == 3' ng-controller="ClientCtrl" >
     <h3 class="align-center">線上預約服務</h3>
     <p class="align-center">線上預約請於檢查日一個月前預約。</p>
     <hr class="col-sm-12">
@@ -93,6 +93,7 @@
             <option value="" selected>年</option>
             <option value="2015">2015</option>
             <option value="2016">2016</option>
+            <option value="2017">2017</option>
           </select></div>
           <div class="col-sm-4"><select class="form-control" ng-model="form.exam_date.month" ng-options="month for month in months" required>
             <option value="" selected>月</option>
@@ -157,7 +158,7 @@
 
       <div class="form-group col-sm-12" ng-controller="SubmitCtrl">
         <div class="col-sm-offset-4 col-sm-2">
-          <button type="submit" class="btn btn-style" ng-click="send_email()">開始寄信</button>
+          <button type="button" class="btn btn-style" ng-click="send_email()">開始寄信</button>
         </div>
         <div class="col-sm-2">
           <button type="reset" class="btn btn-default">重新填寫</button>
@@ -172,8 +173,7 @@
   (function(){
     var form = document.getElementById('client_form');
     form.noValidate = true;
-    form.addEventListener('submit', function(event) {
-    }, false);
+    
   })();
   
 </script>
