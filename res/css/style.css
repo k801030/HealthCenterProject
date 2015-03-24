@@ -185,3 +185,9 @@ abbr:hover:before {
 #form-result-msg {
   display: none;
 }
+
+@media only screen and (max-width: 768px) {
+    body {
+        font-size: 12px;
+    }
+}
