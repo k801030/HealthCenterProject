@@ -56,7 +56,7 @@
         "path": "adult.html"
       },
       {
-        "name": "特別活動",
+        "name": "健檢專案",
         "path": "event.html"
       }
     ]
